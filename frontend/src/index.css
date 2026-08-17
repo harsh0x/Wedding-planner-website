@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::selection {
+  background-color: #B07D87;
+  color: #ffffff;
+}
+
+/* Custom Luxury Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF6F3;
+}
+::-webkit-scrollbar-thumb {
+  background: #B07D87;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9E6772;
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-nav-dark {
+  background: rgba(46, 40, 42, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Performance & Rendering Optimizations */
+html {
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  content-visibility: auto;
+}
+
+/* GPU Hardware Acceleration for Sliders & Overlays */
+.hero-mask, .hero-overlay {
+  pointer-events: none;
+  will-change: opacity;
+  transform: translateZ(0);
+}
+
+.slide-bg, [id*="SlideBg"], [id*="heroBg"] {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.frame-rose {
+  border: 4px solid #B07D87;
+}
+
+.frame-white {
+  border: 4px solid #FFFFFF;
+}

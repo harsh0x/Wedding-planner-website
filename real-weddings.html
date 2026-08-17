@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Weddings | SHOWMANIA Events & Entertainment</title>
+  <meta name="description" content="Explore real luxury weddings by SHOWMANIA Events. Read couple stories, wedding decor concepts, function highlights, and discover our esteemed wedding makers." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              50: '#FDF8F9',
+              100: '#FBEFF2',
+              200: '#F5D5DC',
+              300: '#E8B2BC',
+              400: '#D68C9B',
+              500: '#B07D87',
+              600: '#9E6772',
+              700: '#7E4C56',
+              800: '#60353E',
+              900: '#432128',
+            },
+            charcoal: '#2E282A',
+            cream: '#FAF6F3',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            script: ['"Great Vibes"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      content-visibility: auto;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform: translateZ(0);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(46, 40, 42, 0.45) 0%, rgba(176, 125, 135, 0.70) 55%, rgba(176, 125, 135, 0.92) 100%);
+      pointer-events: none;
+      will-change: opacity;
+      transform: translateZ(0);
+    }
+
+    [id*="SlideBg"], [id*="heroBg"], .slide-bg {
+      will-change: transform, opacity;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+    .botanical-crest {
+      background: radial-gradient(circle, #FFF5F7 0%, #FAEDF0 100%);
+    }
+    .quote-box {
+      background: #FFF9FA;
+      border: 1px solid #E8B2BC;
+    }
+    .hidden-filter {
+      display: none !important;
+    }
+    /* Modal scrollbar styling */
+    .story-modal-scroll::-webkit-scrollbar {
+      width: 6px;
+    }
+    .story-modal-scroll::-webkit-scrollbar-thumb {
+      background-color: #D68C9B;
+      border-radius: 9999px;
+    }
+    .story-modal-scroll::-webkit-scrollbar-track {
+      background-color: #FAF6F3;
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-[#2E282A] bg-[#FAF6F3] flex flex-col min-h-screen">
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <div class="w-full bg-[#B07D87] text-white py-2 px-3 sm:px-4 text-center z-50 relative">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-[11px] sm:text-xs md:text-sm font-sans tracking-wide uppercase">
+      <i class="fa-solid fa-camera-retro text-[10px] sm:text-xs text-rose-200"></i>
+      <span class="font-semibold tracking-wider">Real Love Stories & Bespoke Wedding Productions</span>
+      <i class="fa-solid fa-heart text-[10px] sm:text-xs text-rose-200"></i>
+    </div>
+  </div>
+
+  <!-- 2. STICKY NAVBAR -->
+  <header class="sticky top-0 left-0 w-full z-50 glass-nav shadow-md py-3 transition-all duration-300 text-[#2E282A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 group py-1 flex-shrink-0">
+        <img 
+          src="assets/logo.png" 
+          alt="SHOWMANIA Events & Entertainment" 
+          class="h-9 sm:h-11 md:h-12 w-auto object-contain transition transform group-hover:scale-105"
+        />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden xl:flex items-center space-x-6 2xl:space-x-7 text-[11px] tracking-[0.18em] uppercase font-medium">
+        
+        <!-- Home -->
+        <a href="index.html" class="hover:text-rose-600 transition-colors py-1">Home</a>
+        
+        <!-- About Us Dropdown -->
+        <div class="relative group py-2">
+          <a href="about-us.html" class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>About Us</span>
+            <i class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </a>
+          <div class="absolute top-full left-0 pt-2 w-56 hidden group-hover:block z-50 animate-fade-in">
+            <div class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="about-us.html" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-gem text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">About Showmania</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Legacy, vision & founder</span>
+                  </div>
+                </a>
+                <a href="testimonials.html" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-heart-pulse text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Testimonials</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Client love stories</span>
+                  </div>
+                </a>
+                <a href="contact.html" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-regular fa-envelope text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Contact Us</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Inquiries & studio</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Services</span>
+            <i class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block z-50 animate-fade-in">
+            <div class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="index.html#services" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-ring text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Wedding Services</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Bespoke nuptial planning</span>
+                  </div>
+                </a>
+                <a href="corporate-events.html" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-building text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Corporate Events</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Galas & summits</span>
+                  </div>
+                </a>
+                <a href="social-events.html" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-champagne-glasses text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Social Events</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Birthdays & luxury soirées</span>
+                  </div>
+                </a>
+                <a href="celebrity-artist-management.html" class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-star text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Celebrity & Artist</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Talent & stage curation</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Weddings Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Destination Weddings</span>
+            <i class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block z-50 animate-fade-in">
+            <div class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="destination-wedding-india.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-archway text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Destination Wedding in India</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Udaipur, Jaipur, Goa, Kerala</span>
+                  </div>
+                </a>
+                <a href="destination-wedding-abroad.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-plane-departure text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Destination Wedding in Abroad</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Bali, Dubai, Italy, Thailand</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Venue</span>
+            <i class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block z-50 animate-fade-in">
+            <div class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="wedding-venues.html" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-hotel text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Wedding Venues</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Palaces, Forts & Resorts</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Weddings (Active) -->
+        <a href="real-weddings.html" class="text-rose-600 font-semibold transition-colors py-1 border-b-2 border-rose-500">Real Weddings</a>
+
+        <!-- Gallery -->
+        <a href="gallery.html" class="hover:text-rose-600 transition-colors py-1">Gallery</a>
+
+      </nav>
+
+      <!-- Far Right CTA Button -->
+      <div class="hidden lg:flex items-center">
+        <a 
+          href="contact.html" 
+          class="px-6 py-2.5 rounded-md bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase transition transform hover:scale-[1.03] shadow-md hover:shadow-lg"
+        >
+          CONTACT US
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="xl:hidden flex items-center gap-3">
+        <a href="contact.html" class="px-3.5 py-1.5 rounded-md bg-[#E84874] text-white text-[10px] font-semibold tracking-wider uppercase shadow-sm">
+          Contact
+        </a>
+        <button onclick="toggleMobileNav()" class="p-2 rounded-lg text-charcoal hover:bg-rose-100/60 transition cursor-pointer" aria-label="Toggle Menu">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer" class="hidden xl:hidden bg-[#FAF6F3] text-charcoal border-b border-rose-200 px-6 py-5 shadow-2xl">
+      <div class="flex flex-col space-y-2 text-xs font-medium tracking-wider uppercase">
+        
+        <a href="index.html" class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-[#B07D87]">
+          <span>Home</span>
+          <i class="fa-solid fa-house text-xs opacity-50"></i>
+        </a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileAboutContent', 'mobileAboutIcon')" class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>About Us</span>
+            <i id="mobileAboutIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileAboutContent" class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="testimonials.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-heart-pulse text-xs text-rose-400 mr-2"></i>Testimonials
+            </a>
+            <a href="contact.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-regular fa-envelope text-xs text-rose-400 mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Services Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileServicesContent', 'mobileServicesIcon')" class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Services</span>
+            <i id="mobileServicesIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileServicesContent" class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="index.html#services" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-ring text-xs text-rose-400 mr-2"></i>Wedding Services
+            </a>
+            <a href="corporate-events.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-building text-xs text-rose-400 mr-2"></i>Corporate Events
+            </a>
+            <a href="social-events.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-champagne-glasses text-xs text-rose-400 mr-2"></i>Social Events
+            </a>
+            <a href="celebrity-artist-management.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-star text-xs text-rose-400 mr-2"></i>Celebrity & Artist
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Destination Weddings Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileDestContent', 'mobileDestIcon')" class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Destination Weddings</span>
+            <i id="mobileDestIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileDestContent" class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="destination-wedding-india.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-archway text-xs text-rose-400 mr-2"></i>Destination Wedding in India
+            </a>
+            <a href="destination-wedding-abroad.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-plane-departure text-xs text-rose-400 mr-2"></i>Destination Wedding in Abroad
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Venue Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileVenueContent', 'mobileVenueIcon')" class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Venue</span>
+            <i id="mobileVenueIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileVenueContent" class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="wedding-venues.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-hotel text-xs text-rose-400 mr-2"></i>Wedding Venues
+            </a>
+          </div>
+        </div>
+
+        <a href="real-weddings.html" class="py-2 border-b border-rose-100 flex items-center justify-between text-rose-600 font-semibold">
+          <span>Real Weddings</span>
+          <i class="fa-regular fa-image text-xs opacity-50"></i>
+        </a>
+
+        <a href="gallery.html" class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-rose-600">
+          <span>Gallery</span>
+          <i class="fa-solid fa-camera-retro text-xs opacity-50"></i>
+        </a>
+
+        <div class="pt-3">
+          <a href="contact.html" class="w-full py-3 rounded-md bg-[#E84874] text-white text-center font-semibold tracking-widest uppercase block shadow-md">
+            CONTACT US
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO BANNER WITH AUTOMATIC SLIDER & SIGNATURE PINKISH FADED OVERLAY -->
+  <section class="relative text-white min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center py-20 sm:py-28 md:py-36 px-4 sm:px-6 md:px-12 text-center overflow-hidden">
+    
+    <!-- Background Slides with Ken Burns & Smooth Crossfade -->
+    <div id="realHeroBgContainer" class="absolute inset-0 z-0">
+      <!-- Injected via JS -->
+    </div>
+    
+    <!-- Signature Pinkish Faded Gradient Overlay -->
+    <div class="absolute inset-0 hero-overlay z-10"></div>
+    
+    <div class="max-w-4xl mx-auto relative z-20 flex-1 flex flex-col items-center justify-center select-none">
+      <span id="realHeroSub" class="font-script text-3xl sm:text-5xl text-rose-200 block mb-2 sm:mb-3 transition-opacity duration-500">
+        Unforgettable Nuptials & Grand Love Stories
+      </span>
+      <h1 id="realHeroTitle" class="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide leading-tight mb-4 sm:mb-6 transition-opacity duration-500 drop-shadow-md">
+        Real Weddings by SHOWMANIA
+      </h1>
+      <p id="realHeroDesc" class="font-sans text-xs sm:text-sm md:text-base text-rose-100 max-w-2xl mx-auto font-light leading-relaxed px-2 transition-opacity duration-500 drop-shadow-sm">
+        Every couple's journey is a bespoke masterpiece. Explore our real weddings, couple thoughts, decor inspirations, and the esteemed wedding makers behind each majestic celebration.
+      </p>
+    </div>
+  </section>
+
+  <!-- 4. STATS BAR -->
+  <div class="w-full bg-[#B07D87] text-white py-6 px-4 sm:px-6 border-b border-rose-400/30">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div>
+        <span class="block font-serif text-3xl sm:text-4xl font-bold">150+</span>
+        <span class="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Royal Nuptials</span>
+      </div>
+      <div>
+        <span class="block font-serif text-3xl sm:text-4xl font-bold">18+</span>
+        <span class="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Iconic Destinations</span>
+      </div>
+      <div>
+        <span class="block font-serif text-3xl sm:text-4xl font-bold">500+</span>
+        <span class="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Artisans & Makers</span>
+      </div>
+      <div>
+        <span class="block font-serif text-3xl sm:text-4xl font-bold">100%</span>
+        <span class="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Bespoke Curation</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. FILTER CATEGORIES -->
+  <section class="py-10 px-4 sm:px-6 max-w-7xl mx-auto w-full text-center">
+    <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+      <button onclick="filterStories('all', this)" class="real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-[#E84874] text-white shadow-md cursor-pointer">
+        All Weddings
+      </button>
+      <button onclick="filterStories('kumbhalgarh', this)" class="real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70 cursor-pointer">
+        Kumbhalgarh
+      </button>
+      <button onclick="filterStories('udaipur', this)" class="real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70 cursor-pointer">
+        Udaipur
+      </button>
+      <button onclick="filterStories('jaipur', this)" class="real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70 cursor-pointer">
+        Jaipur
+      </button>
+      <button onclick="filterStories('goa', this)" class="real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70 cursor-pointer">
+        Goa
+      </button>
+      <button onclick="filterStories('jodhpur', this)" class="real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70 cursor-pointer">
+        Jodhpur
+      </button>
+    </div>
+  </section>
+
+  <!-- 6. REAL WEDDINGS SHOWCASE LIST (MATCHING EXACT IMAGE 1 & 2 DESIGN) -->
+  <section class="pb-20 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full space-y-16 sm:space-y-20">
+
+    <!-- WEDDING 1: RITESH & BHAVIKA (EXACT REFERENCE STORY) -->
+    <div class="wedding-story-card bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl border border-rose-200/80 transition-all hover:shadow-2xl" data-category="kumbhalgarh">
+      
+      <!-- Top Floral Botanical Crest (Reference Image 2) -->
+      <div class="flex justify-center mb-8 sm:mb-10">
+        <div class="relative w-72 sm:w-80 h-36 sm:h-40 rounded-full botanical-crest border border-rose-200 shadow-inner flex flex-col items-center justify-center p-4 text-center">
+          <div class="text-[#B07D87] text-lg mb-0.5">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <span class="font-sans text-xs sm:text-sm text-[#423E40] tracking-wider uppercase font-medium">Rawla Shargun, Kumbhalgarh</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-1">Ritesh & Bhavika</h3>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Row (Reference Image 1) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left: Couple Photograph -->
+        <div class="lg:col-span-6 overflow-hidden rounded-2xl shadow-lg border-2 border-rose-100 group relative aspect-[4/3] sm:aspect-[16/11]">
+          <img 
+            src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85" 
+            alt="Ritesh & Bhavika Wedding in Kumbhalgarh" 
+            class="w-full h-full object-cover object-center transition transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-rose-300"></i>
+            <span>Rawla Shargun, Kumbhalgarh</span>
+          </div>
+        </div>
+
+        <!-- Right: Soft Pink Outlined Quote Box (Reference Image 1) -->
+        <div class="lg:col-span-6 quote-box p-6 sm:p-8 md:p-10 rounded-2xl relative flex flex-col justify-between h-full text-center">
+          
+          <!-- Double Quote Icon -->
+          <div class="text-[#B07D87] text-3xl sm:text-4xl font-serif mb-4 flex justify-center opacity-80">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
+
+          <!-- Thought Description -->
+          <p class="font-sans text-xs sm:text-sm md:text-[13px] text-[#423E40] leading-relaxed font-light mb-6 px-1 sm:px-4">
+            Bhavika and Ritesh wanted their wedding decor to be a perfect blend of royal elegance and personal touches. They aimed for a luxurious, rich, and detailed look that still felt warm and inviting. Each event was to have a unique style fitting its mood – from pastel freshness at Haldi to glamorous and fairy-tale-like settings for the Sangeet, with a grand aesthetic backdrop for the wedding itself.
+          </p>
+
+          <!-- Couple Names & Read More Button -->
+          <div class="pt-4 border-t border-rose-200/60 flex flex-col items-center gap-3">
+            <h4 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold">
+              Ritesh & Bhavika
+            </h4>
+            
+            <button 
+              onclick="openStoryModal('ritesh-bhavika')" 
+              class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#B07D87] hover:text-rose-700 underline underline-offset-8 transition-colors cursor-pointer group"
+            >
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- WEDDING 2: AARAV & ANANYA (UDAIPUR) -->
+    <div class="wedding-story-card bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl border border-rose-200/80 transition-all hover:shadow-2xl" data-category="udaipur">
+      
+      <!-- Top Floral Botanical Crest -->
+      <div class="flex justify-center mb-8 sm:mb-10">
+        <div class="relative w-72 sm:w-80 h-36 sm:h-40 rounded-full botanical-crest border border-rose-200 shadow-inner flex flex-col items-center justify-center p-4 text-center">
+          <div class="text-[#B07D87] text-lg mb-0.5">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <span class="font-sans text-xs sm:text-sm text-[#423E40] tracking-wider uppercase font-medium">The Oberoi Udaivilas, Udaipur</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-1">Aarav & Ananya</h3>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left: Couple Photograph -->
+        <div class="lg:col-span-6 overflow-hidden rounded-2xl shadow-lg border-2 border-rose-100 group relative aspect-[4/3] sm:aspect-[16/11]">
+          <img 
+            src="https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85" 
+            alt="Aarav & Ananya Wedding in Udaipur" 
+            class="w-full h-full object-cover object-center transition transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-rose-300"></i>
+            <span>The Oberoi Udaivilas, Lake Pichola</span>
+          </div>
+        </div>
+
+        <!-- Right: Soft Pink Outlined Quote Box -->
+        <div class="lg:col-span-6 quote-box p-6 sm:p-8 md:p-10 rounded-2xl relative flex flex-col justify-between h-full text-center">
+          
+          <div class="text-[#B07D87] text-3xl sm:text-4xl font-serif mb-4 flex justify-center opacity-80">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
+
+          <p class="font-sans text-xs sm:text-sm md:text-[13px] text-[#423E40] leading-relaxed font-light mb-6 px-1 sm:px-4">
+            Ananya and Aarav envisioned a Lake Pichola royal celebration immersed in candlelight, floating lotus mandaps, and regal Mewari heritage. They wanted every guest arriving by royal boat to feel the magic of Rajasthan. SHOWMANIA designed an ethereal Sangeet with crystal canopies and a Pheras ceremony illuminated by 10,000 diyas reflecting on the lake.
+          </p>
+
+          <div class="pt-4 border-t border-rose-200/60 flex flex-col items-center gap-3">
+            <h4 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold">
+              Aarav & Ananya
+            </h4>
+            
+            <button 
+              onclick="openStoryModal('aarav-ananya')" 
+              class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#B07D87] hover:text-rose-700 underline underline-offset-8 transition-colors cursor-pointer group"
+            >
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- WEDDING 3: KARAN & MEERA (FAIRMONT JAIPUR) -->
+    <div class="wedding-story-card bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl border border-rose-200/80 transition-all hover:shadow-2xl" data-category="jaipur">
+      
+      <!-- Top Floral Botanical Crest -->
+      <div class="flex justify-center mb-8 sm:mb-10">
+        <div class="relative w-72 sm:w-80 h-36 sm:h-40 rounded-full botanical-crest border border-rose-200 shadow-inner flex flex-col items-center justify-center p-4 text-center">
+          <div class="text-[#B07D87] text-lg mb-0.5">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <span class="font-sans text-xs sm:text-sm text-[#423E40] tracking-wider uppercase font-medium">Fairmont Jaipur, Kukas</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-1">Karan & Meera</h3>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left: Couple Photograph -->
+        <div class="lg:col-span-6 overflow-hidden rounded-2xl shadow-lg border-2 border-rose-100 group relative aspect-[4/3] sm:aspect-[16/11]">
+          <img 
+            src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85" 
+            alt="Karan & Meera Wedding in Jaipur" 
+            class="w-full h-full object-cover object-center transition transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-rose-300"></i>
+            <span>Fairmont Palace, Jaipur</span>
+          </div>
+        </div>
+
+        <!-- Right: Soft Pink Outlined Quote Box -->
+        <div class="lg:col-span-6 quote-box p-6 sm:p-8 md:p-10 rounded-2xl relative flex flex-col justify-between h-full text-center">
+          
+          <div class="text-[#B07D87] text-3xl sm:text-4xl font-serif mb-4 flex justify-center opacity-80">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
+
+          <p class="font-sans text-xs sm:text-sm md:text-[13px] text-[#423E40] leading-relaxed font-light mb-6 px-1 sm:px-4">
+            Meera and Karan requested a grand Pink City extravaganza with high-energy Punjabi and Marwari fusion. They wanted a carnival-themed Mehndi with live folk percussionists, an electric Mughal-glam Sangeet featuring celebrity singers, and a sunset courtyard wedding with cascading tuberose and pink roses.
+          </p>
+
+          <div class="pt-4 border-t border-rose-200/60 flex flex-col items-center gap-3">
+            <h4 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold">
+              Karan & Meera
+            </h4>
+            
+            <button 
+              onclick="openStoryModal('karan-meera')" 
+              class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#B07D87] hover:text-rose-700 underline underline-offset-8 transition-colors cursor-pointer group"
+            >
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- WEDDING 4: ROHAN & TANYA (COASTAL GOA) -->
+    <div class="wedding-story-card bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl border border-rose-200/80 transition-all hover:shadow-2xl" data-category="goa">
+      
+      <!-- Top Floral Botanical Crest -->
+      <div class="flex justify-center mb-8 sm:mb-10">
+        <div class="relative w-72 sm:w-80 h-36 sm:h-40 rounded-full botanical-crest border border-rose-200 shadow-inner flex flex-col items-center justify-center p-4 text-center">
+          <div class="text-[#B07D87] text-lg mb-0.5">
+            <i class="fa-solid fa-spa"></i>
+          </div>
+          <span class="font-sans text-xs sm:text-sm text-[#423E40] tracking-wider uppercase font-medium">W Goa & Vagator Beachfront</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-1">Rohan & Tanya</h3>
+        </div>
+      </div>
+
+      <!-- Main Two-Column Row -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        
+        <!-- Left: Couple Photograph -->
+        <div class="lg:col-span-6 overflow-hidden rounded-2xl shadow-lg border-2 border-rose-100 group relative aspect-[4/3] sm:aspect-[16/11]">
+          <img 
+            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85" 
+            alt="Rohan & Tanya Wedding in Goa" 
+            class="w-full h-full object-cover object-center transition transform duration-700 group-hover:scale-105"
+          />
+          <div class="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
+            <i class="fa-solid fa-location-dot text-rose-300"></i>
+            <span>Vagator Cliff & Beach, Goa</span>
+          </div>
+        </div>
+
+        <!-- Right: Soft Pink Outlined Quote Box -->
+        <div class="lg:col-span-6 quote-box p-6 sm:p-8 md:p-10 rounded-2xl relative flex flex-col justify-between h-full text-center">
+          
+          <div class="text-[#B07D87] text-3xl sm:text-4xl font-serif mb-4 flex justify-center opacity-80">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
+
+          <p class="font-sans text-xs sm:text-sm md:text-[13px] text-[#423E40] leading-relaxed font-light mb-6 px-1 sm:px-4">
+            Tanya and Rohan wanted a barefoot coastal chic vibe mixed with high-octane sunset cocktail parties. The Haldi by the pool featured marigold yellow and turquoise accents, while the beachfront Pheras took place under a bamboo canopy at golden hour with sound waves harmonizing with acoustic sitar rhythms.
+          </p>
+
+          <div class="pt-4 border-t border-rose-200/60 flex flex-col items-center gap-3">
+            <h4 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold">
+              Rohan & Tanya
+            </h4>
+            
+            <button 
+              onclick="openStoryModal('rohan-tanya')" 
+              class="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#B07D87] hover:text-rose-700 underline underline-offset-8 transition-colors cursor-pointer group"
+            >
+              <span>Read More</span>
+              <i class="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition"></i>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- 7. CTA SECTION -->
+  <section class="pb-20 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto w-full">
+    <div class="bg-white rounded-3xl p-8 sm:p-12 md:p-16 text-center border border-rose-200/80 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-rose-50 -z-0"></div>
+      <div class="relative z-10">
+        <span class="font-script text-3xl sm:text-5xl text-[#B07D87] block mb-2">Write Your Own Love Story</span>
+        <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl text-[#2E282A] font-semibold mb-4">
+          Ready to Craft Your Dream Nuptials?
+        </h2>
+        <p class="font-sans text-xs sm:text-sm text-[#696164] max-w-xl mx-auto mb-8 font-light leading-relaxed">
+          From concept sketches and 3D decor renders to venue scouting and full day-of concierge, let SHOWMANIA produce an unforgettable celebration.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="contact.html" class="px-9 py-4 rounded-full bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase shadow-xl transition transform hover:scale-105 active:scale-95">
+            Book Consultation
+          </a>
+          <a href="wedding-venues.html" class="px-9 py-4 rounded-full bg-white hover:bg-rose-50 text-[#B07D87] border border-rose-300 text-xs font-semibold tracking-widest uppercase transition">
+            Explore Venues
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. FOOTER -->
+  <footer class="bg-[#FAF6F3] text-[#696164] pt-16 pb-10 px-4 sm:px-6 md:px-12 border-t border-rose-200/50">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex justify-center mb-3">
+        <img src="assets/logo.png" alt="SHOWMANIA Events & Entertainment" class="h-10 sm:h-12 md:h-14 w-auto object-contain" />
+      </div>
+      <p class="text-xs font-light text-gray-500 mb-6 px-4">Bespoke Luxury Celebrations & Entertainment Worldwide</p>
+      <div class="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-[#2E282A] font-medium uppercase tracking-widest mb-8 px-2">
+        <a href="index.html" class="hover:text-rose-600">Home</a>
+        <a href="testimonials.html" class="hover:text-rose-600">Testimonials</a>
+        <a href="real-weddings.html" class="text-rose-600 font-semibold">Real Weddings</a>
+        <a href="wedding-venues.html" class="hover:text-rose-600">Venues</a>
+        <a href="destination-wedding-india.html" class="hover:text-rose-600">India</a>
+        <a href="destination-wedding-abroad.html" class="hover:text-rose-600">Abroad</a>
+        <a href="contact.html" class="hover:text-rose-600">Contact Us</a>
+      </div>
+    </div>
+    <div class="w-full bg-[#B07D87] text-white py-3 text-center px-4 mt-6">
+      <p class="text-[11px] font-light">© 2026 SHOWMANIA Events & Entertainment. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 9. INTERACTIVE REAL WEDDING MODAL (MATCHING REFERENCE IMAGE 2 & 3) -->
+  <div id="storyModal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-md hidden items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-rose-200 overflow-hidden relative animate-fade-in">
+      
+      <!-- Close Button -->
+      <button onclick="closeStoryModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/90 shadow-md border border-rose-200 text-charcoal hover:bg-rose-50 hover:text-rose-600 transition flex items-center justify-center z-30 cursor-pointer" aria-label="Close modal">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <!-- Modal Content Body -->
+      <div id="modalContent" class="overflow-y-auto story-modal-scroll p-6 sm:p-10 md:p-12 space-y-8 text-charcoal">
+        <!-- Content will be dynamically inserted here via JS -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Widget -->
+  <div class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 select-none">
+    <a href="https://wa.me/919782962963?text=Hello!%20I%20am%20interested%20in%20planning%20our%20Real%20Wedding%20with%20SHOWMANIA." target="_blank" rel="noopener noreferrer" class="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-[#B07D87] hover:bg-[#9E6772] text-white flex items-center justify-center shadow-xl border-2 border-white transition transform hover:scale-110 active:scale-95" aria-label="Contact on WhatsApp">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.4 8.73 7.7C8.46 8 7.7 8.72 7.7 10.18C7.7 11.64 8.76 13.05 8.91 13.25C9.06 13.45 11 16.43 13.93 17.7C14.63 18 15.17 18.18 15.6 18.32C16.3 18.54 16.94 18.51 17.44 18.43C18 18.35 19.18 17.72 19.43 17.03C19.68 16.33 19.68 15.74 19.6 15.62C19.53 15.5 19.33 15.43 19.03 15.28C18.73 15.13 17.26 14.41 16.98 14.31C16.71 14.21 16.51 14.16 16.31 14.46C16.11 14.76 15.54 15.43 15.36 15.63C15.19 15.83 15.01 15.86 14.71 15.71C14.41 15.56 13.45 15.25 12.31 14.23C11.43 13.44 10.83 12.47 10.66 12.17C10.49 11.87 10.64 11.71 10.79 11.56C10.93 11.42 11.09 11.2 11.24 11.03C11.39 10.85 11.44 10.73 11.54 10.53C11.64 10.33 11.59 10.16 11.51 10.01C11.44 9.86 10.84 8.38 10.59 7.78C10.34 7.2 10.1 7.28 9.91 7.27C9.74 7.26 9.54 7.26 9.34 7.26"/></svg>
+    </a>
+  </div>
+
+  <!-- JAVASCRIPT DATA & INTERACTIVITY -->
+  <script>
+    // Stories Database
+    const STORIES = {
+      'ritesh-bhavika': {
+        names: 'Ritesh & Bhavika',
+        venue: 'Rawla Shargun, Kumbhalgarh',
+        bannerImg: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85',
+        thought: 'Bhavika and Ritesh wanted their wedding decor to be a perfect blend of royal elegance and personal touches. They aimed for a luxurious, rich, and detailed look that still felt warm and inviting. Each event was to have a unique style fitting its mood – from pastel freshness at Haldi to glamorous and fairy-tale-like settings for the Sangeet, with a grand aesthetic backdrop for the wedding itself.',
+        specialNote: 'A special request was made to ensure everything looked luxurious with exceptional attention to every detail, which was beautifully brought to life by SHOWMANIA Events.',
+        makers: [
+          { role: 'Wedding Planner', credit: '@showmaniaevents' },
+          { role: 'Design & Decor', credit: '@showmaniaevents' },
+          { role: 'Photographer', credit: '@delhivelvet' },
+          { role: 'Makeup Artist', credit: '@manudheeraj_makeupartis' },
+          { role: 'Jewellery', credit: '@navrathan1954, Tonoto (Haldi jewellery)' },
+          { role: 'Venue', credit: 'Rawla Shargun Kumbhalgarh (@rawlasagrun & @lemontreeresortkumbhalgah)' },
+          { role: 'Anchor', credit: '@mcujjwal' },
+          { role: 'Dholis', credit: '@sanjaydholies' },
+          { role: 'Choreographers', credit: '@energiedancecrew' },
+          { role: 'DJ', credit: '@johnniernest' }
+        ],
+        functions: [
+          { name: 'Haldi', vibe: 'Soft pastel hues, fresh flowers, fun games, and props to keep guests entertained.' },
+          { name: 'Sangeet', vibe: 'A glamorous event filled with lots of shine and lighting to create a fairy-tale atmosphere.' },
+          { name: 'Mayra', vibe: 'Traditional and simple with a "gulaabi" touch.' },
+          { name: 'Wedding', vibe: 'Set against the majestic mountain views, the wedding featured an elegant, aesthetic backdrop that complemented the grandeur of the day.' }
+        ]
+      },
+      'aarav-ananya': {
+        names: 'Aarav & Ananya',
+        venue: 'The Oberoi Udaivilas, Udaipur',
+        bannerImg: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
+        thought: 'Ananya and Aarav envisioned a Lake Pichola royal celebration immersed in candlelight, floating lotus mandaps, and regal Mewari heritage. They wanted every guest arriving by royal boat to feel the magic of Rajasthan. SHOWMANIA designed an ethereal Sangeet with crystal canopies and a Pheras ceremony illuminated by 10,000 diyas reflecting on the lake.',
+        specialNote: 'The couple had guests traveling from 14 countries. SHOWMANIA handled end-to-end royal logistics, charter boats, bespoke Rajasthani welcome kits, and curated culinary experiences.',
+        makers: [
+          { role: 'Wedding Planner', credit: '@showmaniaevents' },
+          { role: 'Design & Decor', credit: '@showmaniaevents' },
+          { role: 'Photographer', credit: '@storiesbyjosephradhik' },
+          { role: 'Makeup Artist', credit: '@namratasoni' },
+          { role: 'Jewellery', credit: '@sabyasachijewelry' },
+          { role: 'Venue', credit: 'The Oberoi Udaivilas, Udaipur' },
+          { role: 'Live Artist', credit: '@mame_khan_official' },
+          { role: 'DJ & Sound', credit: '@dj_shadow_dubai' }
+        ],
+        functions: [
+          { name: 'Royal Welcome & Sundowner', vibe: 'Lakeside cocktails with vintage boat transfers and traditional Rajasthani ghoomar dancers.' },
+          { name: 'Mehndi & Carnival', vibe: 'Vibrant marigold and gota patti canopies with live bangle making and folk puppet acts.' },
+          { name: 'Sangeet under the Stars', vibe: 'Crystal chandeliers, moving LED arches, and high-energy choreographies.' },
+          { name: 'The Pheras', vibe: 'Floating mandap on the dome promenade flanked by sacred Vedic chants and floral fireworks.' }
+        ]
+      },
+      'karan-meera': {
+        names: 'Karan & Meera',
+        venue: 'Fairmont Jaipur, Kukas',
+        bannerImg: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85',
+        thought: 'Meera and Karan requested a grand Pink City extravaganza with high-energy Punjabi and Marwari fusion. They wanted a carnival-themed Mehndi with live folk percussionists, an electric Mughal-glam Sangeet featuring celebrity singers, and a sunset courtyard wedding with cascading tuberose and pink roses.',
+        specialNote: 'Special vintage cars and a 100-member royal elephant and camel procession made the Baraat one of the most talked-about events of the season.',
+        makers: [
+          { role: 'Wedding Planner', credit: '@showmaniaevents' },
+          { role: 'Design & Decor', credit: '@showmaniaevents' },
+          { role: 'Photographer', credit: '@weddingnama' },
+          { role: 'Makeup Artist', credit: '@danielcbauer' },
+          { role: 'Venue', credit: 'Fairmont Jaipur (@fairmontjaipur)' },
+          { role: 'DJ & Sound', credit: '@dj_chetas' },
+          { role: 'Anchor', credit: '@vandanavadhera' }
+        ],
+        functions: [
+          { name: 'Bazaar Mehndi', vibe: 'Block-print decor, traditional spice stalls, attar bars, and live Sufi musicians.' },
+          { name: 'Gala Sangeet', vibe: 'Concert-grade lighting, cold pyros, hydraulic stage, and A-list headline artist performances.' },
+          { name: 'Royal Baraat & Pheras', vibe: 'Grand elephant procession leading into a majestic mirrored lotus mandap.' }
+        ]
+      },
+      'rohan-tanya': {
+        names: 'Rohan & Tanya',
+        venue: 'W Goa & Vagator Beachfront',
+        bannerImg: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85',
+        thought: 'Tanya and Rohan wanted a barefoot coastal chic vibe mixed with high-octane sunset cocktail parties. The Haldi by the pool featured marigold yellow and turquoise accents, while the beachfront Pheras took place under a bamboo canopy at golden hour with sound waves harmonizing with acoustic sitar rhythms.',
+        specialNote: 'A dedicated sundowner cocktail bar with custom signature couple drinks and an open-air afterparty that lasted until dawn.',
+        makers: [
+          { role: 'Wedding Planner', credit: '@showmaniaevents' },
+          { role: 'Design & Decor', credit: '@showmaniaevents' },
+          { role: 'Photographer', credit: '@theweddingsalad' },
+          { role: 'Venue', credit: 'W Goa, Vagator (@w_goa)' },
+          { role: 'DJ', credit: '@djzaeden' }
+        ],
+        functions: [
+          { name: 'Poolside Haldi & Rain Dance', vibe: 'Tropical yellow blooms, water guns, and bespoke coconuts branded with couple initials.' },
+          { name: 'Sunset Beach Pheras', vibe: 'Pastel pampas grass, driftwood arches, and conch shell fanfares at golden hour.' },
+          { name: 'Neon After-Party', vibe: 'Boho teepees, fire dancers, glow bars, and house DJ sets.' }
+        ]
+      }
+    };
+
+    function openStoryModal(key) {
+      const data = STORIES[key];
+      if (!data) return;
+
+      const modal = document.getElementById('storyModal');
+      const content = document.getElementById('modalContent');
+
+      let makersHtml = data.makers.map(m => `
+        <div class="flex items-start gap-2 text-xs sm:text-sm text-[#423E40]">
+          <span class="font-semibold text-[#2E282A] min-w-[130px] sm:min-w-[150px]">${m.role}:</span>
+          <span class="font-normal text-[#B07D87]">${m.credit}</span>
+        </div>
+      `).join('');
+
+      let functionsHtml = data.functions.map(f => `
+        <div class="bg-rose-50/70 p-4 sm:p-5 rounded-2xl border border-rose-100">
+          <h5 class="font-serif text-base sm:text-lg font-semibold text-[#B07D87] mb-1">${f.name}</h5>
+          <p class="text-xs sm:text-sm text-[#524B4E] font-light leading-relaxed">${f.vibe}</p>
+        </div>
+      `).join('');
+
+      content.innerHTML = `
+        <!-- Top Botanical Crest Banner (Reference Image 2) -->
+        <div class="flex justify-center mb-2">
+          <div class="relative w-72 sm:w-80 h-32 sm:h-36 rounded-full botanical-crest border border-rose-200 shadow-inner flex flex-col items-center justify-center p-3 text-center">
+            <div class="text-[#B07D87] text-base mb-0.5">
+              <i class="fa-solid fa-spa"></i>
+            </div>
+            <span class="font-sans text-[11px] sm:text-xs text-[#423E40] tracking-wider uppercase font-medium">${data.venue}</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-0.5">${data.names}</h2>
+          </div>
+        </div>
+
+        <!-- Main Banner Image -->
+        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[16/9] w-full border border-rose-100">
+          <img src="${data.bannerImg}" alt="${data.names}" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- The Thoughts & Vision (Reference Image 1) -->
+        <div class="bg-[#FFF9FA] border border-[#E8B2BC] p-6 sm:p-8 rounded-2xl text-center">
+          <div class="text-[#B07D87] text-3xl font-serif mb-2 opacity-80">
+            <i class="fa-solid fa-quote-left"></i>
+          </div>
+          <h3 class="font-serif text-xl sm:text-2xl font-semibold text-[#2E282A] mb-3">The Couple's Vision</h3>
+          <p class="text-xs sm:text-sm text-[#423E40] leading-relaxed font-light mb-4">
+            ${data.thought}
+          </p>
+          <p class="text-xs text-[#B07D87] italic font-medium">
+            ${data.specialNote}
+          </p>
+        </div>
+
+        <!-- Functions & Distinct Vibes (Reference Image 3) -->
+        <div>
+          <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#2E282A] mb-4 pb-2 border-b border-rose-200">
+            The Wedding Celebrations & Distinct Vibes
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            ${functionsHtml}
+          </div>
+        </div>
+
+        <!-- Our Wedding Makers (Reference Image 3) -->
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-rose-200 shadow-sm">
+          <h3 class="font-serif text-2xl sm:text-3xl font-semibold text-[#2E282A] mb-4 pb-2 border-b border-rose-100 flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-rose-500 text-lg"></i>
+            <span>Our Wedding Makers</span>
+          </h3>
+          <div class="space-y-2.5">
+            ${makersHtml}
+          </div>
+        </div>
+
+        <!-- Modal Footer CTA -->
+        <div class="pt-4 border-t border-rose-200 flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="block text-xs font-semibold uppercase tracking-wider text-charcoal">Inspired by this celebration?</span>
+            <span class="block text-xs text-gray-500 font-light">Speak with our lead wedding curators today.</span>
+          </div>
+          <a href="contact.html" class="px-7 py-3 rounded-full bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase shadow-md transition transform hover:scale-105">
+            Plan a Wedding Like This
+          </a>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeStoryModal() {
+      const modal = document.getElementById('storyModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Filter Stories by Category
+    function filterStories(category, btn) {
+      document.querySelectorAll('.real-filter-btn').forEach(b => {
+        b.className = 'real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70 cursor-pointer';
+      });
+      btn.className = 'real-filter-btn px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all bg-[#E84874] text-white shadow-md cursor-pointer';
+
+      const cards = document.querySelectorAll('.wedding-story-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.getAttribute('data-category') === category) {
+          card.classList.remove('hidden-filter');
+        } else {
+          card.classList.add('hidden-filter');
+        }
+      });
+    }
+
+    // Mobile Navigation & Accordion Handlers
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      drawer.classList.toggle('hidden');
+      if (drawer.classList.contains('hidden')) {
+        icon.className = 'fa-solid fa-bars text-xl';
+      } else {
+        icon.className = 'fa-solid fa-xmark text-xl';
+      }
+    }
+
+    function toggleMobileAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+
+    // Close modal on Escape key or outside click
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeStoryModal();
+    });
+
+    document.getElementById('storyModal')?.addEventListener('click', (e) => {
+      if (e.target === document.getElementById('storyModal')) closeStoryModal();
+    });
+
+    // Real Weddings Hero Slider Logic
+    const REAL_SLIDES = [
+      {
+        image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
+        sub: "Unforgettable Nuptials & Grand Love Stories",
+        title: "Real Weddings by SHOWMANIA",
+        desc: "Every couple's journey is a bespoke masterpiece. Explore our real weddings, couple thoughts, decor inspirations, and the esteemed wedding makers behind each majestic celebration."
+      },
+      {
+        image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2000&q=85",
+        sub: "Aarav & Meera's Udaipur Fairytale",
+        title: "Imperial Romance in the City of Lakes",
+        desc: "A 3-day royal extravaganza featuring 2,000 floating candles, 24-piece string symphony, and vintage royal boat processions across Lake Pichola."
+      },
+      {
+        image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85",
+        sub: "Rohan & Natasha's Goa Soirée",
+        title: "Seaside Magic & High-Energy Nights",
+        desc: "Pastel mandap under the swaying coastal palms, a neon tropical after-party, and personalized vows under the starlit Arabian sky."
+      },
+      {
+        image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85",
+        sub: "Kabir & Ananya's Royal Fortress",
+        title: "Century-Old Fort Extravaganza",
+        desc: "Grand sandstone archways illuminated by 5,000 diyas, majestic floral showers, and authentic royal Rajasthani hospitality."
+      }
+    ];
+
+    let currentRealIndex = 0;
+    let realTimer = null;
+
+    function initRealSlider() {
+      const bgContainer = document.getElementById('realHeroBgContainer');
+      if (!bgContainer) return;
+
+      bgContainer.innerHTML = REAL_SLIDES.map((slide, idx) => `
+        <div 
+          id="realSlideBg-${idx}" 
+          class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 transform ${idx === 0 ? 'opacity-100 scale-105 duration-[6000ms]' : 'opacity-0 scale-100'}"
+          style="background-image: url('${slide.image}');"
+        ></div>
+      `).join('');
+
+      startRealTimer();
+    }
+
+    function updateRealSlide() {
+      REAL_SLIDES.forEach((_, idx) => {
+        const el = document.getElementById(`realSlideBg-${idx}`);
+        if (el) {
+          if (idx === currentRealIndex) {
+            el.className = 'absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 transform opacity-100 scale-105 duration-[6000ms] ease-out';
+          } else {
+            el.className = 'absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 transform opacity-0 scale-100';
+          }
+        }
+      });
+
+      const s = REAL_SLIDES[currentRealIndex];
+      const subEl = document.getElementById('realHeroSub');
+      const titleEl = document.getElementById('realHeroTitle');
+      const descEl = document.getElementById('realHeroDesc');
+
+      if (subEl) subEl.innerText = s.sub;
+      if (titleEl) titleEl.innerText = s.title;
+      if (descEl) descEl.innerText = s.desc;
+    }
+
+    function startRealTimer() {
+      realTimer = setInterval(() => {
+        currentRealIndex = (currentRealIndex + 1) % REAL_SLIDES.length;
+        updateRealSlide();
+      }, 5500);
+    }
+
+    document.addEventListener('DOMContentLoaded', initRealSlider);
+  </script>
+
+
+  <!-- Floating Scroll To Top Button (Bottom-Left) — Visible near bottom only -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-[#B07D87] border border-rose-200 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 duration-200 backdrop-blur-sm opacity-0 pointer-events-none" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-xs"></i>
+  </button>
+  <script>
+    (function() {
+      const btn = document.getElementById('scrollTopBtn');
+      if (!btn) return;
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const totalHeight = document.documentElement.scrollHeight;
+        if (totalHeight > window.innerHeight && scrollPosition >= (totalHeight - 1000)) {
+          btn.classList.remove('opacity-0', 'pointer-events-none');
+          btn.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          btn.classList.add('opacity-0', 'pointer-events-none');
+          btn.classList.remove('opacity-100', 'pointer-events-auto');
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>

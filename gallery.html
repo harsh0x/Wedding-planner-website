@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery | SHOWMANIA Events & Entertainment</title>
+  <meta name="description"
+    content="Explore our visual portfolio of luxury destination weddings, cocktail parties, birthday galas, and corporate events orchestrated by SHOWMANIA Events." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              50: '#FDF8F9',
+              100: '#FBEFF2',
+              200: '#F5D5DC',
+              300: '#E8B2BC',
+              400: '#D68C9B',
+              500: '#B07D87',
+              600: '#9E6772',
+              700: '#7E4C56',
+              800: '#60353E',
+              900: '#432128',
+            },
+            charcoal: '#2E282A',
+            cream: '#FAF6F3',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            playfair: ['"Playfair Display"', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            script: ['"Great Vibes"', 'cursive'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      content-visibility: auto;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform: translateZ(0);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(46, 40, 42, 0.45) 0%, rgba(176, 125, 135, 0.70) 55%, rgba(176, 125, 135, 0.92) 100%);
+      pointer-events: none;
+      will-change: opacity;
+      transform: translateZ(0);
+    }
+
+    [id*="SlideBg"], [id*="heroBg"], .slide-bg {
+      will-change: transform, opacity;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+    .hidden-filter {
+      display: none !important;
+    }
+
+    /* Filmstrip thumbnail scrollbar */
+    .filmstrip-scroll::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    .filmstrip-scroll::-webkit-scrollbar-thumb {
+      background-color: #E84874;
+      border-radius: 9999px;
+    }
+
+    .filmstrip-scroll::-webkit-scrollbar-track {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-[#2E282A] bg-[#FAF6F3] flex flex-col min-h-screen">
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <div class="w-full bg-[#B07D87] text-white py-2 px-3 sm:px-4 text-center z-50 relative">
+    <div
+      class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-[11px] sm:text-xs md:text-sm font-sans tracking-wide uppercase">
+      <i class="fa-solid fa-camera-retro text-[10px] sm:text-xs text-rose-200"></i>
+      <span class="font-semibold tracking-wider">Visual Gallery of Grand Celebrations & Events</span>
+      <i class="fa-solid fa-sparkles text-[10px] sm:text-xs text-rose-200"></i>
+    </div>
+  </div>
+
+  <!-- 2. STICKY NAVBAR -->
+  <header class="sticky top-0 left-0 w-full z-50 glass-nav shadow-md py-3 transition-all duration-300 text-[#2E282A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 group py-1 flex-shrink-0">
+        <img src="assets/logo.png" alt="SHOWMANIA Events & Entertainment"
+          class="h-9 sm:h-11 md:h-12 w-auto object-contain transition transform group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav
+        class="hidden xl:flex items-center space-x-6 2xl:space-x-7 text-[11px] tracking-[0.18em] uppercase font-medium">
+
+        <!-- Home -->
+        <a href="index.html" class="hover:text-rose-600 transition-colors py-1">Home</a>
+
+        <!-- About Us Dropdown -->
+        <div class="relative group py-2">
+          <a href="about-us.html"
+            class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>About Us</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </a>
+          <div class="absolute top-full left-0 pt-2 w-56 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="about-us.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-gem text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">About Showmania</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Legacy, vision & founder</span>
+                  </div>
+                </a>
+                <a href="testimonials.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-heart-pulse text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Testimonials</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Client love stories</span>
+                  </div>
+                </a>
+                <a href="contact.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-regular fa-envelope text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Contact Us</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Inquiries & studio</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Services</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="index.html#services"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-ring text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Wedding Services</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Bespoke nuptial planning</span>
+                  </div>
+                </a>
+                <a href="corporate-events.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-building text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Corporate Events</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Galas & summits</span>
+                  </div>
+                </a>
+                <a href="social-events.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-champagne-glasses text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Social Events</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Birthdays & luxury soirées</span>
+                  </div>
+                </a>
+                <a href="celebrity-artist-management.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-star text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Celebrity & Artist</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Talent & stage curation</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Weddings Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Destination Weddings</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="destination-wedding-india.html"
+                  class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-archway text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Destination Wedding in India</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Udaipur, Jaipur, Goa, Kerala</span>
+                  </div>
+                </a>
+                <a href="destination-wedding-abroad.html"
+                  class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-plane-departure text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Destination Wedding in Abroad</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Bali, Dubai, Italy, Thailand</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Venue</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="wedding-venues.html"
+                  class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-hotel text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Wedding Venues</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Palaces, Forts & Resorts</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Weddings -->
+        <a href="real-weddings.html" class="hover:text-rose-600 transition-colors py-1">Real Weddings</a>
+
+        <!-- Gallery (Active) -->
+        <a href="gallery.html"
+          class="text-rose-600 font-semibold transition-colors py-1 border-b-2 border-rose-500">Gallery</a>
+
+      </nav>
+
+      <!-- Far Right CTA Button -->
+      <div class="hidden lg:flex items-center">
+        <a href="contact.html"
+          class="px-6 py-2.5 rounded-md bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase transition transform hover:scale-[1.03] shadow-md hover:shadow-lg">
+          CONTACT US
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="xl:hidden flex items-center gap-3">
+        <a href="contact.html"
+          class="px-3.5 py-1.5 rounded-md bg-[#E84874] text-white text-[10px] font-semibold tracking-wider uppercase shadow-sm">
+          Contact
+        </a>
+        <button onclick="toggleMobileNav()"
+          class="p-2 rounded-lg text-charcoal hover:bg-rose-100/60 transition cursor-pointer" aria-label="Toggle Menu">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer"
+      class="hidden xl:hidden bg-[#FAF6F3] text-charcoal border-b border-rose-200 px-6 py-5 shadow-2xl">
+      <div class="flex flex-col space-y-2 text-xs font-medium tracking-wider uppercase">
+
+        <a href="index.html"
+          class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-[#B07D87]">
+          <span>Home</span>
+          <i class="fa-solid fa-house text-xs opacity-50"></i>
+        </a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileAboutContent', 'mobileAboutIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>About Us</span>
+            <i id="mobileAboutIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileAboutContent"
+            class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="testimonials.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-heart-pulse text-xs text-rose-400 mr-2"></i>Testimonials
+            </a>
+            <a href="contact.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-regular fa-envelope text-xs text-rose-400 mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Services Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileServicesContent', 'mobileServicesIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Services</span>
+            <i id="mobileServicesIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileServicesContent"
+            class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="index.html#services" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-ring text-xs text-rose-400 mr-2"></i>Wedding Services
+            </a>
+            <a href="corporate-events.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-building text-xs text-rose-400 mr-2"></i>Corporate Events
+            </a>
+            <a href="social-events.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-champagne-glasses text-xs text-rose-400 mr-2"></i>Social Events
+            </a>
+            <a href="celebrity-artist-management.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-star text-xs text-rose-400 mr-2"></i>Celebrity & Artist
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Destination Weddings Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileDestContent', 'mobileDestIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Destination Weddings</span>
+            <i id="mobileDestIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileDestContent" class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="destination-wedding-india.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-archway text-xs text-rose-400 mr-2"></i>Destination Wedding in India
+            </a>
+            <a href="destination-wedding-abroad.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-plane-departure text-xs text-rose-400 mr-2"></i>Destination Wedding in Abroad
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Venue Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileVenueContent', 'mobileVenueIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Venue</span>
+            <i id="mobileVenueIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileVenueContent"
+            class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="wedding-venues.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-hotel text-xs text-rose-400 mr-2"></i>Wedding Venues
+            </a>
+          </div>
+        </div>
+
+        <a href="real-weddings.html"
+          class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-rose-600">
+          <span>Real Weddings</span>
+          <i class="fa-regular fa-image text-xs opacity-50"></i>
+        </a>
+
+        <a href="gallery.html"
+          class="py-2 border-b border-rose-100 flex items-center justify-between text-rose-600 font-semibold">
+          <span>Gallery</span>
+          <i class="fa-solid fa-camera-retro text-xs opacity-50"></i>
+        </a>
+
+        <div class="pt-3">
+          <a href="contact.html"
+            class="w-full py-3 rounded-md bg-[#E84874] text-white text-center font-semibold tracking-widest uppercase block shadow-md">
+            CONTACT US
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. TOP BOTANICAL HEADER (EXACT MATCH FOR REFERENCE IMAGE 1) -->
+  <section class="pt-16 pb-8 px-4 text-center">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Delicate Botanical Leaves Flourish (Reference Image 1) -->
+      <div class="flex items-center justify-center gap-1 text-[#556B2F] text-lg mb-2 opacity-80">
+        <i class="fa-solid fa-leaf transform -scale-x-100"></i>
+        <i class="fa-solid fa-seedling"></i>
+        <i class="fa-solid fa-leaf"></i>
+      </div>
+
+      <!-- Title: Gallery -->
+      <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2E282A] font-normal tracking-wide">
+        Gallery
+      </h1>
+
+      <p class="font-sans text-xs sm:text-sm text-gray-500 font-light max-w-xl mx-auto mt-2">
+        A glimpse into our bespoke setups, vibrant festivities, and opulent celebrations.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- 4. FILTER TABS (EXACT MATCH FOR REFERENCE IMAGE 1) -->
+  <section class="py-6 px-4 sm:px-6 max-w-6xl mx-auto w-full text-center">
+    <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6">
+
+      <!-- 1. Destination Weddings (Active Style in Image 1: Pink Border and Text) -->
+      <button onclick="filterGallery('destination-weddings', this)"
+        class="gallery-filter-btn px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all border border-[#E84874] text-[#E84874] bg-white shadow-sm hover:shadow cursor-pointer">
+        Destination Weddings
+      </button>
+
+      <!-- 2. Birthday Party -->
+      <button onclick="filterGallery('birthday-party', this)"
+        class="gallery-filter-btn px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all border border-gray-300 text-[#423E40] bg-white hover:border-[#E84874] hover:text-[#E84874] shadow-sm cursor-pointer">
+        Birthday Party
+      </button>
+
+      <!-- 3. Corporate Events -->
+      <button onclick="filterGallery('corporate-events', this)"
+        class="gallery-filter-btn px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all border border-gray-300 text-[#423E40] bg-white hover:border-[#E84874] hover:text-[#E84874] shadow-sm cursor-pointer">
+        Corporate Events
+      </button>
+
+      <!-- 4. Cocktail Party -->
+      <button onclick="filterGallery('cocktail-party', this)"
+        class="gallery-filter-btn px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all border border-gray-300 text-[#423E40] bg-white hover:border-[#E84874] hover:text-[#E84874] shadow-sm cursor-pointer">
+        Cocktail Party
+      </button>
+
+    </div>
+  </section>
+
+  <!-- 5. GALLERY GRID SYSTEM -->
+  <section class="py-8 pb-20 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full">
+    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+      <!-- Image cards populated dynamically via JS -->
+    </div>
+  </section>
+
+  <!-- 6. FOOTER -->
+  <footer class="bg-[#FAF6F3] text-[#696164] pt-16 pb-10 px-4 sm:px-6 md:px-12 border-t border-rose-200/50">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex justify-center mb-3">
+        <img src="assets/logo.png" alt="SHOWMANIA Events & Entertainment"
+          class="h-10 sm:h-12 md:h-14 w-auto object-contain" />
+      </div>
+      <p class="text-xs font-light text-gray-500 mb-6 px-4">Bespoke Luxury Celebrations & Entertainment Worldwide</p>
+      <div
+        class="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-[#2E282A] font-medium uppercase tracking-widest mb-8 px-2">
+        <a href="index.html" class="hover:text-rose-600">Home</a>
+        <a href="testimonials.html" class="hover:text-rose-600">Testimonials</a>
+        <a href="real-weddings.html" class="hover:text-rose-600">Real Weddings</a>
+        <a href="gallery.html" class="text-rose-600 font-semibold">Gallery</a>
+        <a href="wedding-venues.html" class="hover:text-rose-600">Venues</a>
+        <a href="destination-wedding-india.html" class="hover:text-rose-600">India</a>
+        <a href="destination-wedding-abroad.html" class="hover:text-rose-600">Abroad</a>
+        <a href="contact.html" class="hover:text-rose-600">Contact Us</a>
+      </div>
+    </div>
+    <div class="w-full bg-[#B07D87] text-white py-3 text-center px-4 mt-6">
+      <p class="text-[11px] font-light">© 2026 SHOWMANIA Events & Entertainment. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- 7. FULLSCREEN LIGHTBOX WITH FILMSTRIP CAROUSEL & CONTROLS (EXACT MATCH FOR REFERENCE IMAGE 2) -->
+  <div id="lightboxModal"
+    class="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg hidden flex-col justify-between select-none animate-fade-in">
+
+    <!-- Top Control Bar -->
+    <div class="w-full px-4 sm:px-8 py-4 flex items-center justify-between text-white/90 z-20">
+
+      <!-- Photo Counter (e.g. 1 / 18) -->
+      <div class="text-xs sm:text-sm font-sans tracking-widest text-white/80 font-medium">
+        <span id="currentIndexText">1</span> / <span id="totalIndexText">18</span>
+      </div>
+
+      <!-- Center Title Tag -->
+      <div id="lightboxCaption"
+        class="hidden sm:block text-xs sm:text-sm font-serif tracking-wider text-rose-200 truncate max-w-md text-center">
+        Haldi Courtyard Decor
+      </div>
+
+      <!-- Action Icons (Zoom, Play, Fullscreen, Grid, Close) -->
+      <div class="flex items-center gap-4 sm:gap-5 text-sm sm:text-base">
+        <!-- Zoom Toggle -->
+        <button onclick="toggleZoom()" class="hover:text-rose-400 transition cursor-pointer p-1" title="Zoom In/Out">
+          <i id="zoomIcon" class="fa-solid fa-magnifying-glass-plus"></i>
+        </button>
+
+        <!-- Slideshow Auto-play Toggle -->
+        <button onclick="toggleSlideshow()" class="hover:text-rose-400 transition cursor-pointer p-1"
+          title="Slideshow Play/Pause">
+          <i id="playIcon" class="fa-solid fa-play"></i>
+        </button>
+
+        <!-- Fullscreen Toggle -->
+        <button onclick="toggleFullscreen()" class="hover:text-rose-400 transition cursor-pointer p-1"
+          title="Toggle Fullscreen">
+          <i class="fa-solid fa-expand"></i>
+        </button>
+
+        <!-- Close / Exit -->
+        <button onclick="closeLightbox()" class="hover:text-rose-400 transition cursor-pointer p-1 text-lg ml-2"
+          title="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Center Focused Image Stage -->
+    <div class="relative flex-1 flex items-center justify-center px-4 sm:px-14 overflow-hidden">
+
+      <!-- Previous Arrow (<) -->
+      <button onclick="prevImage()"
+        class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20 z-20 cursor-pointer"
+        aria-label="Previous Image">
+        <i class="fa-solid fa-chevron-left text-base sm:text-lg"></i>
+      </button>
+
+      <!-- Main Display Photo -->
+      <div class="relative max-h-[68vh] sm:max-h-[72vh] max-w-5xl flex items-center justify-center">
+        <img id="lightboxMainImg" src="" alt="Gallery Display"
+          class="max-h-[68vh] sm:max-h-[72vh] w-auto max-w-full object-contain rounded-lg shadow-2xl transition-all duration-300 transform" />
+      </div>
+
+      <!-- Next Arrow (>) -->
+      <button onclick="nextImage()"
+        class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20 z-20 cursor-pointer"
+        aria-label="Next Image">
+        <i class="fa-solid fa-chevron-right text-base sm:text-lg"></i>
+      </button>
+
+    </div>
+
+    <!-- Bottom Thumbnail Filmstrip Carousel (Reference Image 2) -->
+    <div class="w-full bg-black/80 border-t border-white/10 p-2 sm:p-3 overflow-x-auto filmstrip-scroll z-20">
+      <div id="filmstripContainer"
+        class="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 min-w-max px-2">
+        <!-- Thumbnails populated dynamically via JS -->
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Floating WhatsApp Widget -->
+  <div class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-40 select-none">
+    <a href="https://wa.me/919782962963?text=Hello!%20I%20am%20exploring%20your%20Gallery%20and%20interested%20in%20SHOWMANIA%20event%20planning."
+      target="_blank" rel="noopener noreferrer"
+      class="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-[#B07D87] hover:bg-[#9E6772] text-white flex items-center justify-center shadow-xl border-2 border-white transition transform hover:scale-110 active:scale-95"
+      aria-label="Contact on WhatsApp">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+        <path
+          d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.4 8.73 7.7C8.46 8 7.7 8.72 7.7 10.18C7.7 11.64 8.76 13.05 8.91 13.25C9.06 13.45 11 16.43 13.93 17.7C14.63 18 15.17 18.18 15.6 18.32C16.3 18.54 16.94 18.51 17.44 18.43C18 18.35 19.18 17.72 19.43 17.03C19.68 16.33 19.68 15.74 19.6 15.62C19.53 15.5 19.33 15.43 19.03 15.28C18.73 15.13 17.26 14.41 16.98 14.31C16.71 14.21 16.51 14.16 16.31 14.46C16.11 14.76 15.54 15.43 15.36 15.63C15.19 15.83 15.01 15.86 14.71 15.71C14.41 15.56 13.45 15.25 12.31 14.23C11.43 13.44 10.83 12.47 10.66 12.17C10.49 11.87 10.64 11.71 10.79 11.56C10.93 11.42 11.09 11.2 11.24 11.03C11.39 10.85 11.44 10.73 11.54 10.53C11.64 10.33 11.59 10.16 11.51 10.01C11.44 9.86 10.84 8.38 10.59 7.78C10.34 7.2 10.1 7.28 9.91 7.27C9.74 7.26 9.54 7.26 9.34 7.26" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- GALLERY DATA & INTERACTIVITY -->
+  <script>
+    const GALLERY_ITEMS = [
+      // Destination Weddings (18 photos matching Image 2 sequence)
+      { id: 1, category: 'destination-weddings', title: 'Royal Haldi Palace Courtyard Setup', location: 'Udaipur, Rajasthan', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85' },
+      { id: 2, category: 'destination-weddings', title: 'Opulent Palace Mandap & Crystal Stage', location: 'Jaipur, Rajasthan', url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1400&q=85' },
+      { id: 3, category: 'destination-weddings', title: 'Grand Checkered Courtyard Nuptial Decor', location: 'Kumbhalgarh, Rajasthan', url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=85' },
+      { id: 4, category: 'destination-weddings', title: 'Sangeet Stage with Illumination & Led Arches', location: 'Fairmont Jaipur', url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=85' },
+      { id: 5, category: 'destination-weddings', title: 'Bride & Groom Royal Varmala Ceremony', location: 'Umaid Bhawan, Jodhpur', url: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1400&q=85' },
+      { id: 6, category: 'destination-weddings', title: 'Bespoke Floral Floral Arch Welcome', location: 'Goa Beachfront Resort', url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=85' },
+      { id: 7, category: 'destination-weddings', title: 'Pastel Floral Mandap on Lake Pichola', location: 'Lake Pichola, Udaipur', url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1400&q=85' },
+      { id: 8, category: 'destination-weddings', title: 'Sunset Beachside Pheras Canopy', location: 'W Goa, Vagator', url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1400&q=85' },
+      { id: 9, category: 'destination-weddings', title: 'Luxury Banquet Table Curation with Gold Trim', location: 'The Leela Palace', url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=85' },
+      { id: 10, category: 'destination-weddings', title: 'Gota Patti & Marigold Carnival Mehndi', location: 'Samode Palace', url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=85' },
+      { id: 11, category: 'destination-weddings', title: 'Red Velvet Gala Sangeet Ballroom', location: 'Rambagh Palace Jaipur', url: 'https://images.unsplash.com/photo-1561489413-985b06da5bee?auto=format&fit=crop&w=1400&q=85' },
+      { id: 12, category: 'destination-weddings', title: 'Royal Fort Illuminated Entryway', location: 'Mehrangarh Fort, Jodhpur', url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1400&q=85' },
+      { id: 13, category: 'destination-weddings', title: 'Heritage Haveli Courtyard Reception', location: 'Chomu Palace, Rajasthan', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=85' },
+      { id: 14, category: 'destination-weddings', title: 'Crystal Chandelier Imperial Dining', location: 'Taj Falaknuma Palace', url: 'https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1400&q=85' },
+      { id: 15, category: 'destination-weddings', title: 'Ruby Red Rose Floral Stage Setup', location: 'Grand Hyatt Goa', url: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1400&q=85' },
+      { id: 16, category: 'destination-weddings', title: 'Yellow Genda Phool Urli Haldi Setup', location: 'Rawla Narlai, Rajasthan', url: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=85' },
+      { id: 17, category: 'destination-weddings', title: 'Lawn Fairylight Canopy & Mirror Aisle', location: 'ITC Grand Bharat', url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=85' },
+      { id: 18, category: 'destination-weddings', title: 'Midnight Royal Fireworks Display', location: 'Jagmandir Island Palace, Udaipur', url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=85' },
+
+      // Birthday Party
+      { id: 19, category: 'birthday-party', title: 'Milestone 50th Golden Jubilee Gala', location: 'The Oberoi, New Delhi', url: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=85' },
+      { id: 20, category: 'birthday-party', title: 'Fairy Tale Enchanted Garden Soirée', location: 'Private Estate, Alibaug', url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1400&q=85' },
+      { id: 21, category: 'birthday-party', title: 'Neon Disco Carnival Celebration', location: 'JW Marriott, Mumbai', url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=85' },
+      { id: 22, category: 'birthday-party', title: 'Royal Moroccan Themed Birthday Lounge', location: 'Jaipur Palace Lawns', url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=85' },
+
+      // Corporate Events
+      { id: 23, category: 'corporate-events', title: 'Global Leadership Summit & Stage Production', location: 'Grand Hyatt Convention', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85' },
+      { id: 24, category: 'corporate-events', title: 'Annual Excellence Awards & Gala Night', location: 'Taj Palace, New Delhi', url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=85' },
+      { id: 25, category: 'corporate-events', title: 'Luxury Automobile Product Reveal', location: 'BICC, Mumbai', url: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=85' },
+      { id: 26, category: 'corporate-events', title: 'Tech Innovation Gala Keynote Stage', location: 'Aerocity, New Delhi', url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85' },
+
+      // Cocktail Party
+      { id: 27, category: 'cocktail-party', title: 'Sundowner Speakeasy Bar & Live Saxophone', location: 'Goa Cliffside Deck', url: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1400&q=85' },
+      { id: 28, category: 'cocktail-party', title: 'Gatsby Glamour Cocktail & Champagne Tower', location: 'St. Regis Ballroom', url: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1400&q=85' },
+      { id: 29, category: 'cocktail-party', title: 'Moonlight Lounge with Custom Mixology', location: 'Lakeside Pavilion, Udaipur', url: 'https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=1400&q=85' },
+      { id: 30, category: 'cocktail-party', title: 'Boho Chic Sunset Cocktail Soirée', location: 'Vagator Beachfront, Goa', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=85' }
+    ];
+
+    let currentFilteredItems = [];
+    let currentActiveIndex = 0;
+    let isSlideshowPlaying = false;
+    let slideshowInterval = null;
+    let isZoomed = false;
+
+    // Render Grid
+    function renderGallery(category = 'destination-weddings') {
+      currentFilteredItems = GALLERY_ITEMS.filter(item => item.category === category);
+      const grid = document.getElementById('galleryGrid');
+
+      grid.innerHTML = currentFilteredItems.map((item, idx) => `
+        <div 
+          onclick="openLightbox(${idx})" 
+          class="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-rose-100/80 bg-white cursor-pointer transition transform duration-500 hover:-translate-y-1.5"
+        >
+          <img 
+            src="${item.url}" 
+            alt="${item.title}" 
+            class="w-full h-full object-cover transition transform duration-700 group-hover:scale-110" 
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-rose-300 mb-0.5">${item.location}</span>
+            <h4 class="font-serif text-base font-semibold leading-snug drop-shadow">${item.title}</h4>
+            <div class="mt-2 flex items-center gap-1.5 text-xs text-rose-200">
+              <i class="fa-solid fa-expand text-[11px]"></i>
+              <span class="text-[10px] uppercase tracking-wider">View Full Photo</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Filter Buttons
+    function filterGallery(category, btn) {
+      document.querySelectorAll('.gallery-filter-btn').forEach(b => {
+        b.className = 'gallery-filter-btn px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all border border-gray-300 text-[#423E40] bg-white hover:border-[#E84874] hover:text-[#E84874] shadow-sm cursor-pointer';
+      });
+      btn.className = 'gallery-filter-btn px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all border border-[#E84874] text-[#E84874] bg-white shadow-sm hover:shadow cursor-pointer';
+
+      renderGallery(category);
+    }
+
+    // Lightbox Functionality
+    function openLightbox(index) {
+      currentActiveIndex = index;
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+
+      renderFilmstrip();
+      updateLightboxDisplay();
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightboxModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+
+      if (isSlideshowPlaying) toggleSlideshow();
+      if (isZoomed) toggleZoom();
+    }
+
+    function updateLightboxDisplay() {
+      const item = currentFilteredItems[currentActiveIndex];
+      if (!item) return;
+
+      document.getElementById('currentIndexText').innerText = currentActiveIndex + 1;
+      document.getElementById('totalIndexText').innerText = currentFilteredItems.length;
+      document.getElementById('lightboxCaption').innerText = item.title + ' • ' + item.location;
+
+      const mainImg = document.getElementById('lightboxMainImg');
+      mainImg.src = item.url;
+
+      // Update filmstrip active state
+      document.querySelectorAll('.filmstrip-thumb').forEach((thumb, idx) => {
+        if (idx === currentActiveIndex) {
+          thumb.className = 'filmstrip-thumb w-14 h-10 sm:w-18 sm:h-12 flex-shrink-0 rounded overflow-hidden border-2 border-[#E84874] shadow-lg scale-105 transition transform cursor-pointer opacity-100';
+          thumb.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        } else {
+          thumb.className = 'filmstrip-thumb w-14 h-10 sm:w-18 sm:h-12 flex-shrink-0 rounded overflow-hidden border border-white/30 transition transform cursor-pointer opacity-60 hover:opacity-100';
+        }
+      });
+    }
+
+    function renderFilmstrip() {
+      const container = document.getElementById('filmstripContainer');
+      container.innerHTML = currentFilteredItems.map((item, idx) => `
+        <div 
+          onclick="selectImage(${idx})" 
+          class="filmstrip-thumb w-14 h-10 sm:w-18 sm:h-12 flex-shrink-0 rounded overflow-hidden border ${idx === currentActiveIndex ? 'border-2 border-[#E84874] opacity-100 scale-105' : 'border-white/30 opacity-60 hover:opacity-100'} transition transform cursor-pointer"
+        >
+          <img src="${item.url}" alt="thumb" class="w-full h-full object-cover" />
+        </div>
+      `).join('');
+    }
+
+    function selectImage(index) {
+      currentActiveIndex = index;
+      updateLightboxDisplay();
+    }
+
+    function nextImage() {
+      currentActiveIndex = (currentActiveIndex + 1) % currentFilteredItems.length;
+      updateLightboxDisplay();
+    }
+
+    function prevImage() {
+      currentActiveIndex = (currentActiveIndex - 1 + currentFilteredItems.length) % currentFilteredItems.length;
+      updateLightboxDisplay();
+    }
+
+    function toggleZoom() {
+      const img = document.getElementById('lightboxMainImg');
+      const icon = document.getElementById('zoomIcon');
+      isZoomed = !isZoomed;
+      if (isZoomed) {
+        img.classList.add('scale-150', 'cursor-zoom-out');
+        icon.className = 'fa-solid fa-magnifying-glass-minus text-rose-400';
+      } else {
+        img.classList.remove('scale-150', 'cursor-zoom-out');
+        icon.className = 'fa-solid fa-magnifying-glass-plus';
+      }
+    }
+
+    function toggleSlideshow() {
+      const icon = document.getElementById('playIcon');
+      isSlideshowPlaying = !isSlideshowPlaying;
+      if (isSlideshowPlaying) {
+        icon.className = 'fa-solid fa-pause text-rose-400';
+        slideshowInterval = setInterval(() => {
+          nextImage();
+        }, 3000);
+      } else {
+        icon.className = 'fa-solid fa-play';
+        clearInterval(slideshowInterval);
+      }
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => { });
+      } else {
+        document.exitFullscreen().catch(() => { });
+      }
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightboxModal');
+      if (!modal.classList.contains('hidden')) {
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
+
+    // Mobile Navigation
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      drawer.classList.toggle('hidden');
+      if (drawer.classList.contains('hidden')) {
+        icon.className = 'fa-solid fa-bars text-xl';
+      } else {
+        icon.className = 'fa-solid fa-xmark text-xl';
+      }
+    }
+
+    function toggleMobileAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1280) {
+        document.getElementById('mobileDrawer')?.classList.add('hidden');
+        document.getElementById('mobileMenuIcon')?.setAttribute('class', 'fa-solid fa-bars text-xl');
+      }
+    });
+
+    // Initial render
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGallery('destination-weddings');
+    });
+  </script>
+
+
+  <!-- Floating Scroll To Top Button (Bottom-Left) — Visible near bottom only -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-[#B07D87] border border-rose-200 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 duration-200 backdrop-blur-sm opacity-0 pointer-events-none" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-xs"></i>
+  </button>
+  <script>
+    (function() {
+      const btn = document.getElementById('scrollTopBtn');
+      if (!btn) return;
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const totalHeight = document.documentElement.scrollHeight;
+        if (totalHeight > window.innerHeight && scrollPosition >= (totalHeight - 1000)) {
+          btn.classList.remove('opacity-0', 'pointer-events-none');
+          btn.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          btn.classList.add('opacity-0', 'pointer-events-none');
+          btn.classList.remove('opacity-100', 'pointer-events-auto');
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>

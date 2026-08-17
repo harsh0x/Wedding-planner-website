@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celebrity & Artist Management | SHOWMANIA Events & Entertainment</title>
+  <meta name="description"
+    content="SHOWMANIA curates A-list Bollywood and international celebrities, playback singers, global DJs, symphony orchestras, and headline performers." />
+
+  <!-- Google Fonts: Cormorant Garamond, Great Vibes, Playfair Display, Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rose: {
+              DEFAULT: '#B07D87',
+              50: '#FDFBFB',
+              100: '#F9F3F4',
+              200: '#EEDCE0',
+              300: '#E0BFC7',
+              400: '#CC9AA5',
+              500: '#B07D87',
+              600: '#9E6772',
+              700: '#85515C',
+              800: '#693E46',
+              900: '#4E2D33'
+            },
+            charcoal: '#2E282A',
+            cream: {
+              50: '#FAF6F3',
+              100: '#F5EFEB',
+              200: '#EADBCE',
+              300: '#DFC7B3',
+              400: '#D5B499'
+            }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+            script: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
+            sans: ['Montserrat', 'Inter', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #FAF6F3;
+      color: #2E282A;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      content-visibility: auto;
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transform: translateZ(0);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(46, 40, 42, 0.45) 0%, rgba(176, 125, 135, 0.70) 55%, rgba(176, 125, 135, 0.92) 100%);
+      pointer-events: none;
+      will-change: opacity;
+      transform: translateZ(0);
+    }
+
+    [id*="SlideBg"], [id*="heroBg"], .slide-bg {
+      will-change: transform, opacity;
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+
+    .card-zoom:hover img {
+      transform: scale(1.08);
+    }
+  </style>
+</head>
+
+<body class="font-sans antialiased text-[#2E282A] flex flex-col min-h-screen">
+
+  <!-- 1. TOP ANNOUNCEMENT BAR -->
+  <div class="w-full bg-[#B07D87] text-white py-2 px-3 sm:px-4 text-center z-50 relative">
+    <div
+      class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-[11px] sm:text-xs md:text-sm font-sans tracking-wide uppercase">
+      <i class="fa-solid fa-star text-[10px] sm:text-xs text-rose-200"></i>
+      <span class="font-semibold tracking-wider">A-List Talent & Headline Artist Booking Agency</span>
+      <i class="fa-solid fa-arrow-right text-[10px] sm:text-xs opacity-70"></i>
+    </div>
+  </div>
+
+  <!-- 2. STICKY NAVBAR -->
+  <header class="sticky top-0 left-0 w-full z-50 glass-nav shadow-md py-3 transition-all duration-300 text-[#2E282A]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-2 group py-1 flex-shrink-0">
+        <img src="assets/logo.png" alt="SHOWMANIA Events & Entertainment"
+          class="h-9 sm:h-11 md:h-12 w-auto object-contain transition transform group-hover:scale-105" />
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav
+        class="hidden xl:flex items-center space-x-6 2xl:space-x-7 text-[11px] tracking-[0.18em] uppercase font-medium">
+
+        <!-- Home -->
+        <a href="index.html" class="hover:text-rose-600 transition-colors py-1">Home</a>
+
+        <!-- About Us Dropdown -->
+        <div class="relative group py-2">
+          <a href="about-us.html"
+            class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>About Us</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </a>
+          <div class="absolute top-full left-0 pt-2 w-56 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="about-us.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-gem text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">About Showmania</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Legacy, vision & founder</span>
+                  </div>
+                </a>
+                <a href="testimonials.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-heart-pulse text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Testimonials</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Client love stories</span>
+                  </div>
+                </a>
+                <a href="contact.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-regular fa-envelope text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Contact Us</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Inquiries & studio</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Services Dropdown -->
+        <div class="relative group py-2">
+          <button
+            class="flex items-center gap-1.5 py-1 text-rose-600 font-semibold tracking-[0.18em] uppercase cursor-pointer">
+            <span>Services</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="index.html#services"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-ring text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Wedding Services</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Bespoke nuptial planning</span>
+                  </div>
+                </a>
+                <a href="corporate-events.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-building text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Corporate Events</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Galas & summits</span>
+                  </div>
+                </a>
+                <a href="social-events.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-6 h-6 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-champagne-glasses text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Social Events</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Birthdays & luxury soirées</span>
+                  </div>
+                </a>
+                <a href="celebrity-artist-management.html"
+                  class="flex items-center gap-3 px-3.5 py-2 rounded-xl bg-rose-50 text-rose-600 text-xs font-semibold">
+                  <div class="w-6 h-6 rounded-full bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-star text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block">Celebrity & Artist</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Talent & stage curation</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destination Weddings Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Destination Weddings</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-72 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="destination-wedding-india.html"
+                  class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-archway text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Destination Wedding in India</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Udaipur, Jaipur, Goa, Kerala</span>
+                  </div>
+                </a>
+                <a href="destination-wedding-abroad.html"
+                  class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-plane-departure text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Destination Wedding in Abroad</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Bali, Dubai, Italy, Thailand</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue Dropdown -->
+        <div class="relative group py-2">
+          <button class="flex items-center gap-1.5 py-1 hover:text-rose-600 tracking-[0.18em] uppercase cursor-pointer">
+            <span>Venue</span>
+            <i
+              class="fa-solid fa-chevron-down text-[8px] opacity-70 group-hover:rotate-180 transition transform duration-300"></i>
+          </button>
+          <div class="absolute top-full left-0 pt-2 w-64 hidden group-hover:block z-50 animate-fade-in">
+            <div
+              class="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
+              <div class="px-1.5 space-y-1">
+                <a href="wedding-venues.html"
+                  class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-rose-50 text-[#423E40] hover:text-rose-600 text-xs transition">
+                  <div class="w-7 h-7 rounded-full bg-rose-50 flex items-center justify-center text-[#B07D87]">
+                    <i class="fa-solid fa-hotel text-xs"></i>
+                  </div>
+                  <div>
+                    <span class="block font-medium">Wedding Venues</span>
+                    <span class="block text-[10px] text-gray-400 font-light">Palaces, Forts & Resorts</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Real Weddings -->
+        <a href="real-weddings.html" class="hover:text-rose-600 transition-colors py-1">Real Weddings</a>
+
+        <!-- Gallery -->
+        <a href="gallery.html" class="hover:text-rose-600 transition-colors py-1">Gallery</a>
+
+      </nav>
+
+      <!-- Far Right CTA Button -->
+      <div class="hidden lg:flex items-center">
+        <a href="contact.html"
+          class="px-6 py-2.5 rounded-md bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase transition transform hover:scale-[1.03] shadow-md hover:shadow-lg">
+          CONTACT US
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <div class="xl:hidden flex items-center gap-3">
+        <a href="contact.html"
+          class="px-3.5 py-1.5 rounded-md bg-[#E84874] text-white text-[10px] font-semibold tracking-wider uppercase shadow-sm">
+          Contact
+        </a>
+        <button onclick="toggleMobileNav()"
+          class="p-2 rounded-lg text-charcoal hover:bg-rose-100/60 transition cursor-pointer" aria-label="Toggle Menu">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileDrawer"
+      class="hidden xl:hidden bg-[#FAF6F3] text-charcoal border-b border-rose-200 px-6 py-5 shadow-2xl">
+      <div class="flex flex-col space-y-2 text-xs font-medium tracking-wider uppercase">
+
+        <a href="index.html"
+          class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-[#B07D87]">
+          <span>Home</span>
+          <i class="fa-solid fa-house text-xs opacity-50"></i>
+        </a>
+
+        <!-- Mobile About Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileAboutContent', 'mobileAboutIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>About Us</span>
+            <i id="mobileAboutIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileAboutContent"
+            class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="testimonials.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-heart-pulse text-xs text-rose-400 mr-2"></i>Testimonials
+            </a>
+            <a href="contact.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-regular fa-envelope text-xs text-rose-400 mr-2"></i>Contact Us
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Services Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileServicesContent', 'mobileServicesIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase text-rose-600 font-semibold">
+            <span>Services</span>
+            <i id="mobileServicesIcon" class="fa-solid fa-chevron-down text-xs transition transform text-rose-600"></i>
+          </button>
+          <div id="mobileServicesContent" class="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="index.html#services" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-ring text-xs text-rose-400 mr-2"></i>Wedding Services
+            </a>
+            <a href="corporate-events.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-building text-xs text-rose-400 mr-2"></i>Corporate Events
+            </a>
+            <a href="social-events.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-champagne-glasses text-xs text-rose-400 mr-2"></i>Social Events
+            </a>
+            <a href="celebrity-artist-management.html" class="block py-1 text-rose-600 font-semibold">
+              <i class="fa-solid fa-star text-xs text-rose-400 mr-2"></i>Celebrity & Artist
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Destination Weddings Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileDestContent', 'mobileDestIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Destination Weddings</span>
+            <i id="mobileDestIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileDestContent" class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="destination-wedding-india.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-archway text-xs text-rose-400 mr-2"></i>Destination Wedding in India
+            </a>
+            <a href="destination-wedding-abroad.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-plane-departure text-xs text-rose-400 mr-2"></i>Destination Wedding in Abroad
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Venue Accordion -->
+        <div class="border-b border-rose-100 py-2">
+          <button onclick="toggleMobileAccordion('mobileVenueContent', 'mobileVenueIcon')"
+            class="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-rose-600">
+            <span>Venue</span>
+            <i id="mobileVenueIcon" class="fa-solid fa-chevron-down text-xs transition transform opacity-50"></i>
+          </button>
+          <div id="mobileVenueContent"
+            class="hidden pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+            <a href="wedding-venues.html" class="block py-1 hover:text-rose-600">
+              <i class="fa-solid fa-hotel text-xs text-rose-400 mr-2"></i>Wedding Venues
+            </a>
+          </div>
+        </div>
+
+        <a href="real-weddings.html"
+          class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-rose-600">
+          <span>Real Weddings</span>
+          <i class="fa-regular fa-image text-xs opacity-50"></i>
+        </a>
+
+        <a href="gallery.html"
+          class="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-rose-600">
+          <span>Gallery</span>
+          <i class="fa-solid fa-camera-retro text-xs opacity-50"></i>
+        </a>
+
+        <div class="pt-3">
+          <a href="contact.html"
+            class="w-full py-3 rounded-md bg-[#E84874] text-white text-center font-semibold tracking-widest uppercase block shadow-md">
+            CONTACT US
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- 3. HERO BANNER WITH AUTOMATIC SLIDER & SIGNATURE PINKISH FADED OVERLAY -->
+  <section
+    class="relative text-white min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center py-24 sm:py-32 md:py-40 px-4 sm:px-6 md:px-12 text-center overflow-hidden">
+
+    <!-- Background Slides with Ken Burns & Smooth Crossfade -->
+    <div id="celebrityHeroBgContainer" class="absolute inset-0 z-0">
+      <!-- Injected via JS -->
+    </div>
+
+    <!-- Signature Pinkish Faded Gradient Overlay (Matching Reference Image) -->
+    <div class="absolute inset-0 hero-overlay z-10"></div>
+
+    <!-- Center Content -->
+    <div class="max-w-4xl mx-auto relative z-20 flex-1 flex flex-col items-center justify-center select-none">
+      <span id="celebrityHeroSub"
+        class="font-script text-3xl sm:text-5xl text-rose-200 block mb-3 transition-opacity duration-500">Star Power &
+        World-Class Stagecraft</span>
+      <h1 id="celebrityHeroTitle"
+        class="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide leading-tight mb-5 drop-shadow-md transition-opacity duration-500">
+        Celebrity & Artist Management
+      </h1>
+      <p id="celebrityHeroDesc"
+        class="font-sans text-xs sm:text-sm md:text-base text-rose-100 max-w-2xl mx-auto font-light leading-relaxed mb-8 px-2 drop-shadow-sm transition-opacity duration-500">
+        Connect your stage with renowned playback legends, Bollywood luminaries, international EDM headliners, 24-piece
+        string symphonies, and boundary-pushing acrobatic acts.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 z-20">
+        <a href="#artist-roster"
+          class="px-8 py-3.5 rounded-full bg-white text-[#2E282A] hover:bg-rose-50 text-xs font-semibold uppercase tracking-widest shadow-xl transition transform hover:scale-105">
+          Explore Roster
+        </a>
+        <a href="contact.html"
+          class="px-8 py-3.5 rounded-full bg-[#B07D87] hover:bg-[#9E6772] text-white text-xs font-semibold uppercase tracking-widest shadow-xl border border-white/40 transition transform hover:scale-105">
+          Inquire Availability
+        </a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- 4. ARTIST CATEGORIES BREAKDOWN WITH RICH IMAGERY -->
+  <section id="artist-roster" class="py-16 sm:py-24 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
+    <div class="text-center mb-14">
+      <span class="font-script text-3xl sm:text-4xl text-[#B07D87] block mb-2">The Talent Curation</span>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2E282A] font-semibold">
+        Headline Entertainment Roster
+      </h2>
+      <p class="text-xs sm:text-sm text-[#696164] max-w-xl mx-auto mt-2 font-light">
+        We handle all talent negotiations, rider compliance, green room hospitality, VIP security convoys, and live
+        sound mixing in-house.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-3xl overflow-hidden shadow-md border border-rose-200/80 hover:shadow-2xl transition duration-500 card-zoom flex flex-col justify-between group">
+        <div>
+          <div class="h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1566737236500-c8ac43014a67?auto=format&fit=crop&w=800&q=80"
+              alt="Celebrity Appearances & Hosts"
+              class="w-full h-full object-cover transition-transform duration-700" />
+            <span
+              class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#B07D87] shadow-sm">
+              Red Carpet & Emcees
+            </span>
+          </div>
+          <div class="p-6 sm:p-7">
+            <div
+              class="w-10 h-10 rounded-xl bg-rose-50 text-[#B07D87] flex items-center justify-center text-lg mb-4 shadow-xs">
+              <i class="fa-solid fa-film"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-[#2E282A] font-semibold mb-2">Celebrity Appearances & Hosts</h3>
+            <p class="text-xs sm:text-sm text-[#696164] font-light leading-relaxed mb-4">
+              Top-tier actors, sports personalities, and charismatic television emcees to host grand wedding receptions,
+              ribbon-cuttings, and awards banquets.
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <div
+            class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-[#B07D87] font-semibold">
+            <span>A-List Talent</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white rounded-3xl overflow-hidden shadow-md border border-rose-200/80 hover:shadow-2xl transition duration-500 card-zoom flex flex-col justify-between group">
+        <div>
+          <div class="h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80"
+              alt="Live Playback Singers & Bands"
+              class="w-full h-full object-cover transition-transform duration-700" />
+            <span
+              class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#B07D87] shadow-sm">
+              Concert Experience
+            </span>
+          </div>
+          <div class="p-6 sm:p-7">
+            <div
+              class="w-10 h-10 rounded-xl bg-rose-50 text-[#B07D87] flex items-center justify-center text-lg mb-4 shadow-xs">
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-[#2E282A] font-semibold mb-2">Live Playback Singers & Bands</h3>
+            <p class="text-xs sm:text-sm text-[#696164] font-light leading-relaxed mb-4">
+              Mesmerizing Sufi vocalists, chart-topping Bollywood playback stars, and high-energy live wedding bands
+              that keep guests singing all night.
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <div
+            class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-[#B07D87] font-semibold">
+            <span>Live Stage Vocals</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white rounded-3xl overflow-hidden shadow-md border border-rose-200/80 hover:shadow-2xl transition duration-500 card-zoom flex flex-col justify-between group">
+        <div>
+          <div class="h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80"
+              alt="Global DJs & Live Instruments"
+              class="w-full h-full object-cover transition-transform duration-700" />
+            <span
+              class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#B07D87] shadow-sm">
+              EDM & Saxophone
+            </span>
+          </div>
+          <div class="p-6 sm:p-7">
+            <div
+              class="w-10 h-10 rounded-xl bg-rose-50 text-[#B07D87] flex items-center justify-center text-lg mb-4 shadow-xs">
+              <i class="fa-solid fa-compact-disc"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-[#2E282A] font-semibold mb-2">Global DJs & Live Instruments</h3>
+            <p class="text-xs sm:text-sm text-[#696164] font-light leading-relaxed mb-4">
+              Club resident DJs paired with live electric violinists, percussionists, and saxophonists for an
+              intoxicating After-Party ambiance.
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <div
+            class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-[#B07D87] font-semibold">
+            <span>High-Energy Fusion</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div
+        class="bg-white rounded-3xl overflow-hidden shadow-md border border-rose-200/80 hover:shadow-2xl transition duration-500 card-zoom flex flex-col justify-between group">
+        <div>
+          <div class="h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80"
+              alt="Symphony & String Quartets" class="w-full h-full object-cover transition-transform duration-700" />
+            <span
+              class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#B07D87] shadow-sm">
+              Classical Grandeur
+            </span>
+          </div>
+          <div class="p-6 sm:p-7">
+            <div
+              class="w-10 h-10 rounded-xl bg-rose-50 text-[#B07D87] flex items-center justify-center text-lg mb-4 shadow-xs">
+              <i class="fa-solid fa-music"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-[#2E282A] font-semibold mb-2">Symphony & String Quartets</h3>
+            <p class="text-xs sm:text-sm text-[#696164] font-light leading-relaxed mb-4">
+              Graceful aisle entrance serenades, cocktail background acoustics, and grand 24-piece orchestral overtures
+              for regal arrivals.
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <div
+            class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-[#B07D87] font-semibold">
+            <span>Orchestral Nuance</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div
+        class="bg-white rounded-3xl overflow-hidden shadow-md border border-rose-200/80 hover:shadow-2xl transition duration-500 card-zoom flex flex-col justify-between group">
+        <div>
+          <div class="h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80"
+              alt="International Dance & Acrobatics"
+              class="w-full h-full object-cover transition-transform duration-700" />
+            <span
+              class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#B07D87] shadow-sm">
+              Visual Spectacle
+            </span>
+          </div>
+          <div class="p-6 sm:p-7">
+            <div
+              class="w-10 h-10 rounded-xl bg-rose-50 text-[#B07D87] flex items-center justify-center text-lg mb-4 shadow-xs">
+              <i class="fa-solid fa-person-falling"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-[#2E282A] font-semibold mb-2">International Dance Troupes</h3>
+            <p class="text-xs sm:text-sm text-[#696164] font-light leading-relaxed mb-4">
+              Silk aerialists, LED water drummers, Russian ballet dancers, and mesmerizing fire performers tailored to
+              thematic evening stages.
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <div
+            class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-[#B07D87] font-semibold">
+            <span>Theatrical Artistry</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div
+        class="bg-white rounded-3xl overflow-hidden shadow-md border border-rose-200/80 hover:shadow-2xl transition duration-500 card-zoom flex flex-col justify-between group">
+        <div>
+          <div class="h-52 w-full overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80"
+              alt="Security & Technical Riders" class="w-full h-full object-cover transition-transform duration-700" />
+            <span
+              class="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase text-[#B07D87] shadow-sm">
+              100% Confidential
+            </span>
+          </div>
+          <div class="p-6 sm:p-7">
+            <div
+              class="w-10 h-10 rounded-xl bg-rose-50 text-[#B07D87] flex items-center justify-center text-lg mb-4 shadow-xs">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="font-serif text-2xl text-[#2E282A] font-semibold mb-2">Rider & Security Protocols</h3>
+            <p class="text-xs sm:text-sm text-[#696164] font-light leading-relaxed mb-4">
+              Discrete executive protection, black-car motorcades, sound engineer tech specs, and five-star backstage
+              green room styling.
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-6 pt-0">
+          <div
+            class="pt-4 border-t border-rose-100 flex items-center justify-between text-xs text-[#B07D87] font-semibold">
+            <span>VIP Protection</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. PHOTO GALLERY MASONRY SHOWCASE -->
+  <section class="py-16 bg-white border-y border-rose-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+      <div class="text-center mb-12">
+        <span class="font-script text-3xl sm:text-4xl text-[#B07D87] block mb-1">Live In Action</span>
+        <h2 class="font-serif text-2xl sm:text-4xl text-[#2E282A] font-semibold">
+          Stage & Performance Highlights
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        <div class="rounded-2xl overflow-hidden shadow-md h-48 sm:h-64 group relative">
+          <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80"
+            alt="Concert Stage" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+            <span class="text-white text-xs font-medium">Headliner DJ Stage</span>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-md h-48 sm:h-64 group relative">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=800&q=80"
+            alt="Singer Live" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+            <span class="text-white text-xs font-medium">Playback Singer Spotlight</span>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-md h-48 sm:h-64 group relative">
+          <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=800&q=80"
+            alt="Orchestra Strings" class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+            <span class="text-white text-xs font-medium">Live String Quartet</span>
+          </div>
+        </div>
+        <div class="rounded-2xl overflow-hidden shadow-md h-48 sm:h-64 group relative">
+          <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=80"
+            alt="Acrobatic Performer"
+            class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent opacity-0 group-hover:opacity-100 transition p-4 flex items-end">
+            <span class="text-white text-xs font-medium">International Aerial Act</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CTA BANNER -->
+  <section class="py-20 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto w-full">
+    <div
+      class="bg-white rounded-3xl p-8 sm:p-12 md:p-16 text-center border border-rose-200/80 shadow-2xl relative overflow-hidden">
+      <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-rose-50 -z-0"></div>
+      <div class="relative z-10">
+        <span class="font-script text-3xl sm:text-5xl text-[#B07D87] block mb-2">Electrify Your Event</span>
+        <h2 class="font-serif text-2xl sm:text-4xl md:text-5xl text-[#2E282A] font-semibold mb-4">
+          Book Star Talent for Your Stage
+        </h2>
+        <p class="text-xs sm:text-sm text-[#696164] max-w-xl mx-auto mb-8 font-light leading-relaxed">
+          Request private artist availability, technical riders, and commercial packages with our celebrity booking
+          directors.
+        </p>
+        <a href="contact.html"
+          class="inline-block px-10 py-4.5 rounded-full bg-[#B07D87] hover:bg-[#9E6772] text-white text-xs sm:text-sm font-semibold tracking-widest uppercase shadow-xl transition transform hover:scale-105 active:scale-95">
+          Inquire Artist Availability
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER -->
+  <footer
+    class="bg-[#FAF6F3] text-[#696164] pt-12 sm:pt-16 pb-8 px-4 sm:px-6 md:px-12 border-t border-rose-200/50 w-full mt-auto">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="flex justify-center mb-3">
+        <img src="assets/logo.png" alt="SHOWMANIA Events & Entertainment"
+          class="h-10 sm:h-12 md:h-14 w-auto object-contain" />
+      </div>
+      <p class="text-xs font-light text-gray-500 mb-6 px-4">Bespoke Luxury Celebrations & Entertainment Worldwide</p>
+      <div
+        class="flex flex-wrap justify-center gap-4 sm:gap-6 text-xs text-[#2E282A] font-medium uppercase tracking-widest mb-8 px-2">
+        <a href="index.html" class="hover:text-rose-600">Home</a>
+        <a href="testimonials.html" class="hover:text-rose-600">Testimonials</a>
+        <a href="corporate-events.html" class="hover:text-rose-600">Corporate Events</a>
+        <a href="social-events.html" class="hover:text-rose-600">Social Events</a>
+        <a href="celebrity-artist-management.html" class="text-rose-600 font-semibold">Celebrity & Artist</a>
+        <a href="contact.html" class="hover:text-rose-600">Contact Us</a>
+      </div>
+    </div>
+    <div class="w-full bg-[#B07D87] text-white py-3 text-center px-4 mt-6">
+      <p class="text-[11px] font-light">© 2026 SHOWMANIA Events & Entertainment. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Widget -->
+  <div class="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 select-none">
+    <a href="https://wa.me/919782962963?text=Hello!%20I%20am%20interested%20in%20booking%20celebrities%20and%20artists."
+      target="_blank" rel="noopener noreferrer"
+      class="w-13 h-13 sm:w-16 sm:h-16 rounded-full bg-[#B07D87] hover:bg-[#9E6772] text-white flex items-center justify-center shadow-xl border-2 border-white transition transform hover:scale-110 active:scale-95"
+      aria-label="Contact on WhatsApp">
+      <svg class="w-6 h-6 sm:w-7 sm:h-7 fill-current" viewBox="0 0 24 24">
+        <path
+          d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 15 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.53 7.33C9.33 7.33 9 7.4 8.73 7.7C8.46 8 7.7 8.72 7.7 10.18C7.7 11.64 8.76 13.05 8.91 13.25C9.06 13.45 11 16.43 13.93 17.7C14.63 18 15.17 18.18 15.6 18.32C16.3 18.54 16.94 18.51 17.44 18.43C18 18.35 19.18 17.72 19.43 17.03C19.68 16.33 19.68 15.74 19.6 15.62C19.53 15.5 19.33 15.43 19.03 15.28C18.73 15.13 17.26 14.41 16.98 14.31C16.71 14.21 16.51 14.16 16.31 14.46C16.11 14.76 15.54 15.43 15.36 15.63C15.19 15.83 15.01 15.86 14.71 15.71C14.41 15.56 13.45 15.25 12.31 14.23C11.43 13.44 10.83 12.47 10.66 12.17C10.49 11.87 10.64 11.71 10.79 11.56C10.93 11.42 11.09 11.2 11.24 11.03C11.39 10.85 11.44 10.73 11.54 10.53C11.64 10.33 11.59 10.16 11.51 10.01C11.44 9.86 10.84 8.38 10.59 7.78C10.34 7.2 10.1 7.28 9.91 7.27C9.74 7.26 9.54 7.26 9.34 7.26" />
+      </svg>
+    </a>
+  </div>
+
+  <script>
+    function toggleMobileNav() {
+      const drawer = document.getElementById('mobileDrawer');
+      const icon = document.getElementById('mobileMenuIcon');
+      drawer.classList.toggle('hidden');
+      if (drawer.classList.contains('hidden')) {
+        icon.className = 'fa-solid fa-bars text-xl';
+      } else {
+        icon.className = 'fa-solid fa-xmark text-xl';
+      }
+    }
+
+    function toggleMobileAccordion(contentId, iconId) {
+      const content = document.getElementById(contentId);
+      const icon = document.getElementById(iconId);
+      content.classList.toggle('hidden');
+      icon.classList.toggle('rotate-180');
+    }
+
+    // Celebrity Hero Slider Logic
+    const CELEBRITY_SLIDES = [
+      {
+        image: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=2000&q=85",
+        sub: "World-Class Star Power",
+        title: "Celebrity & Artist Management",
+        desc: "Connect your stage with renowned playback legends, Bollywood luminaries, international EDM headliners, 24-piece string symphonies, and boundary-pushing acrobatic acts."
+      },
+      {
+        image: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=2000&q=85",
+        sub: "Headlining Live Concerts",
+        title: "Iconic Musical Performances",
+        desc: "Seamless artist booking, VIP riders, green-room logistics, and concert-grade acoustics that deliver goosebumps to your audience."
+      },
+      {
+        image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=2000&q=85",
+        sub: "High-Octane After-Parties",
+        title: "Legendary Club & DJ Nights",
+        desc: "Electrifying Sangeet after-parties and corporate galas featuring international DJ sets, cryogenic CO2 jets, laser synchs, and confetti showers."
+      },
+      {
+        image: "https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=2000&q=85",
+        sub: "Ethereal Visual & Stage Artistry",
+        title: "Mesmerizing Cultural Acts",
+        desc: "Curated Sufi ensembles, royal instrumentalists, aerial acrobatics, and bespoke theatrical choreography crafted specifically for your event theme."
+      }
+    ];
+
+    let currentCelebIndex = 0;
+    let celebTimer = null;
+
+    function initCelebritySlider() {
+      const bgContainer = document.getElementById('celebrityHeroBgContainer');
+      if (!bgContainer) return;
+
+      bgContainer.innerHTML = CELEBRITY_SLIDES.map((slide, idx) => `
+        <div 
+          id="celebSlideBg-${idx}" 
+          class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 transform ${idx === 0 ? 'opacity-100 scale-105 duration-[6000ms]' : 'opacity-0 scale-100'}"
+          style="background-image: url('${slide.image}');"
+        ></div>
+      `).join('');
+
+      startCelebrityTimer();
+    }
+
+    function updateCelebritySlide() {
+      CELEBRITY_SLIDES.forEach((_, idx) => {
+        const el = document.getElementById(`celebSlideBg-${idx}`);
+        if (el) {
+          if (idx === currentCelebIndex) {
+            el.className = 'absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 transform opacity-100 scale-105 duration-[6000ms] ease-out';
+          } else {
+            el.className = 'absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 transform opacity-0 scale-100';
+          }
+        }
+      });
+
+      const s = CELEBRITY_SLIDES[currentCelebIndex];
+      const subEl = document.getElementById('celebrityHeroSub');
+      const titleEl = document.getElementById('celebrityHeroTitle');
+      const descEl = document.getElementById('celebrityHeroDesc');
+
+      if (subEl) subEl.innerText = s.sub;
+      if (titleEl) titleEl.innerText = s.title;
+      if (descEl) descEl.innerText = s.desc;
+    }
+
+    function nextCelebritySlide() {
+      currentCelebIndex = (currentCelebIndex + 1) % CELEBRITY_SLIDES.length;
+      updateCelebritySlide();
+    }
+
+    function prevCelebritySlide() {
+      currentCelebIndex = (currentCelebIndex - 1 + CELEBRITY_SLIDES.length) % CELEBRITY_SLIDES.length;
+      updateCelebritySlide();
+    }
+
+    function startCelebrityTimer() {
+      celebTimer = setInterval(() => {
+        currentCelebIndex = (currentCelebIndex + 1) % CELEBRITY_SLIDES.length;
+        updateCelebritySlide();
+      }, 5500);
+    }
+
+    document.addEventListener('DOMContentLoaded', initCelebritySlider);
+  </script>
+
+
+  <!-- Floating Scroll To Top Button (Bottom-Left) — Visible near bottom only -->
+  <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-[#B07D87] border border-rose-200 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 duration-200 backdrop-blur-sm opacity-0 pointer-events-none" aria-label="Scroll to top">
+    <i class="fa-solid fa-chevron-up text-xs"></i>
+  </button>
+  <script>
+    (function() {
+      const btn = document.getElementById('scrollTopBtn');
+      if (!btn) return;
+      window.addEventListener('scroll', function() {
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const totalHeight = document.documentElement.scrollHeight;
+        if (totalHeight > window.innerHeight && scrollPosition >= (totalHeight - 1000)) {
+          btn.classList.remove('opacity-0', 'pointer-events-none');
+          btn.classList.add('opacity-100', 'pointer-events-auto');
+        } else {
+          btn.classList.add('opacity-0', 'pointer-events-none');
+          btn.classList.remove('opacity-100', 'pointer-events-auto');
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+
+</html>
