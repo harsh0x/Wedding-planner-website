@@ -112,22 +112,22 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
         {/* Brand Logo & Name: SURAJ LIGHT'S RANTHAMBORE */}
         <Link 
           to="/"
-          className="flex items-center gap-3 group cursor-pointer py-0.5 flex-shrink-0"
+          className="flex items-center gap-2 sm:gap-3 group cursor-pointer py-0.5 flex-shrink-0"
         >
           <img 
             src="/logo.png" 
             alt="Suraj Light's Ranthambore Logo" 
-            className="h-11 sm:h-13 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+            className="h-8 xs:h-9 sm:h-11 md:h-12 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
           />
           <div className="flex flex-col">
-            <span className={`font-serif tracking-[0.14em] sm:tracking-[0.18em] uppercase font-black text-sm sm:text-base lg:text-lg transition leading-tight ${
+            <span className={`font-serif tracking-[0.10em] sm:tracking-[0.16em] uppercase font-black text-xs sm:text-base lg:text-lg transition leading-tight ${
               isSolid 
                 ? 'text-[#1A1A1A] group-hover:text-[#E63956]' 
                 : 'text-white group-hover:text-[#FFCCD3]'
             }`}>
               SURAJ LIGHT'S
             </span>
-            <span className={`text-[8px] sm:text-[8.5px] tracking-[0.22em] sm:tracking-[0.26em] uppercase font-bold transition ${
+            <span className={`text-[7px] sm:text-[8.5px] tracking-[0.16em] sm:tracking-[0.24em] uppercase font-bold transition ${
               isSolid ? 'text-[#E63956]' : 'text-[#FFCCD3]'
             }`}>
               RANTHAMBORE • ROYAL DECOR
@@ -512,21 +512,21 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
         </div>
 
         {/* Mobile & Tablet Header Controls (Visible on < 1280px) */}
-        <div className="xl:hidden flex items-center gap-2 sm:gap-3 flex-shrink-0">
+        <div className="xl:hidden flex items-center gap-1.5 sm:gap-2.5 flex-shrink-0">
           <button
             onClick={() => onOpenBooking('Full Event Lighting')}
-            className="px-3.5 py-1.5 rounded-full bg-[#E63956] hover:bg-[#CF203E] text-white text-[10px] font-bold tracking-wider uppercase transition shadow-sm cursor-pointer"
+            className="px-2.5 sm:px-3.5 py-1.5 rounded-full bg-[#E63956] hover:bg-[#CF203E] text-white text-[9px] sm:text-[10px] font-bold tracking-wider uppercase transition shadow-sm cursor-pointer"
           >
             Quote
           </button>
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`w-9 h-9 rounded-lg flex items-center justify-center transition cursor-pointer ${
+            className={`w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center transition cursor-pointer ${
               isSolid ? 'text-[#1A1A1A] hover:bg-rose-100/60' : 'text-white hover:bg-white/15'
             }`}
             aria-label="Toggle navigation menu"
           >
-            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-lg`}></i>
+            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-base sm:text-lg`}></i>
           </button>
         </div>
 

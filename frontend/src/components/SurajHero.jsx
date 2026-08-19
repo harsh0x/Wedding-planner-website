@@ -72,7 +72,7 @@ export default function SurajHero({ onOpenBooking }) {
       />
 
       {/* Hero Center Content */}
-      <div className="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-6 max-w-4xl mx-auto pt-36 pb-20 select-none">
+      <div className="relative z-20 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 max-w-4xl mx-auto pt-32 sm:pt-36 pb-16 sm:pb-20 select-none">
         
         {/* Animated Slide Content */}
         <AnimatePresence mode="wait">
