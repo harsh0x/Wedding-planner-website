@@ -1,0 +1,6 @@
+name = "wedding-planner-website"
+compatibility_date = "2024-08-01"
+pages_build_output_dir = "frontend/dist"
+
+[site]
+bucket = "./frontend/dist"
