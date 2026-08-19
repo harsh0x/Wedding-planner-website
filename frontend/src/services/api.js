@@ -47,8 +47,8 @@ ${formData.vision || 'No additional notes provided.'}`;
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             access_key: web3Key,
-            subject: `💍 New Wedding Inquiry: ${formData.name || 'Couple'}${partnerText} (${formData.guests || '150+'} Guests)`,
-            from_name: 'SHOWMANIA Events Inquiry',
+            subject: `✨ New Event Lighting Inquiry: ${formData.name || 'Client'}${partnerText} (${formData.guests || '300+'} Guests)`,
+            from_name: 'Suraj Light House Inquiry',
             name: `${formData.name}${partnerText}`,
             email: formData.email,
             phone: formData.phone,
@@ -67,7 +67,7 @@ ${formData.vision || 'No additional notes provided.'}`;
     // Graceful feedback
     return {
       success: true,
-      message: `💍 Thank you, ${formData.name || 'Lovely Couple'}! Your wedding inquiry has been received. Christi will be in touch within 24 hours!`,
+      message: `✨ Thank you, ${formData.name || 'Esteemed Client'}! Your event inquiry has been received. The Suraj Light House team will be in touch shortly!`,
       isMock: true
     };
   }
