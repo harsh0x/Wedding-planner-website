@@ -2,9 +2,10 @@
   "name": "suraj-lights-ranthambore",
   "version": "1.0.0",
   "description": "Suraj Light's Ranthambore - Grand Event Lighting, Tenting & Royal Decor MERN Stack Application",
-  "main": "backend/server.js",
+  "main": "worker.js",
   "scripts": {
-    "build": "npm run build --prefix frontend",
+    "postinstall": "npm install --prefix frontend",
+    "build": "npm install --prefix frontend && npm run build --prefix frontend",
     "build:frontend": "npm run build --prefix frontend",
     "deploy": "npx wrangler deploy",
     "dev": "concurrently -n \"BACKEND,FRONTEND\" -c \"cyan,magenta\" \"npm run backend\" \"npm run frontend\"",
