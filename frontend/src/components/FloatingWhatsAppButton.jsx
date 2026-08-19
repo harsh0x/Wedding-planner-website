@@ -1,26 +1,11 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-/**
- * FloatingWhatsAppButton
- * 
- * A standalone luxury floating WhatsApp chat widget with Framer Motion animations:
- * - Continuous subtle pulse/breathing idle animation with soft glow waves
- * - Smooth hover scale (1.10) with deepened shadow and interactive tooltip
- * - Realistic spring tap compression (0.95)
- * - Safe target="_blank" link opening https://wa.me/<PHONE_NUMBER>?text=<MESSAGE>
- * 
- * @param {string} phoneNumber - WhatsApp contact phone number (with country code)
- * @param {string} message - Default pre-filled message
- * @param {'whatsapp' | 'luxury'} theme - Color theme ('whatsapp' for classic green or 'luxury' for dusty rose)
- * @param {string} tooltipText - Hover tooltip label
- * @param {string} positionClass - Tailwind position class (default: "bottom-8 right-8")
- */
 export default function FloatingWhatsAppButton({
   phoneNumber = "+919782962963",
-  message = "Hello! I am interested in your luxury wedding planning services.",
+  message = "Hello Suraj Light House! I am interested in your event lighting & tenting services in Ranthambore.",
   theme = "luxury",
-  tooltipText = "Chat with our Wedding Concierge",
+  tooltipText = "Chat with Suraj Light House",
   positionClass = "bottom-8 right-8"
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -41,16 +26,16 @@ export default function FloatingWhatsAppButton({
       badgeBg: "bg-[#25D366]"
     },
     luxury: {
-      bg: "bg-[#B07D87]",
-      hoverBg: "hover:bg-[#9E6772]",
-      ringColor: "bg-[#B07D87]/35",
-      shadow: "shadow-[0_10px_25px_-3px_rgba(176,125,135,0.45)]",
-      hoverShadow: "0 20px 35px -5px rgba(176,125,135,0.55), 0 10px 15px -5px rgba(176,125,135,0.35)",
-      badgeBg: "bg-[#B07D87]"
+      bg: "bg-[#E63956]",
+      hoverBg: "hover:bg-[#CF203E]",
+      ringColor: "bg-[#E63956]/35",
+      shadow: "shadow-[0_10px_25px_-3px_rgba(230,57,86,0.45)]",
+      hoverShadow: "0 20px 35px -5px rgba(230,57,86,0.55), 0 10px 15px -5px rgba(230,57,86,0.35)",
+      badgeBg: "bg-[#E63956]"
     }
   };
 
-  const activeTheme = themeStyles[theme] || themeStyles.whatsapp;
+  const activeTheme = themeStyles[theme] || themeStyles.luxury;
 
   return (
     <div className={`fixed ${positionClass} z-50 flex items-center justify-end group select-none`}>
@@ -63,7 +48,7 @@ export default function FloatingWhatsAppButton({
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 10, scale: 0.9 }}
             transition={{ duration: 0.2, ease: [0.25, 1, 0.5, 1] }}
-            className="hidden sm:flex items-center gap-2 mr-3 px-4 py-2 bg-white/95 backdrop-blur-md text-[#2E282A] text-xs font-medium tracking-wide rounded-full shadow-xl border border-rose-100 whitespace-nowrap"
+            className="hidden sm:flex items-center gap-2 mr-3 px-4 py-2 bg-white/95 backdrop-blur-md text-[#1A1A1A] text-xs font-bold tracking-wide rounded-full shadow-xl border border-rose-100 whitespace-nowrap"
           >
             <span className={`w-2 h-2 rounded-full ${activeTheme.badgeBg} animate-ping`}></span>
             <span>{tooltipText}</span>
@@ -93,7 +78,7 @@ export default function FloatingWhatsAppButton({
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Contact SHOWMANIA Events & Entertainment on WhatsApp"
+          aria-label="Contact Suraj Light House on WhatsApp"
           title={tooltipText}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

@@ -3,10 +3,9 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
 // Global Components
-import AnnouncementBar from './components/AnnouncementBar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import BookingModal from './components/BookingModal';
+import QuoteModal from './components/QuoteModal';
 import LightboxModal from './components/LightboxModal';
 import Toast from './components/Toast';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
@@ -25,7 +24,7 @@ import RealWeddingsPage from './pages/RealWeddingsPage';
 import GalleryPage from './pages/GalleryPage';
 import AboutUsPage from './pages/AboutUsPage';
 
-import { INITIAL_PORTFOLIO } from './data/weddingData';
+import { INITIAL_PORTFOLIO } from './data/lightingData';
 import { fetchPortfolio } from './services/api';
 
 // Scroll To Top on Route Change Helper
@@ -63,7 +62,7 @@ function AnimatedRoutes({
           } 
         />
 
-        {/* Route 1.5: About Us Page */}
+        {/* Route 1.5: Our Heritage / About Us Page */}
         <Route 
           path="/about" 
           element={
@@ -73,7 +72,7 @@ function AnimatedRoutes({
           } 
         />
 
-        {/* Route 2: Testimonials Page */}
+        {/* Route 2: Client Appreciations / Testimonials Page */}
         <Route 
           path="/testimonials" 
           element={
@@ -83,7 +82,7 @@ function AnimatedRoutes({
           } 
         />
 
-        {/* Route 3: Contact Us Page */}
+        {/* Route 3: Light Up Your Event / Contact Us Page */}
         <Route 
           path="/contact" 
           element={
@@ -153,11 +152,11 @@ function AnimatedRoutes({
           } 
         />
 
-        {/* Route 10: Real Weddings */}
+        {/* Route 10: Real Productions & Grand Setups */}
         <Route 
           path="/real-weddings" 
           element={
-            <RealWeddingsPage />
+            <RealWeddingsPage onOpenBooking={onOpenBooking} />
           } 
         />
 
@@ -190,7 +189,7 @@ function AnimatedRoutes({
 export default function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
-  const [selectedService, setSelectedService] = useState('Full Wedding Planning');
+  const [selectedService, setSelectedService] = useState('Full Event Lighting');
   const [lightboxImage, setLightboxImage] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
   const [portfolioItems, setPortfolioItems] = useState(INITIAL_PORTFOLIO);
@@ -228,7 +227,7 @@ export default function App() {
           setPortfolioItems(items);
         }
       } catch (err) {
-        console.log('Using initial portfolio data');
+        console.log('Using initial lighting portfolio data');
       }
     };
     loadPortfolio();
@@ -239,14 +238,14 @@ export default function App() {
     setTimeout(() => setToastMessage(null), 4500);
   };
 
-  const handleOpenBooking = (serviceName = 'Full Wedding Planning') => {
+  const handleOpenBooking = (serviceName = 'Full Event Lighting') => {
     setSelectedService(serviceName);
     setBookingModalOpen(true);
   };
 
   return (
     <BrowserRouter>
-      <div className="relative min-w-full min-h-screen bg-[#FDFBF9] text-[#2E282A] font-sans selection:bg-[#B07D87] selection:text-white flex flex-col justify-between">
+      <div className="relative min-w-full min-h-screen bg-[#FAF6F0] text-[#1A1A1A] font-sans selection:bg-[#E63956] selection:text-white flex flex-col justify-between">
         
         {/* Route Scroll Position Reset */}
         <ScrollToTop />
@@ -257,20 +256,12 @@ export default function App() {
         {/* Lightbox Modal */}
         <LightboxModal image={lightboxImage} onClose={() => setLightboxImage(null)} />
 
-        {/* Booking Consultation Modal (Connected to Express /api/inquiry & Nodemailer) */}
-        <BookingModal 
+        {/* Quote Modal */}
+        <QuoteModal 
           isOpen={bookingModalOpen} 
           onClose={() => setBookingModalOpen(false)}
           initialService={selectedService}
           onSuccess={(msg) => showToast(msg)}
-        />
-
-        {/* Top Announcement Bar */}
-        <AnnouncementBar 
-          onSignUpClick={() => {
-            const el = document.getElementById('newsletter-section');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }} 
         />
 
         {/* Global Navigation with Animated Dropdown */}
@@ -292,19 +283,19 @@ export default function App() {
         {/* Global Luxury Footer */}
         <Footer onOpenBooking={handleOpenBooking} />
 
-        {/* Floating WhatsApp Action Widget (Bottom-Right, Luxury Dusty Rose Theme) */}
+        {/* Floating WhatsApp Action Widget */}
         <FloatingWhatsAppButton 
           phoneNumber="+919782962963"
-          message="Hello! I am interested in your luxury wedding planning services."
+          message="Hello Suraj Light House! I am interested in your event lighting & tenting services in Ranthambore."
           theme="luxury"
-          tooltipText="Chat with our Wedding Concierge"
+          tooltipText="Chat with Suraj Light House"
         />
 
-        {/* Floating Scroll-to-Top Button (Bottom-Left) — Only visible when near bottom of page */}
+        {/* Floating Scroll-to-Top Button */}
         {showScrollTop && (
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-[#B07D87] border border-rose-200 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 duration-200 backdrop-blur-sm animate-fade-in"
+            className="fixed bottom-8 left-8 z-40 w-12 h-12 rounded-full bg-white/95 hover:bg-white text-[#E63956] border border-rose-200 shadow-xl flex items-center justify-center transition-all duration-300 transform hover:scale-110 active:scale-95 duration-200 backdrop-blur-sm animate-fade-in cursor-pointer"
             aria-label="Scroll to top"
           >
             <i className="fa-solid fa-chevron-up text-xs"></i>

@@ -7,48 +7,63 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Logo-extracted primary coral crimson & royal red palette
         rose: {
-          DEFAULT: '#B07D87',
-          50: '#FAF5F6',
-          100: '#F5EBEF',
-          200: '#EBD7DF',
-          300: '#D8B4C2',
-          400: '#C594A5',
-          500: '#B07D87', // Primary dusty rose from spec
-          600: '#9E6772',
-          700: '#834F59',
-          800: '#693C44',
-          900: '#4F2B31',
+          DEFAULT: '#E63956',
+          50: '#FFF5F6',
+          100: '#FFE6E9',
+          200: '#FFCCD3',
+          300: '#FFA1AD',
+          400: '#FF6B81',
+          500: '#E63956', // Primary royal coral crimson from logo
+          600: '#CF203E',
+          700: '#AC1630',
+          800: '#891428',
+          900: '#5C0D1B',
+        },
+        // Rich crimson & ruby accents
+        crimson: {
+          DEFAULT: '#E63956',
+          light: '#FF6B81',
+          dark: '#AC1630',
+          glow: 'rgba(230, 57, 86, 0.35)',
         },
         mauve: {
-          DEFAULT: '#B07D87',
-          light: '#C89BA4',
-          dark: '#8C5662',
-          bg: '#C59B9F',
+          DEFAULT: '#E63956',
+          light: '#FF6B81',
+          dark: '#AC1630',
+          bg: '#FFE6E9',
         },
+        // Royal Heritage Cream & Ivory
         cream: {
-          50: '#FDFCFB',
-          100: '#FAF6F3',
-          200: '#F5EFEA',
-          300: '#EFE5DD',
+          50: '#FDFBF7',
+          100: '#FAF6F0',
+          200: '#F5EFE6',
+          300: '#EFE5D8',
         },
+        // Deep Onyx & Charcoal from logo typography
         charcoal: {
-          DEFAULT: '#2E282A',
-          light: '#423E40',
-          muted: '#696164',
+          DEFAULT: '#1A1A1A',
+          dark: '#111111',
+          light: '#2E282A',
+          muted: '#5A5255',
         },
+        // Royal Rajasthani Gold & Amber Lighting
         gold: {
           DEFAULT: '#D4AF37',
-          light: '#F3E5AB',
+          light: '#F5E7B2',
+          dark: '#AA820A',
           muted: '#C5A880',
+          amber: '#F59E0B',
         }
       },
       fontFamily: {
-        script: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
-        alex: ['"Alex Brush"', 'cursive'],
-        serif: ['"Cormorant Garamond"', '"Playfair Display"', 'Georgia', 'serif'],
+        cinzel: ['"Cinzel"', 'serif'],
         playfair: ['"Playfair Display"', 'serif'],
+        serif: ['"Cinzel"', '"Playfair Display"', '"Cormorant Garamond"', 'Georgia', 'serif'],
         sans: ['"Montserrat"', 'system-ui', 'sans-serif'],
+        script: ['"Cinzel"', 'serif'],
+        alex: ['"Playfair Display"', 'serif'],
       },
       animation: {
         'float-slow': 'float 6s ease-in-out infinite',

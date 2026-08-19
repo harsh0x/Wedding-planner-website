@@ -1,20 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IMAGES } from '../data/weddingData';
+import { IMAGES } from '../data/lightingData';
 
 export default function MosaicGallery({ onImageClick }) {
   const mosaicItems = [
-    { img: IMAGES.mosaic1, title: "Bespoke Floral Tablescapes" },
-    { img: IMAGES.mosaic2, title: "Tender Ceremony Vows" },
-    { img: IMAGES.mosaic3, title: "Alfresco Garden Dining" },
-    { img: IMAGES.mosaic4, title: "Couture Wedding Cake" },
-    { img: IMAGES.mosaic5, title: "The Magical First Dance" },
-    { img: IMAGES.mosaic6, title: "Joyful Bridal Party Moments" },
-    { img: IMAGES.mosaic7, title: "Hand-tied Garden Rose Bouquet" },
+    { img: IMAGES.mosaic1, title: "Royal Chandelier Canopy" },
+    { img: IMAGES.mosaic2, title: "Warm Fairy Light Tunnel" },
+    { img: IMAGES.mosaic3, title: "Concert Stage Trussing" },
+    { img: IMAGES.mosaic4, title: "Heritage Shamiyana Pavilion" },
+    { img: IMAGES.mosaic5, title: "Crystal Chandelier Rows" },
+    { img: IMAGES.mosaic6, title: "Amber Palace Uplighting" },
+    { img: IMAGES.mosaic7, title: "Fort Courtyard Illumination" },
   ];
 
   return (
-    <section className="bg-[#FAF6F3] py-10 px-4 md:px-8 border-y border-rose-100 overflow-hidden">
+    <section className="bg-[#FAF6F0] py-10 px-4 md:px-8 border-y border-rose-100 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           initial="hidden"
@@ -44,8 +44,8 @@ export default function MosaicGallery({ onImageClick }) {
                 alt={item.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#2E282A]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
-                <p className="text-white text-[11px] font-serif leading-tight">{item.title}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/85 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-3">
+                <p className="text-white text-[11px] font-serif font-semibold leading-tight">{item.title}</p>
               </div>
             </motion.div>
           ))}

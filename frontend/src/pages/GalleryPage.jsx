@@ -5,61 +5,54 @@ import { Link } from 'react-router-dom';
 const LUXURY_EASE = [0.25, 1, 0.5, 1];
 
 const filterCategories = [
-  { id: 'destination-weddings', name: 'Destination Weddings' },
-  { id: 'birthday-party', name: 'Birthday Party' },
-  { id: 'corporate-events', name: 'Corporate Events' },
-  { id: 'cocktail-party', name: 'Cocktail Party' }
+  { id: 'palace-lighting', name: 'Palace & Fort Lighting' },
+  { id: 'chandeliers', name: 'Crystal Chandeliers' },
+  { id: 'stage-trussing', name: 'Stage Trussing & Special FX' },
+  { id: 'tenting-decor', name: 'Heritage Shamiyana & Tenting' },
+  { id: 'corporate-lighting', name: 'Corporate Summits & Galas' }
 ];
 
 const galleryItems = [
-  // Destination Weddings (18 photos matching reference sequence)
-  { id: 1, category: 'destination-weddings', title: 'Royal Haldi Palace Courtyard Setup', location: 'Udaipur, Rajasthan', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85' },
-  { id: 2, category: 'destination-weddings', title: 'Opulent Palace Mandap & Crystal Stage', location: 'Jaipur, Rajasthan', url: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1400&q=85' },
-  { id: 3, category: 'destination-weddings', title: 'Grand Checkered Courtyard Nuptial Decor', location: 'Kumbhalgarh, Rajasthan', url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=85' },
-  { id: 4, category: 'destination-weddings', title: 'Sangeet Stage with Illumination & Led Arches', location: 'Fairmont Jaipur', url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=85' },
-  { id: 5, category: 'destination-weddings', title: 'Bride & Groom Royal Varmala Ceremony', location: 'Umaid Bhawan, Jodhpur', url: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1400&q=85' },
-  { id: 6, category: 'destination-weddings', title: 'Bespoke Floral Arch Welcome', location: 'Goa Beachfront Resort', url: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1400&q=85' },
-  { id: 7, category: 'destination-weddings', title: 'Pastel Floral Mandap on Lake Pichola', location: 'Lake Pichola, Udaipur', url: 'https://images.unsplash.com/photo-1532712938310-34cb3982ef74?auto=format&fit=crop&w=1400&q=85' },
-  { id: 8, category: 'destination-weddings', title: 'Sunset Beachside Pheras Canopy', location: 'W Goa, Vagator', url: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1400&q=85' },
-  { id: 9, category: 'destination-weddings', title: 'Luxury Banquet Table Curation with Gold Trim', location: 'The Leela Palace', url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=85' },
-  { id: 10, category: 'destination-weddings', title: 'Gota Patti & Marigold Carnival Mehndi', location: 'Samode Palace', url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=85' },
-  { id: 11, category: 'destination-weddings', title: 'Red Velvet Gala Sangeet Ballroom', location: 'Rambagh Palace Jaipur', url: 'https://images.unsplash.com/photo-1561489413-985b06da5bee?auto=format&fit=crop&w=1400&q=85' },
-  { id: 12, category: 'destination-weddings', title: 'Royal Fort Illuminated Entryway', location: 'Mehrangarh Fort, Jodhpur', url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1400&q=85' },
-  { id: 13, category: 'destination-weddings', title: 'Heritage Haveli Courtyard Reception', location: 'Chomu Palace, Rajasthan', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=85' },
-  { id: 14, category: 'destination-weddings', title: 'Crystal Chandelier Imperial Dining', location: 'Taj Falaknuma Palace', url: 'https://images.unsplash.com/photo-1478147427282-58a87a120781?auto=format&fit=crop&w=1400&q=85' },
-  { id: 15, category: 'destination-weddings', title: 'Ruby Red Rose Floral Stage Setup', location: 'Grand Hyatt Goa', url: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=1400&q=85' },
-  { id: 16, category: 'destination-weddings', title: 'Yellow Genda Phool Urli Haldi Setup', location: 'Rawla Narlai, Rajasthan', url: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1400&q=85' },
-  { id: 17, category: 'destination-weddings', title: 'Lawn Fairylight Canopy & Mirror Aisle', location: 'ITC Grand Bharat', url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=85' },
-  { id: 18, category: 'destination-weddings', title: 'Midnight Royal Fireworks Display', location: 'Jagmandir Island Palace, Udaipur', url: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1400&q=85' },
+  // Palace & Fort Lighting
+  { id: 1, category: 'palace-lighting', title: 'Nahargarh Palace Courtyard Illumination', location: 'Ranthambore, Rajasthan', url: 'https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=1400&q=85' },
+  { id: 2, category: 'palace-lighting', title: 'Six Senses Fort Barwara Amber Facade Wash', location: 'Sawai Madhopur, Rajasthan', url: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1400&q=85' },
+  { id: 3, category: 'palace-lighting', title: 'Oberoi Vanyavilas Fairy Light Tree Canopies', location: 'Ranthambore National Park Road', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85' },
+  { id: 4, category: 'palace-lighting', title: 'Royal Heritage Fort Rampart Floodlights', location: 'Jaipur, Rajasthan', url: 'https://images.unsplash.com/photo-1598890777032-bde835ba27c2?auto=format&fit=crop&w=1400&q=85' },
+  { id: 5, category: 'palace-lighting', title: 'Palace Lake Reflection Lighting', location: 'Udaipur, Rajasthan', url: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1400&q=85' },
+  { id: 6, category: 'palace-lighting', title: 'Sandstone Palace Golden Hour Glow', location: 'Jodhpur, Rajasthan', url: 'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=85' },
 
-  // Birthday Party
-  { id: 19, category: 'birthday-party', title: 'Milestone 50th Golden Jubilee Gala', location: 'The Oberoi, New Delhi', url: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=85' },
-  { id: 20, category: 'birthday-party', title: 'Fairy Tale Enchanted Garden Soirée', location: 'Private Estate, Alibaug', url: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1400&q=85' },
-  { id: 21, category: 'birthday-party', title: 'Neon Disco Carnival Celebration', location: 'JW Marriott, Mumbai', url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=85' },
-  { id: 22, category: 'birthday-party', title: 'Royal Moroccan Themed Birthday Lounge', location: 'Jaipur Palace Lawns', url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=85' },
+  // Crystal Chandeliers
+  { id: 7, category: 'chandeliers', title: 'Grand 40-Chandelier Open Courtyard Canopy', location: 'Nahargarh Palace, Ranthambore', url: 'https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=1400&q=85' },
+  { id: 8, category: 'chandeliers', title: 'Imperial Crystal Chandelier Dining Pavilion', location: 'Sawai Vilas, Sawai Madhopur', url: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=85' },
+  { id: 9, category: 'chandeliers', title: 'Floral Mandap with Tiered Crystal Drop Chandeliers', location: 'Royal Heritage Courtyard', url: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=85' },
+  { id: 10, category: 'chandeliers', title: 'Vintage Brass & Crystal Chandelier Alley', location: 'Jaipur Haveli Resort', url: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1400&q=85' },
 
-  // Corporate Events
-  { id: 23, category: 'corporate-events', title: 'Global Leadership Summit & Stage Production', location: 'Grand Hyatt Convention', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85' },
-  { id: 24, category: 'corporate-events', title: 'Annual Excellence Awards & Gala Night', location: 'Taj Palace, New Delhi', url: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=1400&q=85' },
-  { id: 25, category: 'corporate-events', title: 'Luxury Automobile Product Reveal', location: 'BICC, Mumbai', url: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=85' },
-  { id: 26, category: 'corporate-events', title: 'Tech Innovation Gala Keynote Stage', location: 'Aerocity, New Delhi', url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85' },
+  // Stage Trussing & Special FX
+  { id: 11, category: 'stage-trussing', title: 'Heavy Aluminum Box Trussing with Moving Heads', location: 'Six Senses Fort Barwara Sangeet', url: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=1400&q=85' },
+  { id: 12, category: 'stage-trussing', title: 'Concert DJ Stage with Full-Color RGB Lasers', location: 'Ranthambore Musical Night', url: 'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1400&q=85' },
+  { id: 13, category: 'stage-trussing', title: 'Sparkular Cold Pyrotechnic Grand Entry', location: 'Nahargarh Main Amphitheatre', url: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=85' },
+  { id: 14, category: 'stage-trussing', title: 'Dry Ice Low Fog Cloud for Royal Couple Dance', location: 'Jaipur Grand Ballroom', url: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=1400&q=85' },
 
-  // Cocktail Party
-  { id: 27, category: 'cocktail-party', title: 'Sundowner Speakeasy Bar & Live Saxophone', location: 'Goa Cliffside Deck', url: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1400&q=85' },
-  { id: 28, category: 'cocktail-party', title: 'Gatsby Glamour Cocktail & Champagne Tower', location: 'St. Regis Ballroom', url: 'https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=1400&q=85' },
-  { id: 29, category: 'cocktail-party', title: 'Moonlight Lounge with Custom Mixology', location: 'Lakeside Pavilion, Udaipur', url: 'https://images.unsplash.com/photo-1574096079513-d8259312b785?auto=format&fit=crop&w=1400&q=85' },
-  { id: 30, category: 'cocktail-party', title: 'Boho Chic Sunset Cocktail Soirée', location: 'Vagator Beachfront, Goa', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=85' }
+  // Heritage Shamiyana & Tenting
+  { id: 15, category: 'tenting-decor', title: 'Traditional Rajasthani Handcrafted Shamiyana', location: 'Sawai Madhopur Palace Grounds', url: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85' },
+  { id: 16, category: 'tenting-decor', title: 'Waterproof German Hangar Dining Pavilion', location: 'Ranthambore Luxury Resort', url: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=85' },
+  { id: 17, category: 'tenting-decor', title: 'Golden Silk Ceiling Drape with Warm Festoon Lights', location: 'Fort Courtyard Banquet', url: 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=1400&q=85' },
+  { id: 18, category: 'tenting-decor', title: 'Fairytale Fairy Light Tunnel Pathway', location: 'The Oberoi Vanyavilas Garden', url: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1400&q=85' },
+
+  // Corporate Summits & Galas
+  { id: 19, category: 'corporate-lighting', title: 'National Leadership Summit Keynote Stage', location: 'Rajasthan Convention Centre', url: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85' },
+  { id: 20, category: 'corporate-lighting', title: 'Annual Corporate Awards & Gala Stage', location: 'Jaipur Grand Ballroom', url: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1400&q=85' },
+  { id: 21, category: 'corporate-lighting', title: 'Automobile Product Launch Spotlight Rig', location: 'Convention Hangar Setup', url: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=85' }
 ];
 
 export default function GalleryPage() {
-  const [selectedCategory, setSelectedCategory] = useState('destination-weddings');
+  const [selectedCategory, setSelectedCategory] = useState('palace-lighting');
   const [lightboxIndex, setLightboxIndex] = useState(null);
   const [isSlideshow, setIsSlideshow] = useState(false);
   const [isZoomed, setIsZoomed] = useState(false);
 
   const filteredItems = galleryItems.filter(item => item.category === selectedCategory);
 
-  // Slideshow timer
   useEffect(() => {
     let timer = null;
     if (isSlideshow && lightboxIndex !== null) {
@@ -70,7 +63,6 @@ export default function GalleryPage() {
     return () => clearInterval(timer);
   }, [isSlideshow, lightboxIndex, filteredItems.length]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (lightboxIndex === null) return;
@@ -96,255 +88,168 @@ export default function GalleryPage() {
     setLightboxIndex((prev) => (prev - 1 + filteredItems.length) % filteredItems.length);
   };
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => {});
-    } else {
-      document.exitFullscreen().catch(() => {});
-    }
-  };
+  const currentItem = lightboxIndex !== null ? filteredItems[lightboxIndex] : null;
 
   return (
-    <div className="min-h-screen bg-[#FAF6F3] text-charcoal pb-24">
-      
-      {/* 1. TOP BOTANICAL HEADER (MATCHING EXACT REFERENCE IMAGE 1) */}
-      <section className="pt-24 sm:pt-32 pb-8 px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          
-          {/* Delicate Botanical Leaves Flourish */}
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 0.8, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center justify-center gap-1.5 text-[#556B2F] text-lg mb-2"
-          >
-            <i className="fa-solid fa-leaf transform -scale-x-100"></i>
-            <i className="fa-solid fa-seedling"></i>
-            <i className="fa-solid fa-leaf"></i>
-          </motion.div>
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.5, ease: LUXURY_EASE }}
+      className="min-h-screen bg-[#FAF6F0] text-[#1A1A1A] flex flex-col justify-between"
+    >
+      <div>
+        {/* Top Hero Banner */}
+        <section className="bg-[#E63956] text-white pt-36 pb-20 sm:pt-40 sm:pb-28 px-4 sm:px-6 md:px-12 text-center relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
 
-          {/* Title: Gallery */}
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1, ease: LUXURY_EASE }}
-            className="font-serif text-4xl sm:text-5xl md:text-6xl text-[#2E282A] font-normal tracking-wide"
-          >
-            Gallery
-          </motion.h1>
+          <div className="max-w-4xl mx-auto relative z-10">
+            <span className="font-serif text-xs sm:text-sm tracking-[0.25em] uppercase font-bold text-[#FFCCD3] block mb-2">
+              ✦ Production Showcase ✦
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-4">
+              Our Grand Lighting & Decor Gallery
+            </h1>
+            <p className="font-sans text-xs sm:text-sm md:text-base text-rose-100 max-w-2xl mx-auto font-light leading-relaxed">
+              Explore our portfolio of crystal chandelier canopies, royal shamiyana setups, palace floodlighting, and stage trussing across Ranthambore & Rajasthan.
+            </p>
+          </div>
+        </section>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="font-sans text-xs sm:text-sm text-gray-500 font-light max-w-xl mx-auto mt-2"
-          >
-            A glimpse into our bespoke setups, vibrant festivities, and opulent celebrations.
-          </motion.p>
-
-        </div>
-      </section>
-
-      {/* 2. FILTER TABS (MATCHING EXACT REFERENCE IMAGE 1) */}
-      <section className="py-4 px-4 sm:px-6 max-w-6xl mx-auto w-full text-center">
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6">
-          {filterCategories.map((cat) => {
-            const isActive = selectedCategory === cat.id;
-            return (
+        {/* Categories Bar */}
+        <section className="py-8 bg-white border-b border-rose-100 sticky top-20 z-30 shadow-xs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1">
+            {filterCategories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => {
                   setSelectedCategory(cat.id);
                   setLightboxIndex(null);
                 }}
-                className={`px-6 sm:px-8 py-3 rounded-sm text-xs sm:text-sm font-medium tracking-wider transition-all shadow-sm cursor-pointer ${
-                  isActive
-                    ? 'border border-[#E84874] text-[#E84874] bg-white hover:shadow'
-                    : 'border border-gray-300 text-[#423E40] bg-white hover:border-[#E84874] hover:text-[#E84874]'
+                className={`px-5 py-2.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  selectedCategory === cat.id
+                    ? 'bg-[#E63956] text-white shadow-md'
+                    : 'bg-[#FAF6F0] text-[#5A5255] hover:bg-rose-50 hover:text-[#E63956]'
                 }`}
               >
                 {cat.name}
               </button>
-            );
-          })}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      {/* 3. GALLERY GRID */}
-      <section className="py-8 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full">
-        <motion.div 
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6"
-        >
-          <AnimatePresence>
+        {/* Gallery Grid */}
+        <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredItems.map((item, idx) => (
               <motion.div
                 key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4, delay: idx * 0.03 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.05 }}
                 onClick={() => setLightboxIndex(idx)}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl border border-rose-100/80 bg-white cursor-pointer transition transform duration-500 hover:-translate-y-1.5"
+                className="group relative rounded-3xl overflow-hidden shadow-md border border-rose-200/80 bg-white cursor-pointer h-72 sm:h-80"
               >
                 <img 
                   src={item.url} 
-                  alt={item.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition transform duration-700 group-hover:scale-110"
+                  alt={item.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
                 />
-                
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 text-white">
-                  <span className="text-[10px] font-semibold uppercase tracking-widest text-rose-300 mb-0.5">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-[#FFCCD3] block mb-1">
                     {item.location}
                   </span>
-                  <h4 className="font-serif text-base font-semibold leading-snug drop-shadow">
+                  <h3 className="font-serif text-lg sm:text-xl text-white font-bold leading-snug">
                     {item.title}
-                  </h4>
-                  <div className="mt-2 flex items-center gap-1.5 text-xs text-rose-200">
-                    <i className="fa-solid fa-expand text-[11px]"></i>
-                    <span className="text-[10px] uppercase tracking-wider">View Full Photo</span>
+                  </h3>
+                  <div className="mt-3 flex items-center gap-2 text-xs text-rose-200 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>Click to view in full HD</span>
+                    <i className="fa-solid fa-arrow-right text-[10px]"></i>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </AnimatePresence>
-        </motion.div>
-      </section>
+          </div>
+        </section>
 
-      {/* 4. FULLSCREEN LIGHTBOX WITH FILMSTRIP (MATCHING EXACT REFERENCE IMAGE 2) */}
-      <AnimatePresence>
-        {lightboxIndex !== null && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-lg flex flex-col justify-between select-none"
-          >
-            {/* Top Control Bar */}
-            <div className="w-full px-4 sm:px-8 py-4 flex items-center justify-between text-white/90 z-20">
-              
-              {/* Photo Counter */}
-              <div className="text-xs sm:text-sm font-sans tracking-widest text-white/80 font-medium">
-                <span>{lightboxIndex + 1}</span> / <span>{filteredItems.length}</span>
+        {/* Fullscreen Lightbox Modal */}
+        <AnimatePresence>
+          {currentItem && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[120] bg-black/95 backdrop-blur-md flex flex-col items-center justify-between p-4 sm:p-6 select-none"
+              onClick={() => setLightboxIndex(null)}
+            >
+              {/* Top Controls */}
+              <div className="w-full flex items-center justify-between text-white z-10 max-w-6xl" onClick={(e) => e.stopPropagation()}>
+                <span className="text-xs text-gray-400 font-medium">
+                  {lightboxIndex + 1} / {filteredItems.length}
+                </span>
+                <div className="flex items-center gap-4">
+                  <button 
+                    onClick={() => setIsSlideshow(!isSlideshow)} 
+                    className={`text-xs px-3 py-1 rounded-full border ${isSlideshow ? 'bg-[#E63956] border-[#E63956]' : 'border-white/30 text-white'} transition cursor-pointer`}
+                  >
+                    {isSlideshow ? 'Pause Slideshow' : 'Play Slideshow'}
+                  </button>
+                  <button 
+                    onClick={() => setIsZoomed(!isZoomed)} 
+                    className="text-white/80 hover:text-white transition text-lg cursor-pointer"
+                    title="Zoom"
+                  >
+                    <i className={`fa-solid ${isZoomed ? 'fa-magnifying-glass-minus' : 'fa-magnifying-glass-plus'}`}></i>
+                  </button>
+                  <button 
+                    onClick={() => setLightboxIndex(null)} 
+                    className="text-white/80 hover:text-[#E63956] transition text-2xl cursor-pointer"
+                    title="Close"
+                  >
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
               </div>
-
-              {/* Center Title Caption */}
-              <div className="hidden sm:block text-xs sm:text-sm font-serif tracking-wider text-rose-200 truncate max-w-md text-center">
-                {filteredItems[lightboxIndex]?.title} • {filteredItems[lightboxIndex]?.location}
-              </div>
-
-              {/* Top Right Action Icons */}
-              <div className="flex items-center gap-4 sm:gap-5 text-sm sm:text-base">
-                
-                {/* Zoom */}
-                <button 
-                  onClick={() => setIsZoomed(!isZoomed)} 
-                  className="hover:text-rose-400 transition cursor-pointer p-1"
-                  title="Zoom In/Out"
-                >
-                  <i className={`fa-solid ${isZoomed ? 'fa-magnifying-glass-minus text-rose-400' : 'fa-magnifying-glass-plus'}`}></i>
-                </button>
-
-                {/* Slideshow Play/Pause */}
-                <button 
-                  onClick={() => setIsSlideshow(!isSlideshow)} 
-                  className="hover:text-rose-400 transition cursor-pointer p-1"
-                  title="Slideshow Play/Pause"
-                >
-                  <i className={`fa-solid ${isSlideshow ? 'fa-pause text-rose-400' : 'fa-play'}`}></i>
-                </button>
-
-                {/* Fullscreen Toggle */}
-                <button 
-                  onClick={toggleFullscreen} 
-                  className="hover:text-rose-400 transition cursor-pointer p-1"
-                  title="Toggle Fullscreen"
-                >
-                  <i className="fa-solid fa-expand"></i>
-                </button>
-
-                {/* Close */}
-                <button 
-                  onClick={() => {
-                    setLightboxIndex(null);
-                    setIsSlideshow(false);
-                    setIsZoomed(false);
-                  }} 
-                  className="hover:text-rose-400 transition cursor-pointer p-1 text-lg ml-2"
-                  title="Close"
-                >
-                  <i className="fa-solid fa-xmark"></i>
-                </button>
-
-              </div>
-
-            </div>
-
-            {/* Center Stage with Display Image */}
-            <div className="relative flex-1 flex items-center justify-center px-4 sm:px-14 overflow-hidden">
-              
-              {/* Prev Button (<) */}
-              <button 
-                onClick={handlePrev}
-                className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20 z-20 cursor-pointer"
-                aria-label="Previous Image"
-              >
-                <i className="fa-solid fa-chevron-left text-base sm:text-lg"></i>
-              </button>
 
               {/* Main Image */}
-              <div className="relative max-h-[68vh] sm:max-h-[72vh] max-w-5xl flex items-center justify-center">
-                <motion.img 
-                  key={filteredItems[lightboxIndex]?.id}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: isZoomed ? 1.4 : 1 }}
-                  transition={{ duration: 0.3 }}
-                  src={filteredItems[lightboxIndex]?.url} 
-                  alt={filteredItems[lightboxIndex]?.title}
-                  className={`max-h-[68vh] sm:max-h-[72vh] w-auto max-w-full object-contain rounded-lg shadow-2xl transition-transform duration-300 ${isZoomed ? 'cursor-zoom-out' : ''}`}
+              <div className="relative flex-1 flex items-center justify-center w-full max-w-5xl my-4 overflow-hidden" onClick={(e) => e.stopPropagation()}>
+                <button
+                  onClick={handlePrev}
+                  className="absolute left-2 sm:left-4 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-[#E63956] text-white flex items-center justify-center text-lg backdrop-blur-md transition cursor-pointer"
+                >
+                  <i className="fa-solid fa-chevron-left"></i>
+                </button>
+
+                <img 
+                  src={currentItem.url} 
+                  alt={currentItem.title} 
+                  className={`max-h-[75vh] w-auto rounded-2xl shadow-2xl object-contain transition-transform duration-300 ${isZoomed ? 'scale-125 cursor-zoom-out' : 'scale-100 cursor-zoom-in'}`}
+                  onClick={() => setIsZoomed(!isZoomed)}
                 />
+
+                <button
+                  onClick={handleNext}
+                  className="absolute right-2 sm:right-4 z-20 w-12 h-12 rounded-full bg-white/10 hover:bg-[#E63956] text-white flex items-center justify-center text-lg backdrop-blur-md transition cursor-pointer"
+                >
+                  <i className="fa-solid fa-chevron-right"></i>
+                </button>
               </div>
 
-              {/* Next Button (>) */}
-              <button 
-                onClick={handleNext}
-                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 hover:bg-black/80 text-white flex items-center justify-center transition border border-white/20 z-20 cursor-pointer"
-                aria-label="Next Image"
-              >
-                <i className="fa-solid fa-chevron-right text-base sm:text-lg"></i>
-              </button>
-
-            </div>
-
-            {/* Bottom Filmstrip Thumbnail Carousel (Reference Image 2) */}
-            <div className="w-full bg-black/80 border-t border-white/10 p-2 sm:p-3 overflow-x-auto filmstrip-scroll z-20">
-              <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-3 min-w-max px-2">
-                {filteredItems.map((thumb, idx) => {
-                  const isCurrent = idx === lightboxIndex;
-                  return (
-                    <button
-                      key={thumb.id}
-                      onClick={() => setLightboxIndex(idx)}
-                      className={`w-14 h-10 sm:w-18 sm:h-12 flex-shrink-0 rounded overflow-hidden transition-all duration-200 cursor-pointer ${
-                        isCurrent
-                          ? 'border-2 border-[#E84874] shadow-lg scale-105 opacity-100'
-                          : 'border border-white/30 opacity-60 hover:opacity-100'
-                      }`}
-                    >
-                      <img src={thumb.url} alt="thumb" className="w-full h-full object-cover" />
-                    </button>
-                  );
-                })}
+              {/* Bottom Caption */}
+              <div className="text-center text-white z-10 max-w-2xl" onClick={(e) => e.stopPropagation()}>
+                <span className="text-xs font-bold uppercase tracking-widest text-[#FFCCD3] block mb-1">
+                  {currentItem.location}
+                </span>
+                <h4 className="font-serif text-lg sm:text-xl font-bold">
+                  {currentItem.title}
+                </h4>
               </div>
-            </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-    </div>
+      </div>
+    </motion.div>
   );
 }

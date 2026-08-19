@@ -8,23 +8,23 @@ const ABOUT_SLIDES = [
   {
     id: 1,
     image: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85",
-    sub: "Passion, Precision & Royal Splendor",
-    title: "About Showmania Events",
-    desc: "For over 16 years, SHOWMANIA has been the premier architect of magnificent royal weddings, corporate galas, and bespoke celebrations across India and the globe."
+    sub: "✦ Passion, Engineering & Royal Grandeur ✦",
+    title: "The Visionaries Behind The Light",
+    desc: "For decades, Suraj Light House (Suraj Light's Ranthambore) has been Rajasthan's premier mastercraft event lighting, heritage tenting, and theatrical decor company."
   },
   {
     id: 2,
-    image: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2000&q=85",
-    sub: "Architects of Unforgettable Experiences",
-    title: "Celebrating Significant Moments",
-    desc: "Transforming your most precious dreams into breathtaking realities with personalized planning systems and dedicated white-glove hospitality."
+    image: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=2000&q=85",
+    sub: "✦ Masters of Theatrical Illumination ✦",
+    title: "Crafting Luminous Spectacles",
+    desc: "Transforming open grounds, wildlife resorts, and royal fort courtyards into breathtaking wonderlands with crystal chandeliers and fairy light canopies."
   },
   {
     id: 3,
-    image: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85",
-    sub: "Award-Winning Excellence",
-    title: "Over 16 Years of Mastery",
-    desc: "Spotlighted as the Best Wedding Planner in Rajasthan and trusted by hundreds of esteemed families and global corporate leaders."
+    image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=2000&q=85",
+    sub: "✦ Industrial Grade Reliability ✦",
+    title: "Fail-Safe Heavy Power Grids",
+    desc: "Equipped with dedicated silent diesel generators, aluminum truss architecture, and computerized DMX consoles for zero-downtime celebrations."
   }
 ];
 
@@ -46,10 +46,10 @@ export default function AboutUsPage({ onOpenBooking }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -15 }}
       transition={{ duration: 0.5, ease: LUXURY_EASE }}
-      className="min-h-screen bg-[#FAF6F3] text-[#2E282A] flex flex-col justify-between"
+      className="min-h-screen bg-[#FAF6F0] text-[#1A1A1A] flex flex-col justify-between"
     >
       <div>
-        {/* 1. HERO SECTION WITH AUTOMATIC SLIDER & SIGNATURE PINKISH FADED OVERLAY */}
+        {/* 1. HERO SECTION WITH AUTOMATIC SLIDER & SIGNATURE CRIMSON OVERLAY */}
         <section className="relative text-white min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center py-28 sm:py-36 md:py-44 px-4 sm:px-6 md:px-12 text-center overflow-hidden">
           
           {/* Background Images Crossfade & Ken-Burns */}
@@ -68,10 +68,10 @@ export default function AboutUsPage({ onOpenBooking }) {
             />
           </AnimatePresence>
 
-          {/* Signature Pinkish Faded Gradient Overlay */}
+          {/* Signature Crimson & Obsidian Gradient Overlay */}
           <div 
             className="absolute inset-0 z-10" 
-            style={{ background: 'linear-gradient(180deg, rgba(46, 40, 42, 0.45) 0%, rgba(176, 125, 135, 0.70) 55%, rgba(176, 125, 135, 0.92) 100%)' }}
+            style={{ background: 'linear-gradient(180deg, rgba(26, 26, 26, 0.55) 0%, rgba(230, 57, 86, 0.70) 55%, rgba(230, 57, 86, 0.94) 100%)' }}
           />
 
           <div className="max-w-4xl mx-auto relative z-20 flex-1 flex flex-col items-center justify-center select-none">
@@ -84,13 +84,13 @@ export default function AboutUsPage({ onOpenBooking }) {
                 transition={{ duration: 0.8, ease: LUXURY_EASE }}
                 className="flex flex-col items-center"
               >
-                <span className="font-script text-3xl sm:text-5xl text-rose-200 block mb-3">
+                <span className="font-serif text-xs sm:text-sm tracking-[0.25em] uppercase font-bold text-[#FFCCD3] block mb-3">
                   {slide.sub}
                 </span>
-                <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide leading-tight mb-5 drop-shadow-md">
+                <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight mb-5 drop-shadow-md">
                   {slide.title}
                 </h1>
-                <p className="font-sans text-xs sm:text-sm md:text-base text-rose-100 max-w-2xl mx-auto font-light leading-relaxed mb-8 px-2 drop-shadow-sm">
+                <p className="font-sans text-xs sm:text-sm md:text-base text-white/95 max-w-2xl mx-auto font-light leading-relaxed mb-8 px-2 drop-shadow-sm">
                   {slide.desc}
                 </p>
               </motion.div>
@@ -99,25 +99,25 @@ export default function AboutUsPage({ onOpenBooking }) {
             <div className="flex flex-wrap items-center justify-center gap-4 z-20">
               <a 
                 href="#about-story" 
-                className="px-8 py-3.5 rounded-full bg-[#E84874] hover:bg-[#D43460] text-white font-semibold text-xs tracking-widest uppercase transition-all shadow-xl hover:scale-105"
+                className="px-8 py-3.5 rounded-full bg-[#E63956] hover:bg-[#CF203E] text-white font-bold text-xs tracking-widest uppercase transition-all shadow-xl hover:scale-105 border border-white/20"
               >
-                Discover Our Story
+                Discover Our Heritage
               </a>
-              <Link 
-                to="/contact" 
-                className="px-8 py-3.5 rounded-full bg-white/15 hover:bg-white/25 text-white font-semibold text-xs tracking-widest uppercase backdrop-blur-md border border-white/30 transition-all hover:scale-105"
+              <button 
+                onClick={() => onOpenBooking('Full Event Lighting')}
+                className="px-8 py-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-bold text-xs tracking-widest uppercase backdrop-blur-md border border-white/30 transition-all hover:scale-105 cursor-pointer"
               >
-                Contact Our Team
-              </Link>
+                Request a Quote
+              </button>
             </div>
           </div>
         </section>
 
-        {/* 2. SECTION 1: ABOUT US (IMAGE 1 REFERENCE) */}
+        {/* 2. SECTION 1: ABOUT US */}
         <section id="about-story" className="py-20 sm:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Column: Bride & Groom in Palace Archway Photo */}
+            {/* Left Column: Chandelier Setup Photo */}
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -127,8 +127,8 @@ export default function AboutUsPage({ onOpenBooking }) {
             >
               <div className="relative overflow-hidden rounded-2xl shadow-2xl border-4 border-white transform hover:scale-[1.02] transition duration-700">
                 <img 
-                  src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85" 
-                  alt="Showmania Bride and Groom under Royal Palace Archway" 
+                  src="https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=1200&q=85" 
+                  alt="Suraj Light House Royal Chandelier Setup" 
                   className="w-full h-[520px] sm:h-[600px] object-cover object-center"
                 />
               </div>
@@ -136,7 +136,7 @@ export default function AboutUsPage({ onOpenBooking }) {
               <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-rose-200/40 rounded-full blur-3xl -z-10"></div>
             </motion.div>
 
-            {/* Right Column: Overlapping Elegant About Us Card (Matching Reference Image 1) */}
+            {/* Right Column: Overlapping Elegant About Us Card */}
             <motion.div 
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -144,33 +144,36 @@ export default function AboutUsPage({ onOpenBooking }) {
               transition={{ duration: 0.8, ease: LUXURY_EASE }}
               className="lg:col-span-7"
             >
-              <div className="bg-[#FFF8F9] border border-[#EEDCE0] shadow-xl rounded-2xl p-8 sm:p-12 md:p-14 text-center sm:text-left relative">
+              <div className="bg-white border border-[#EEDCE0] shadow-xl rounded-2xl p-8 sm:p-12 md:p-14 text-center sm:text-left relative">
                 
-                {/* Floral Flourish at Top */}
-                <div className="text-center mb-6">
-                  <svg className="w-12 h-6 mx-auto text-[#85515C]" viewBox="0 0 100 40" fill="currentColor">
-                    <path d="M50 20 Q35 5 20 20 Q35 35 50 20 Z" opacity="0.8"/>
-                    <path d="M50 20 Q65 5 80 20 Q65 35 50 20 Z" opacity="0.8"/>
-                    <circle cx="50" cy="20" r="3" fill="#B07D87"/>
-                  </svg>
-                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2E282A] font-normal tracking-wide mt-2">
-                    About Us
+                {/* Header */}
+                <div className="text-center sm:text-left mb-6">
+                  <img 
+                    src="/logo.png" 
+                    alt="Suraj Light's Ranthambore Logo" 
+                    className="h-16 sm:h-20 w-auto object-contain mb-3 mx-auto sm:mx-0 drop-shadow"
+                  />
+                  <span className="font-serif text-xs tracking-[0.25em] uppercase font-bold text-[#E63956] block mb-1">
+                    ✦ The Story of Suraj Light's Ranthambore ✦
+                  </span>
+                  <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-bold tracking-tight mt-1">
+                    The Visionaries Behind The Light
                   </h2>
                 </div>
 
                 {/* Bold Subtitle */}
-                <p className="font-sans text-sm sm:text-base md:text-lg font-semibold text-[#2E282A] leading-snug mb-6 text-center sm:text-left">
-                  Welcome to the heart of celebration and creativity — welcome to Showmania Events.
+                <p className="font-sans text-sm sm:text-base md:text-lg font-bold text-[#1A1A1A] leading-snug mb-6 text-center sm:text-left">
+                  Welcome to Suraj Light's Ranthambore — where engineering mastery meets royal Rajasthani grandeur.
                 </p>
 
                 {/* Descriptive Paragraph */}
-                <p className="font-sans text-xs sm:text-sm text-[#4E4447] font-light leading-relaxed mb-6 text-justify">
-                  We’re dedicated to transforming your significant moments into cherished memories, with a steadfast focus on customer satisfaction and nurturing enduring relationships. Integrity, honesty, and the safeguarding of our clients’ reputations stand at the core of our approach. Our meticulously designed planning systems and procedures are tailored to provide a blend of professionalism and creativity, ensuring your needs always take precedence. In the journey of making special events unforgettable, our mission is to place your dreams at the heart of everything we do.
+                <p className="font-sans text-xs sm:text-sm text-[#5A5255] font-light leading-relaxed mb-6 text-justify">
+                  Headquartered in Sawai Madhopur, Suraj Light House has grown to become the defining force in grand wedding lighting, royal tenting (shamiyana), and stage trussing across Ranthambore and Rajasthan. We specialize in transforming vast outdoor landscapes, jungle luxury resorts, and ancient fort courtyards into luminous, fairytale venues. Every wire, bulb, generator, and chandelier is deployed with relentless attention to safety, power balance, and aesthetic perfection.
                 </p>
 
-                {/* Subtle Signature flourish line */}
+                {/* Signature flourish line */}
                 <div className="flex items-center justify-center sm:justify-start gap-3 pt-4 border-t border-rose-200/60">
-                  <span className="font-script text-2xl sm:text-3xl text-[#B07D87]">Showmania Events & Entertainment</span>
+                  <span className="font-serif tracking-widest uppercase text-sm font-bold text-[#E63956]">Suraj Light House • Ranthambore</span>
                 </div>
 
               </div>
@@ -179,8 +182,8 @@ export default function AboutUsPage({ onOpenBooking }) {
           </div>
         </section>
 
-        {/* 3. SECTION 2: VISION & MISSION (IMAGE 2 REFERENCE) */}
-        <section className="py-20 sm:py-24 bg-[#F9F3F4]/60 border-y border-rose-100 px-4 sm:px-6 md:px-12 text-center">
+        {/* 3. SECTION 2: VISION & TECHNICAL MASTERY */}
+        <section className="py-20 sm:py-24 bg-white border-y border-rose-100 px-4 sm:px-6 md:px-12 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -188,208 +191,123 @@ export default function AboutUsPage({ onOpenBooking }) {
             transition={{ duration: 0.8, ease: LUXURY_EASE }}
             className="max-w-4xl mx-auto"
           >
-            {/* Top Flourish */}
-            <div className="mb-4">
-              <svg className="w-12 h-6 mx-auto text-[#85515C]" viewBox="0 0 100 40" fill="currentColor">
-                <path d="M50 20 Q35 5 20 20 Q35 35 50 20 Z" opacity="0.8"/>
-                <path d="M50 20 Q65 5 80 20 Q65 35 50 20 Z" opacity="0.8"/>
-                <circle cx="50" cy="20" r="3" fill="#B07D87"/>
-              </svg>
-            </div>
+            <span className="font-serif text-xs tracking-[0.25em] uppercase font-bold text-[#E63956] block mb-2">
+              ✦ Our Mission & Capabilities ✦
+            </span>
 
             {/* Heading */}
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2E282A] font-normal tracking-wide mb-8">
-              Vision & Mission
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-bold tracking-tight mb-8">
+              Transforming Nightscapes Into Unforgettable Wonder
             </h2>
 
             {/* Paragraph 1 */}
-            <p className="font-sans text-xs sm:text-sm md:text-base text-[#4E4447] font-light leading-relaxed mb-6">
-              From the very beginning, our mission has been clear: to transform ordinary gatherings into extraordinary celebrations. With a blend of innovation, passion, and meticulous attention to detail, we’ve carved a niche as not just event planners but as architects of unforgettable experiences.
+            <p className="font-sans text-xs sm:text-sm md:text-base text-[#5A5255] font-light leading-relaxed mb-6">
+              From our humble beginnings to executing 1000+ guest royal sangeets and corporate summits at iconic venues like Nahargarh Fort, Six Senses Fort Barwara, and Oberoi Vanyavilas, our mission is clear: to engineer flawless event environments that leave guests in pure awe.
             </p>
 
             {/* Paragraph 2 */}
-            <p className="font-sans text-xs sm:text-sm md:text-base text-[#4E4447] font-light leading-relaxed mb-6">
-              At Showmania Events, we believe in the power of moments. Moments that bring people together, that sparkle with joy, and that leave a lasting imprint on the hearts of all who share them. Our journey has been one of passion, dedication, and a relentless pursuit of perfection. As one of India’s premier event planning companies, we pride ourselves on our ability to understand and execute our clients’ visions, executing events that are not only memorable but also mirror the essence of their dreams.
-            </p>
-
-            {/* Paragraph 3 */}
-            <p className="font-sans text-xs sm:text-sm md:text-base text-[#4E4447] font-light leading-relaxed mb-8">
-              Join us as we unfold our story – a tale of dreams turned into reality, of challenges met with innovation, and of a relentless commitment to excellence.
+            <p className="font-sans text-xs sm:text-sm md:text-base text-[#5A5255] font-light leading-relaxed mb-6">
+              We own and maintain the largest inventory of heavy-duty aluminum box trussing, computer-controlled sharpie beam moving heads, imported crystal chandeliers, waterproof German pagodas, and soundproof commercial generator sets in Sawai Madhopur.
             </p>
 
             {/* Bold Final Motto */}
-            <p className="font-sans text-sm sm:text-base md:text-lg font-semibold text-[#2E282A] tracking-wide">
-              Welcome to Showmania Events, where every event is a masterpiece.
+            <p className="font-sans text-sm sm:text-base md:text-lg font-bold text-[#E63956] tracking-wide">
+              ✦ Suraj Light House: Where Every Celebration Shines with Royal Dignity ✦
             </p>
 
           </motion.div>
         </section>
 
-        {/* 4. SECTION 3: FOUNDER - VIKAS DEVA (IMAGE 3 REFERENCE) */}
-        <section className="py-20 sm:py-28 px-4 sm:px-6 md:px-12 max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* Left Column: Founder Bio Text */}
-            <motion.div 
-              initial={{ opacity: 0, x: -25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: LUXURY_EASE }}
-              className="lg:col-span-8"
-            >
-              
-              {/* Top Flourish */}
-              <div className="mb-3">
-                <svg className="w-10 h-5 text-[#85515C]" viewBox="0 0 100 40" fill="currentColor">
-                  <path d="M50 20 Q35 5 20 20 Q35 35 50 20 Z" opacity="0.8"/>
-                  <path d="M50 20 Q65 5 80 20 Q65 35 50 20 Z" opacity="0.8"/>
-                  <circle cx="50" cy="20" r="3" fill="#B07D87"/>
-                </svg>
-              </div>
-
-              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2E282A] font-normal tracking-wide mb-1">
-                Vikas Deva
-              </h2>
-              <span className="font-sans text-xs sm:text-sm font-semibold text-[#B07D87] uppercase tracking-widest block mb-6">
-                Founder
-              </span>
-
-              <div className="space-y-4 font-sans text-xs sm:text-sm text-[#4E4447] font-light leading-relaxed text-justify">
-                <p>
-                  Vikas Deva, the driving force behind Showmania Events & Entertainment, with over 16 years of event planning expertise. Renowned for his innovative approach to destination wedding planning, he has earned acclaim as one of India’s leading event planners.
-                </p>
-                <p>
-                  Vikas Deva’s dedication was spotlighted in 2018 when he was celebrated as the best wedding planner in Rajasthan, for weaving the rich cultural fabric of India into each event’s design and making them memorable.
-                </p>
-                <p>
-                  Beyond weddings, Vikas excels in corporate and MICE events, applying his keen attention to detail and cultural sensitivity to create remarkable experiences for all attendees. His work is characterized by a commitment to personalized, immersive experiences that reflect each client’s unique vision and aspirations.
-                </p>
-                <p>
-                  His journey is one of passion, innovation, and collaboration, continually pushing the boundaries of what’s possible in event planning and execution.
-                </p>
-              </div>
-
-            </motion.div>
-
-            {/* Right Column: Founder Circular Portrait */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: LUXURY_EASE }}
-              className="lg:col-span-4 flex justify-center"
-            >
-              <div className="relative">
-                <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-8 border-white shadow-2xl transform hover:scale-105 transition duration-500">
-                  <img 
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" 
-                    alt="Vikas Deva - Founder of Showmania Events" 
-                    className="w-full h-full object-cover object-top"
-                  />
-                </div>
-                {/* Decorative subtle ring */}
-                <div className="absolute inset-0 rounded-full border-2 border-rose-300 transform scale-105 pointer-events-none"></div>
-              </div>
-            </motion.div>
-
-          </div>
-        </section>
-
-        {/* 5. SECTION 4: QUALITY POLICY & STATS (IMAGE 4 REFERENCE) */}
-        <section className="py-20 sm:py-24 bg-white border-t border-rose-100 px-4 sm:px-6 md:px-12 text-center">
+        {/* 4. SECTION 4: QUALITY POLICY & STATS */}
+        <section className="py-20 sm:py-24 bg-[#FAF6F0] px-4 sm:px-6 md:px-12 text-center">
           <div className="max-w-6xl mx-auto">
             
-            {/* Top Flourish */}
-            <div className="mb-3">
-              <svg className="w-12 h-6 mx-auto text-[#85515C]" viewBox="0 0 100 40" fill="currentColor">
-                <path d="M50 20 Q35 5 20 20 Q35 35 50 20 Z" opacity="0.8"/>
-                <path d="M50 20 Q65 5 80 20 Q65 35 50 20 Z" opacity="0.8"/>
-                <circle cx="50" cy="20" r="3" fill="#B07D87"/>
-              </svg>
-            </div>
+            <span className="font-serif text-xs tracking-[0.25em] uppercase font-bold text-[#E63956] block mb-2">
+              ✦ The Suraj Benchmark ✦
+            </span>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2E282A] font-normal tracking-wide mb-14">
-              Quality Policy
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-bold tracking-tight mb-14">
+              Our Pillars of Excellence
             </h2>
 
             {/* 6 Quality Icons Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 sm:gap-8 mb-20">
               
-              {/* 1. Top-Notch Venue Selection */}
+              {/* 1. Heavy Aluminum Trussing */}
               <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center text-center group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E84874] flex items-center justify-center mb-3 text-[#E84874] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
-                  <i className="fa-solid fa-archway"></i>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E63956] flex items-center justify-center mb-3 text-[#E63956] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
+                  <i className="fa-solid fa-cubes-stacked"></i>
                 </div>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Top-Notch Venue Selection</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Aluminum Truss Rigging</span>
               </motion.div>
 
-              {/* 2. Premium Hospitality */}
+              {/* 2. Crystal Chandeliers */}
               <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center text-center group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E84874] flex items-center justify-center mb-3 text-[#E84874] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
-                  <i className="fa-solid fa-bell-concierge"></i>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E63956] flex items-center justify-center mb-3 text-[#E63956] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
+                  <i className="fa-solid fa-gem"></i>
                 </div>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Premium Hospitality</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Crystal Chandeliers</span>
               </motion.div>
 
-              {/* 3. Premium Decor */}
+              {/* 3. Heritage Tenting */}
               <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center text-center group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E84874] flex items-center justify-center mb-3 text-[#E84874] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
-                  <i className="fa-solid fa-wand-magic-sparkles"></i>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E63956] flex items-center justify-center mb-3 text-[#E63956] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
+                  <i className="fa-solid fa-campground"></i>
                 </div>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Premium Decor</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Heritage Shamiyana</span>
               </motion.div>
 
-              {/* 4. Seamless Logistics Management */}
+              {/* 4. Generator Redundancy */}
               <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center text-center group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E84874] flex items-center justify-center mb-3 text-[#E84874] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
-                  <i className="fa-solid fa-van-shuttle"></i>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E63956] flex items-center justify-center mb-3 text-[#E63956] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
+                  <i className="fa-solid fa-bolt"></i>
                 </div>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Seamless Logistics Management</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">100% DG Power Backup</span>
               </motion.div>
 
-              {/* 5. Customized Planning */}
+              {/* 5. Intelligent DMX Control */}
               <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center text-center group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E84874] flex items-center justify-center mb-3 text-[#E84874] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
-                  <i className="fa-solid fa-calendar-check"></i>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E63956] flex items-center justify-center mb-3 text-[#E63956] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
+                  <i className="fa-solid fa-sliders"></i>
                 </div>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Customized Planning</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Intelligent DMX Sync</span>
               </motion.div>
 
-              {/* 6. Budget-Friendly Planning */}
+              {/* 6. On-Site Technical Crew */}
               <motion.div whileHover={{ scale: 1.08 }} className="flex flex-col items-center text-center group cursor-default">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E84874] flex items-center justify-center mb-3 text-[#E84874] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
-                  <i className="fa-solid fa-handshake"></i>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-[#E63956] flex items-center justify-center mb-3 text-[#E63956] text-2xl group-hover:bg-rose-50 transition transform shadow-sm">
+                  <i className="fa-solid fa-user-shield"></i>
                 </div>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Budget-Friendly Planning</span>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">24/7 Electrical Crew</span>
               </motion.div>
 
             </div>
 
-            {/* Bottom Statistics Counter Row (Matching Image 4 Reference) */}
+            {/* Bottom Statistics Counter Row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-rose-100 text-center">
               <div className="p-4 md:border-r border-rose-100">
-                <span className="font-serif text-4xl sm:text-5xl text-[#E84874] font-normal block mb-1">878</span>
-                <span className="font-sans text-xs uppercase tracking-widest text-[#2E282A] font-semibold">GOOD COMMENTS</span>
+                <span className="font-serif text-4xl sm:text-5xl text-[#E63956] font-bold block mb-1">950+</span>
+                <span className="font-sans text-xs uppercase tracking-widest text-[#1A1A1A] font-bold">EVENTS ILLUMINATED</span>
               </div>
               <div className="p-4 md:border-r border-rose-100">
-                <span className="font-serif text-4xl sm:text-5xl text-[#E84874] font-normal block mb-1">175</span>
-                <span className="font-sans text-xs uppercase tracking-widest text-[#2E282A] font-semibold">FEATURED EVENTS</span>
+                <span className="font-serif text-4xl sm:text-5xl text-[#E63956] font-bold block mb-1">120+</span>
+                <span className="font-sans text-xs uppercase tracking-widest text-[#1A1A1A] font-bold">FORTS & RESORTS</span>
               </div>
               <div className="p-4 md:border-r border-rose-100">
-                <span className="font-serif text-4xl sm:text-5xl text-[#E84874] font-normal block mb-1">5</span>
-                <span className="font-sans text-xs uppercase tracking-widest text-[#2E282A] font-semibold">AWARD WINNING</span>
+                <span className="font-serif text-4xl sm:text-5xl text-[#E63956] font-bold block mb-1">100%</span>
+                <span className="font-sans text-xs uppercase tracking-widest text-[#1A1A1A] font-bold">POWER REDUNDANCY</span>
               </div>
               <div className="p-4">
-                <span className="font-serif text-4xl sm:text-5xl text-[#E84874] font-normal block mb-1">125</span>
-                <span className="font-sans text-xs uppercase tracking-widest text-[#2E282A] font-semibold">HAPPY CLIENT</span>
+                <span className="font-serif text-4xl sm:text-5xl text-[#E63956] font-bold block mb-1">500+</span>
+                <span className="font-sans text-xs uppercase tracking-widest text-[#1A1A1A] font-bold">DELIGHTED FAMILIES</span>
               </div>
             </div>
 
           </div>
         </section>
 
-        {/* 6. SECTION 5: WE MANAGE (MATCHING NEW REFERENCE IMAGE) */}
-        <section className="py-16 sm:py-20 bg-[#FAF6F3] border-t border-rose-100/80 px-4 sm:px-6 md:px-12 text-center">
+        {/* 5. SECTION 5: WE MANAGE */}
+        <section className="py-16 sm:py-20 bg-white border-t border-rose-100 px-4 sm:px-6 md:px-12 text-center">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -397,66 +315,55 @@ export default function AboutUsPage({ onOpenBooking }) {
             transition={{ duration: 0.8, ease: LUXURY_EASE }}
             className="max-w-5xl mx-auto"
           >
-            
-            {/* Top Botanical Flourish */}
-            <div className="mb-3">
-              <svg className="w-12 h-6 mx-auto text-[#85515C]" viewBox="0 0 100 40" fill="currentColor">
-                <path d="M50 20 Q35 5 20 20 Q35 35 50 20 Z" opacity="0.8"/>
-                <path d="M50 20 Q65 5 80 20 Q65 35 50 20 Z" opacity="0.8"/>
-                <circle cx="50" cy="20" r="3" fill="#E84874"/>
-              </svg>
-            </div>
+            <span className="font-serif text-xs tracking-[0.25em] uppercase font-bold text-[#E63956] block mb-2">
+              ✦ End-to-End Infrastructure ✦
+            </span>
 
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#2E282A] font-normal tracking-wide mb-12">
-              We Manage
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-bold tracking-tight mb-12">
+              We Manage Complete Event Production
             </h2>
 
-            {/* Items Grid with Pink Heart Icons */}
+            {/* Items Grid */}
             <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 gap-y-6 max-w-4xl mx-auto">
               
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Invitation</span>
+                <i className="fa-solid fa-lightbulb text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Palace Facade Illumination</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Makeup</span>
+                <i className="fa-solid fa-gem text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Crystal Chandelier Canopies</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Decoration</span>
+                <i className="fa-solid fa-campground text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Handcrafted Shamiyana</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Security</span>
+                <i className="fa-solid fa-cubes-stacked text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Stage & Truss Architecture</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Venue</span>
+                <i className="fa-solid fa-bolt text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Silent Diesel Generators</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Logistics</span>
+                <i className="fa-solid fa-fire text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Cold Pyros & Special FX</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Catering</span>
+                <i className="fa-solid fa-music text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Concert Audio Support</span>
               </motion.div>
 
               <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">Hospitality</span>
-              </motion.div>
-
-              <motion.div whileHover={{ scale: 1.08 }} className="flex items-center gap-2 group cursor-default">
-                <i className="fa-solid fa-heart text-[#E84874] text-base group-hover:scale-125 transition duration-300"></i>
-                <span className="font-sans text-xs sm:text-sm font-medium text-[#2E282A]">DJ</span>
+                <i className="fa-solid fa-ring text-[#E63956] text-base group-hover:scale-125 transition duration-300"></i>
+                <span className="font-sans text-xs sm:text-sm font-bold text-[#1A1A1A]">Royal Mandap Lighting</span>
               </motion.div>
 
             </div>
@@ -464,78 +371,32 @@ export default function AboutUsPage({ onOpenBooking }) {
           </motion.div>
         </section>
 
-        {/* 7. SECTION 6: OUR EXPERTISE BANNER (IMAGE 5 REFERENCE) */}
+        {/* 6. SECTION 6: OUR EXPERTISE BANNER */}
         <section 
           className="py-16 sm:py-20 text-white px-4 sm:px-6 md:px-12 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #693E46 0%, #85515C 50%, #4E2D33 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #1A1A1A 0%, #E63956 70%, #CF203E 100%)' }}
         >
-          <div className="max-w-7xl mx-auto relative border border-dashed border-white/40 rounded-2xl py-12 px-6 sm:px-10">
+          <div className="max-w-7xl mx-auto relative border border-dashed border-white/40 rounded-2xl py-12 px-6 sm:px-10 text-center">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-center">
-              
-              {/* Left Polaroid: Grand Indoor Palace Banquet (Tilted Left) */}
-              <div className="hidden lg:block lg:col-span-3">
-                <div className="bg-white p-3 shadow-2xl rounded-sm transform -rotate-6 hover:rotate-0 transition duration-500 max-w-[240px] mx-auto">
-                  <img 
-                    src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" 
-                    alt="Grand Royal Banquet Setup" 
-                    class="w-full h-48 object-cover rounded-sm"
-                  />
-                </div>
-              </div>
+            <span className="font-serif text-xs tracking-[0.25em] uppercase font-bold text-[#FFCCD3] block mb-2">
+              ✦ Suraj Light House ✦
+            </span>
 
-              {/* Center Content */}
-              <div className="lg:col-span-6 flex flex-col items-center justify-center">
-                
-                {/* Flourish Crest */}
-                <div className="mb-3">
-                  <svg className="w-12 h-6 mx-auto text-rose-200" viewBox="0 0 100 40" fill="currentColor">
-                    <path d="M50 20 Q35 5 20 20 Q35 35 50 20 Z" opacity="0.8"/>
-                    <path d="M50 20 Q65 5 80 20 Q65 35 50 20 Z" opacity="0.8"/>
-                    <circle cx="50" cy="20" r="3" fill="#E84874"/>
-                  </svg>
-                </div>
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 uppercase">
+              Ready to Light Up Your Grand Celebration?
+            </h2>
 
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal tracking-wider mb-4 uppercase">
-                  OUR EXPERTISE
-                </h2>
+            <p className="font-sans text-xs sm:text-sm text-white/95 font-light tracking-wide mb-8 max-w-xl mx-auto">
+              Destination Weddings | Palace Receptions | Corporate Summits | Sangeet Stage Productions
+            </p>
 
-                <p className="font-sans text-xs sm:text-sm text-white/90 font-light tracking-wide mb-8 max-w-xl">
-                  Weddings | Corporate Events | Exhibitions | Conferences | Artist Management
-                </p>
-
-                <Link 
-                  to="/contact" 
-                  className="px-8 py-3 rounded-md bg-[#E84874] hover:bg-[#D43460] text-white font-semibold text-xs tracking-widest uppercase shadow-xl transition transform hover:scale-105"
-                >
-                  CONTACT US
-                </Link>
-
-              </div>
-
-              {/* Right Two Polaroids: Romantic Setup & Joyful Celebration (Tilted Right) */}
-              <div className="hidden lg:block lg:col-span-3 relative">
-                <div className="space-y-4 max-w-[200px] mx-auto">
-                  {/* Top Right Polaroid */}
-                  <div className="bg-white p-2.5 shadow-2xl rounded-sm transform rotate-6 hover:rotate-0 transition duration-500">
-                    <img 
-                      src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" 
-                      alt="Romantic Candlelit Setup" 
-                      className="w-full h-28 object-cover rounded-sm"
-                    />
-                  </div>
-                  {/* Bottom Right Polaroid */}
-                  <div className="bg-white p-2.5 shadow-2xl rounded-sm transform -rotate-3 hover:rotate-0 transition duration-500">
-                    <img 
-                      src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80" 
-                      alt="Joyful Celebration" 
-                      className="w-full h-28 object-cover rounded-sm"
-                    />
-                  </div>
-                </div>
-              </div>
-
-            </div>
+            <button 
+              onClick={() => onOpenBooking('Full Event Lighting')}
+              className="inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 rounded-full bg-white hover:bg-rose-50 text-[#E63956] font-bold text-xs sm:text-sm tracking-wider uppercase shadow-xl transition-all duration-300 transform hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <span>Get a Proposal</span>
+              <i className="fa-solid fa-arrow-right text-xs"></i>
+            </button>
 
           </div>
         </section>

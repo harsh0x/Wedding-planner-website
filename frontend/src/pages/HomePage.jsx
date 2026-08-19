@@ -1,16 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-import HeroSection from '../components/HeroSection';
-import AboutSection from '../components/AboutSection';
+import SurajHero from '../components/SurajHero';
+import SurajAbout from '../components/SurajAbout';
 import MosaicGallery from '../components/MosaicGallery';
-import ServicesSection from '../components/ServicesSection';
-import PortfolioSection from '../components/PortfolioSection';
-import CommitmentSection from '../components/CommitmentSection';
-import WhyChooseUsSection from '../components/WhyChooseUsSection';
-import DestinationSection from '../components/DestinationSection';
-import FaqSection from '../components/FaqSection';
-import InquiryForm from '../components/InquiryForm';
+import LightingServices from '../components/LightingServices';
+import SetupsPortfolio from '../components/SetupsPortfolio';
+import SurajCommitment from '../components/SurajCommitment';
+import LightFeatures from '../components/LightFeatures';
+import RanthamboreHeritageSection from '../components/RanthamboreHeritageSection';
+import LightingFaq from '../components/LightingFaq';
+import LightingInquiryForm from '../components/LightingInquiryForm';
 import InstagramSection from '../components/InstagramSection';
 import NewsletterSection from '../components/NewsletterSection';
 
@@ -28,11 +28,11 @@ export default function HomePage({
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="w-full"
     >
-      {/* SECTION 1: Hero */}
-      <HeroSection onOpenBooking={onOpenBooking} />
+      {/* SECTION 1: Grand Hero */}
+      <SurajHero onOpenBooking={onOpenBooking} />
 
-      {/* SECTION 2: About Us (3-Column Asymmetrical Layout & Floating Down Arrow) */}
-      <AboutSection 
+      {/* SECTION 2: The Visionaries Behind The Light */}
+      <SurajAbout 
         onOpenBooking={onOpenBooking} 
         onImageClick={onImageClick} 
       />
@@ -40,41 +40,41 @@ export default function HomePage({
       {/* Curated Moments Mosaic Band */}
       <MosaicGallery onImageClick={onImageClick} />
 
-      {/* SECTION 3: Bespoke Services */}
-      <ServicesSection onOpenBooking={onOpenBooking} />
+      {/* SECTION 3: Lighting, Tenting & Royal Decor */}
+      <LightingServices onOpenBooking={onOpenBooking} />
 
-      {/* SECTION 4: Portfolio & "And more!" Grid */}
-      <PortfolioSection 
+      {/* SECTION 4: Our Grand Setups & Capabilities */}
+      <SetupsPortfolio 
         portfolioItems={portfolioItems}
         onOpenBooking={onOpenBooking}
         onImageClick={onImageClick}
       />
 
       {/* SECTION 5: Our Commitment */}
-      <CommitmentSection 
+      <SurajCommitment 
         onOpenBooking={onOpenBooking} 
         onImageClick={onImageClick} 
       />
 
-      {/* SECTION 6: Why Choose Us (11 Floating Bubbles & 3 Circular Cards) */}
-      <WhyChooseUsSection 
+      {/* SECTION 6: The Suraj Standard (Floating Bubbles & Feature Cards) */}
+      <LightFeatures 
         onOpenBooking={onOpenBooking} 
         onImageClick={onImageClick} 
       />
 
-      {/* SECTION 7: South Florida Weddings (Dark Luxury) */}
-      <DestinationSection />
+      {/* SECTION 7: Ranthambore & Rajasthan Royal Heritage Venues */}
+      <RanthamboreHeritageSection />
 
-      {/* SECTION 8: FAQ Accordion ("You may be wondering...") */}
-      <FaqSection onImageClick={onImageClick} />
+      {/* SECTION 8: Technical & Logistics FAQ */}
+      <LightingFaq onImageClick={onImageClick} />
 
-      {/* Embedded 8-Field Wedding Consultation Inquiry Section */}
-      <InquiryForm onShowToast={onShowToast} />
+      {/* SECTION 9: Light Up Your Event Inquiry Form */}
+      <LightingInquiryForm onShowToast={onShowToast} />
 
-      {/* SECTION 9: Follow Us On Instagram (Matching Reference Layout) */}
+      {/* SECTION 10: Follow Us On Instagram */}
       <InstagramSection />
 
-      {/* SECTION 10: Newsletter ("Get on the list") */}
+      {/* SECTION 11: Newsletter Lookbook & Catalog */}
       <NewsletterSection onShowToast={onShowToast} />
     </motion.div>
   );

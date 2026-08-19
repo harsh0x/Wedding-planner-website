@@ -1,69 +1,55 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 const LUXURY_EASE = [0.25, 1, 0.5, 1];
 
 const categories = [
-  { id: 'all', name: 'All Weddings' },
-  { id: 'kumbhalgarh', name: 'Kumbhalgarh' },
+  { id: 'all', name: 'All Grand Productions' },
+  { id: 'ranthambore', name: 'Ranthambore & Sawai Madhopur' },
   { id: 'udaipur', name: 'Udaipur' },
   { id: 'jaipur', name: 'Jaipur' },
-  { id: 'goa', name: 'Goa' },
   { id: 'jodhpur', name: 'Jodhpur' }
 ];
 
 const weddingsList = [
   {
     id: 'ritesh-bhavika',
-    names: 'Ritesh & Bhavika',
-    category: 'kumbhalgarh',
-    venue: 'Rawla Shargun, Kumbhalgarh',
-    bannerImg: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1200&q=85',
-    thought: 'Bhavika and Ritesh wanted their wedding decor to be a perfect blend of royal elegance and personal touches. They aimed for a luxurious, rich, and detailed look that still felt warm and inviting. Each event was to have a unique style fitting its mood – from pastel freshness at Haldi to glamorous and fairy-tale-like settings for the Sangeet, with a grand aesthetic backdrop for the wedding itself.',
-    specialNote: 'A special request was made to ensure everything looked luxurious with exceptional attention to every detail, which was beautifully brought to life by SHOWMANIA Events.',
+    names: 'Vikramaditya & Ananya',
+    category: 'ranthambore',
+    venue: 'Nahargarh Palace, Ranthambore',
+    bannerImg: 'https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?auto=format&fit=crop&w=1200&q=85',
+    thought: 'The royal family envisioned an ethereal palace lighting production. Suraj Light House deployed 40+ imported crystal chandeliers across the main courtyard, warm amber floodlights across the historical ramparts, and a multi-tiered aluminum stage truss for live headline artists.',
+    specialNote: 'Executed with 100% silent diesel generator redundancy, ensuring uninterrupted festivities for over 1,200 guests.',
     makers: [
-      { role: 'Wedding Planner', credit: '@showmaniaevents' },
-      { role: 'Design & Decor', credit: '@showmaniaevents' },
-      { role: 'Photographer', credit: '@delhivelvet' },
-      { role: 'Makeup Artist', credit: '@manudheeraj_makeupartis' },
-      { role: 'Jewellery', credit: '@navrathan1954, Tonoto (Haldi jewellery)' },
-      { role: 'Venue', credit: 'Rawla Shargun Kumbhalgarh (@rawlasagrun & @lemontreeresortkumbhalgah)' },
-      { role: 'Anchor', credit: '@mcujjwal' },
-      { role: 'Dholis', credit: '@sanjaydholies' },
-      { role: 'Choreographers', credit: '@energiedancecrew' },
-      { role: 'DJ', credit: '@johnniernest' }
+      { role: 'Lighting & Tenting Production', credit: '@suraj_light_house_ranthmbhor' },
+      { role: 'Power & Generator Grid', credit: 'Suraj Light House Heavy DG' },
+      { role: 'Stage Truss & Beams', credit: 'Suraj Light House Pro AV' },
+      { role: 'Venue', credit: 'Nahargarh Palace Ranthambore' }
     ],
     functions: [
-      { name: 'Haldi', vibe: 'Soft pastel hues, fresh flowers, fun games, and props to keep guests entertained.' },
-      { name: 'Sangeet', vibe: 'A glamorous event filled with lots of shine and lighting to create a fairy-tale atmosphere.' },
-      { name: 'Mayra', vibe: 'Traditional and simple with a "gulaabi" touch.' },
-      { name: 'Wedding', vibe: 'Set against the majestic mountain views, the wedding featured an elegant, aesthetic backdrop that complemented the grandeur of the day.' }
+      { name: 'Royal Welcome & Haldi', vibe: 'Warm festoon canopies, yellow marigold draping, and soft garden floodlighting.' },
+      { name: 'Sangeet Night', vibe: 'Concert-grade sharpie beam moving heads, cold sparkular pyrotechnics, and dry ice low fog.' },
+      { name: 'The Royal Pheras', vibe: 'Grand crystal chandelier ceiling with 5,000 warm fairy lights illuminating the palace courtyard.' }
     ]
   },
   {
     id: 'aarav-ananya',
-    names: 'Aarav & Ananya',
-    category: 'udaipur',
-    venue: 'The Oberoi Udaivilas, Udaipur',
-    bannerImg: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=85',
-    thought: 'Ananya and Aarav envisioned a Lake Pichola royal celebration immersed in candlelight, floating lotus mandaps, and regal Mewari heritage. They wanted every guest arriving by royal boat to feel the magic of Rajasthan. SHOWMANIA designed an ethereal Sangeet with crystal canopies and a Pheras ceremony illuminated by 10,000 diyas reflecting on the lake.',
-    specialNote: 'The couple had guests traveling from 14 countries. SHOWMANIA handled end-to-end royal logistics, charter boats, bespoke Rajasthani welcome kits, and curated culinary experiences.',
+    names: 'Siddharth & Priya',
+    category: 'ranthambore',
+    venue: 'Six Senses Fort Barwara, Sawai Madhopur',
+    bannerImg: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1200&q=85',
+    thought: 'A high-profile celebrity heritage wedding set inside a 14th-century royal fort. Suraj Light House engineered custom architectural uplighting, waterproof shamiyana dining pavilions, and computerized DMX lighting sequences synchronized with live musical acts.',
+    specialNote: 'Complete cable management hidden behind heritage stone contours without a single nail touching the ancient fort walls.',
     makers: [
-      { role: 'Wedding Planner', credit: '@showmaniaevents' },
-      { role: 'Design & Decor', credit: '@showmaniaevents' },
-      { role: 'Photographer', credit: '@storiesbyjosephradhik' },
-      { role: 'Makeup Artist', credit: '@namratasoni' },
-      { role: 'Jewellery', credit: '@sabyasachijewelry' },
-      { role: 'Venue', credit: 'The Oberoi Udaivilas, Udaipur' },
-      { role: 'Live Artist', credit: '@mame_khan_official' },
-      { role: 'DJ & Sound', credit: '@dj_shadow_dubai' }
+      { role: 'Lighting & Tenting', credit: '@suraj_light_house_ranthmbhor' },
+      { role: 'Power Redundancy', credit: 'Suraj Light House Silent DG' },
+      { role: 'Venue', credit: 'Six Senses Fort Barwara' }
     ],
     functions: [
-      { name: 'Royal Welcome & Sundowner', vibe: 'Lakeside cocktails with vintage boat transfers and traditional Rajasthani ghoomar dancers.' },
-      { name: 'Mehndi & Carnival', vibe: 'Vibrant marigold and gota patti canopies with live bangle making and folk puppet acts.' },
-      { name: 'Sangeet under the Stars', vibe: 'Crystal chandeliers, moving LED arches, and high-energy choreographies.' },
-      { name: 'The Pheras', vibe: 'Floating mandap on the dome promenade flanked by sacred Vedic chants and floral fireworks.' }
+      { name: 'Fort Twilight Sundowner', vibe: 'Brass lantern pathways and warm amber fort wall washes.' },
+      { name: 'Gala Musical Sangeet', vibe: 'High-octane beam moving heads, pixel LED tubes, and laser synchronization.' },
+      { name: 'Midnight Pheras', vibe: 'Ethereal fairy light tunnel leading into a floral lotus mandap.' }
     ]
   },
   {
@@ -71,410 +57,179 @@ const weddingsList = [
     names: 'Karan & Meera',
     category: 'jaipur',
     venue: 'Fairmont Jaipur, Kukas',
-    bannerImg: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1200&q=85',
-    thought: 'Meera and Karan requested a grand Pink City extravaganza with high-energy Punjabi and Marwari fusion. They wanted a carnival-themed Mehndi with live folk percussionists, an electric Mughal-glam Sangeet featuring celebrity singers, and a sunset courtyard wedding with cascading tuberose and pink roses.',
-    specialNote: 'Special vintage cars and a 100-member royal elephant and camel procession made the Baraat one of the most talked-about events of the season.',
+    bannerImg: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=85',
+    thought: 'A massive Pink City celebration requiring heavy aluminum box trussing over the grand central amphitheatre, hydraulic stage lifting, and extensive facade wash.',
+    specialNote: 'Custom vintage Edison bulb arrays suspended across 15,000 sq.ft of banquet lawn.',
     makers: [
-      { role: 'Wedding Planner', credit: '@showmaniaevents' },
-      { role: 'Design & Decor', credit: '@showmaniaevents' },
-      { role: 'Photographer', credit: '@weddingnama' },
-      { role: 'Makeup Artist', credit: '@danielcbauer' },
-      { role: 'Venue', credit: 'Fairmont Jaipur (@fairmontjaipur)' },
-      { role: 'DJ & Sound', credit: '@dj_chetas' },
-      { role: 'Anchor', credit: '@vandanavadhera' }
+      { role: 'Lighting & Stage Production', credit: '@suraj_light_house_ranthmbhor' },
+      { role: 'Venue', credit: 'Fairmont Jaipur' }
     ],
     functions: [
-      { name: 'Bazaar Mehndi', vibe: 'Block-print decor, traditional spice stalls, attar bars, and live Sufi musicians.' },
-      { name: 'Gala Sangeet', vibe: 'Concert-grade lighting, cold pyros, hydraulic stage, and A-list headline artist performances.' },
-      { name: 'Royal Baraat & Pheras', vibe: 'Grand elephant procession leading into a majestic mirrored lotus mandap.' }
-    ]
-  },
-  {
-    id: 'rohan-tanya',
-    names: 'Rohan & Tanya',
-    category: 'goa',
-    venue: 'W Goa & Vagator Beachfront',
-    bannerImg: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85',
-    thought: 'Tanya and Rohan wanted a barefoot coastal chic vibe mixed with high-octane sunset cocktail parties. The Haldi by the pool featured marigold yellow and turquoise accents, while the beachfront Pheras took place under a bamboo canopy at golden hour with sound waves harmonizing with acoustic sitar rhythms.',
-    specialNote: 'A dedicated sundowner cocktail bar with custom signature couple drinks and an open-air afterparty that lasted until dawn.',
-    makers: [
-      { role: 'Wedding Planner', credit: '@showmaniaevents' },
-      { role: 'Design & Decor', credit: '@showmaniaevents' },
-      { role: 'Photographer', credit: '@theweddingsalad' },
-      { role: 'Venue', credit: 'W Goa, Vagator (@w_goa)' },
-      { role: 'DJ', credit: '@djzaeden' }
-    ],
-    functions: [
-      { name: 'Poolside Haldi & Rain Dance', vibe: 'Tropical yellow blooms, water guns, and bespoke coconuts branded with couple initials.' },
-      { name: 'Sunset Beach Pheras', vibe: 'Pastel pampas grass, driftwood arches, and conch shell fanfares at golden hour.' },
-      { name: 'Neon After-Party', vibe: 'Boho teepees, fire dancers, glow bars, and house DJ sets.' }
+      { name: 'Bazaar Carnival', vibe: 'Colorful canopy illumination, street lamp posts, and neon photo walls.' },
+      { name: 'Rock Sangeet', vibe: 'Stadium scale sharpies, strobe lights, and cryogenic CO2 jets.' },
+      { name: 'Grand Pheras', vibe: 'Regal golden chandeliers and sacred fire mandap lighting.' }
     ]
   }
 ];
 
-const REAL_SLIDES = [
-  {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=2000&q=85',
-    sub: 'Unforgettable Nuptials & Grand Love Stories',
-    title: 'Real Weddings by SHOWMANIA',
-    desc: "Every couple's journey is a bespoke masterpiece. Explore our real weddings, couple thoughts, decor inspirations, and the esteemed wedding makers behind each majestic celebration."
-  },
-  {
-    id: 2,
-    image: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=2000&q=85',
-    sub: "Aarav & Meera's Udaipur Fairytale",
-    title: 'Imperial Romance in the City of Lakes',
-    desc: 'A 3-day royal extravaganza featuring 2,000 floating candles, 24-piece string symphony, and vintage royal boat processions across Lake Pichola.'
-  },
-  {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=2000&q=85',
-    sub: "Rohan & Natasha's Goa Soirée",
-    title: 'Seaside Magic & High-Energy Nights',
-    desc: 'Pastel mandap under the swaying coastal palms, a neon tropical after-party, and personalized vows under the starlit Arabian sky.'
-  },
-  {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=2000&q=85',
-    sub: "Kabir & Ananya's Royal Fortress",
-    title: 'Century-Old Fort Extravaganza',
-    desc: 'Grand sandstone archways illuminated by 5,000 diyas, majestic floral showers, and authentic royal Rajasthani hospitality.'
-  }
-];
+export default function RealWeddingsPage({ onOpenBooking }) {
+  const [activeCategory, setActiveCategory] = useState('all');
+  const [expandedWedding, setExpandedWedding] = useState(null);
 
-export default function RealWeddingsPage() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [activeStory, setActiveStory] = useState(null);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % REAL_SLIDES.length);
-    }, 5500);
-    return () => clearInterval(timer);
-  }, []);
-
-  const slide = REAL_SLIDES[currentSlide];
-
-  const filteredWeddings = selectedCategory === 'all'
-    ? weddingsList
-    : weddingsList.filter(w => w.category === selectedCategory);
+  const filtered = activeCategory === 'all' 
+    ? weddingsList 
+    : weddingsList.filter(w => w.category === activeCategory);
 
   return (
-    <div className="min-h-screen bg-[#FAF6F3] text-charcoal">
-      
-      {/* 1. HERO SECTION WITH AUTOMATIC SLIDER & PINKISH FADED OVERLAY */}
-      <section className="relative text-white min-h-[85vh] sm:min-h-[90vh] flex flex-col justify-center py-24 sm:py-32 md:py-40 px-4 sm:px-6 md:px-12 text-center overflow-hidden">
-        
-        {/* Background Images Crossfade & Ken-Burns */}
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={slide.id}
-            initial={{ opacity: 0, scale: 1.12 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              opacity: { duration: 1.4, ease: "easeInOut" },
-              scale: { duration: 6.5, ease: "easeOut" }
-            }}
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-            style={{ backgroundImage: `url('${slide.image}')` }}
-          />
-        </AnimatePresence>
-
-        {/* Signature Pinkish Faded Gradient Overlay */}
-        <div 
-          className="absolute inset-0 z-10" 
-          style={{ background: 'linear-gradient(180deg, rgba(46, 40, 42, 0.45) 0%, rgba(176, 125, 135, 0.70) 55%, rgba(176, 125, 135, 0.92) 100%)' }}
-        />
-        
-        <div className="max-w-4xl mx-auto relative z-20 flex-1 flex flex-col items-center justify-center select-none">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={slide.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.8, ease: LUXURY_EASE }}
-              className="flex flex-col items-center"
-            >
-              <span className="font-script text-3xl sm:text-5xl text-rose-200 block mb-2 sm:mb-3">
-                {slide.sub}
-              </span>
-              <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide leading-tight mb-4 sm:mb-6 drop-shadow-md">
-                {slide.title}
-              </h1>
-              <p className="font-sans text-xs sm:text-sm md:text-base text-rose-100 max-w-2xl mx-auto font-light leading-relaxed px-2 drop-shadow-sm">
-                {slide.desc}
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </section>
-
-      {/* 2. STATS BAR */}
-      <div className="w-full bg-[#B07D87] text-white py-6 px-4 sm:px-6 border-b border-rose-400/30">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <span className="block font-serif text-3xl sm:text-4xl font-bold">150+</span>
-            <span className="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Royal Nuptials</span>
-          </div>
-          <div>
-            <span className="block font-serif text-3xl sm:text-4xl font-bold">18+</span>
-            <span className="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Iconic Destinations</span>
-          </div>
-          <div>
-            <span className="block font-serif text-3xl sm:text-4xl font-bold">500+</span>
-            <span className="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Artisans & Makers</span>
-          </div>
-          <div>
-            <span className="block font-serif text-3xl sm:text-4xl font-bold">100%</span>
-            <span className="text-[10px] sm:text-xs tracking-widest uppercase text-rose-200">Bespoke Curation</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. FILTER CATEGORIES */}
-      <section className="py-10 px-4 sm:px-6 max-w-7xl mx-auto w-full text-center">
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setSelectedCategory(cat.id)}
-              className={`px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase transition-all cursor-pointer ${
-                selectedCategory === cat.id
-                  ? 'bg-[#E84874] text-white shadow-md'
-                  : 'bg-white text-[#423E40] hover:bg-rose-50 border border-rose-200/70'
-              }`}
-            >
-              {cat.name}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      {/* 4. REAL WEDDINGS SHOWCASE (MATCHING IMAGE 1 & 2 DESIGN) */}
-      <section className="pb-20 px-4 sm:px-6 md:px-12 lg:px-16 max-w-7xl mx-auto w-full space-y-16 sm:space-y-20">
-        <AnimatePresence mode="wait">
-          {filteredWeddings.map((wedding, idx) => (
-            <motion.div
-              key={wedding.id}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.6, delay: idx * 0.1, ease: LUXURY_EASE }}
-              className="bg-white rounded-3xl p-6 sm:p-10 md:p-12 shadow-xl border border-rose-200/80 transition-all hover:shadow-2xl"
-            >
-              {/* Top Floral Botanical Crest (Reference Image 2) */}
-              <div className="flex justify-center mb-8 sm:mb-10">
-                <div className="relative w-72 sm:w-80 h-36 sm:h-40 rounded-full bg-radial-crest bg-[#FFF5F7] border border-rose-200 shadow-inner flex flex-col items-center justify-center p-4 text-center">
-                  <div className="text-[#B07D87] text-lg mb-0.5">
-                    <i className="fa-solid fa-spa"></i>
-                  </div>
-                  <span className="font-sans text-xs sm:text-sm text-[#423E40] tracking-wider uppercase font-medium">
-                    {wedding.venue}
-                  </span>
-                  <h3 className="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-1">
-                    {wedding.names}
-                  </h3>
-                </div>
-              </div>
-
-              {/* Main Two-Column Row (Reference Image 1) */}
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                
-                {/* Left: Couple Photograph */}
-                <div className="lg:col-span-6 overflow-hidden rounded-2xl shadow-lg border-2 border-rose-100 group relative aspect-[4/3] sm:aspect-[16/11]">
-                  <img 
-                    src={wedding.bannerImg} 
-                    alt={wedding.names}
-                    className="w-full h-full object-cover object-center transition transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md text-white text-[11px] px-3.5 py-1.5 rounded-full font-medium flex items-center gap-2">
-                    <i className="fa-solid fa-location-dot text-rose-300"></i>
-                    <span>{wedding.venue}</span>
-                  </div>
-                </div>
-
-                {/* Right: Soft Pink Outlined Quote Box (Reference Image 1) */}
-                <div className="lg:col-span-6 bg-[#FFF9FA] border border-[#E8B2BC] p-6 sm:p-8 md:p-10 rounded-2xl relative flex flex-col justify-between h-full text-center">
-                  
-                  <div className="text-[#B07D87] text-3xl sm:text-4xl font-serif mb-4 flex justify-center opacity-80">
-                    <i className="fa-solid fa-quote-left"></i>
-                  </div>
-
-                  <p className="font-sans text-xs sm:text-sm md:text-[13px] text-[#423E40] leading-relaxed font-light mb-6 px-1 sm:px-4">
-                    {wedding.thought}
-                  </p>
-
-                  <div className="pt-4 border-t border-rose-200/60 flex flex-col items-center gap-3">
-                    <h4 className="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold">
-                      {wedding.names}
-                    </h4>
-                    
-                    <button 
-                      onClick={() => setActiveStory(wedding)}
-                      className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-[#B07D87] hover:text-rose-700 underline underline-offset-8 transition-colors cursor-pointer group"
-                    >
-                      <span>Read More</span>
-                      <i className="fa-solid fa-arrow-right text-[10px] transform group-hover:translate-x-1 transition"></i>
-                    </button>
-                  </div>
-
-                </div>
-
-              </div>
-
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </section>
-
-      {/* 5. CTA CONSULTATION SECTION */}
-      <section className="pb-20 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto w-full">
-        <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 text-center border border-rose-200/80 shadow-2xl relative overflow-hidden">
-          <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-rose-50 -z-0"></div>
-          <div className="relative z-10">
-            <span className="font-script text-3xl sm:text-5xl text-[#B07D87] block mb-2">Write Your Own Love Story</span>
-            <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#2E282A] font-semibold mb-4">
-              Ready to Craft Your Dream Nuptials?
-            </h2>
-            <p className="font-sans text-xs sm:text-sm text-[#696164] max-w-xl mx-auto mb-8 font-light leading-relaxed">
-              From concept sketches and 3D decor renders to venue scouting and full day-of concierge, let SHOWMANIA produce an unforgettable celebration.
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.5, ease: LUXURY_EASE }}
+      className="min-h-screen bg-[#FAF6F0] text-[#1A1A1A] flex flex-col justify-between"
+    >
+      <div>
+        {/* Hero Section */}
+        <section className="relative text-white pt-36 pb-20 sm:pt-40 sm:pb-28 px-4 sm:px-6 md:px-12 text-center bg-[#E63956] overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+          
+          <div className="max-w-4xl mx-auto relative z-10">
+            <span className="font-serif text-xs sm:text-sm tracking-[0.25em] uppercase font-bold text-[#FFCCD3] block mb-2">
+              ✦ Real Production Case Studies ✦
+            </span>
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight mb-4">
+              Real Productions & Grand Setups
+            </h1>
+            <p className="font-sans text-xs sm:text-sm md:text-base text-rose-100 max-w-2xl mx-auto font-light leading-relaxed">
+              Step inside the grand celebrations, palace fort illuminations, and stagecraft engineered by Suraj Light House.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link 
-                to="/contact" 
-                className="px-9 py-4 rounded-full bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase shadow-xl transition transform hover:scale-105 active:scale-95"
-              >
-                Book Consultation
-              </Link>
-              <Link 
-                to="/wedding-venues" 
-                className="px-9 py-4 rounded-full bg-white hover:bg-rose-50 text-[#B07D87] border border-rose-300 text-xs font-semibold tracking-widest uppercase transition"
-              >
-                Explore Venues
-              </Link>
-            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 6. INTERACTIVE STORY MODAL (MATCHING REFERENCE IMAGE 2 & 3) */}
-      <AnimatePresence>
-        {activeStory && (
-          <div 
-            className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
-            onClick={() => setActiveStory(null)}
-          >
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.3, ease: LUXURY_EASE }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col shadow-2xl border border-rose-200 overflow-hidden relative"
-            >
-              {/* Close Button */}
-              <button 
-                onClick={() => setActiveStory(null)}
-                className="absolute top-4 right-4 sm:top-6 sm:right-6 w-10 h-10 rounded-full bg-white/90 shadow-md border border-rose-200 text-charcoal hover:bg-rose-50 hover:text-rose-600 transition flex items-center justify-center z-30 cursor-pointer"
-                aria-label="Close modal"
+        {/* Categories Bar */}
+        <section className="py-8 bg-white border-b border-rose-100 sticky top-20 z-30 shadow-xs">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-start sm:justify-center gap-2 overflow-x-auto no-scrollbar py-1">
+            {categories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-5 py-2.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
+                  activeCategory === cat.id
+                    ? 'bg-[#E63956] text-white shadow-md'
+                    : 'bg-[#FAF6F0] text-[#5A5255] hover:bg-rose-50 hover:text-[#E63956]'
+                }`}
               >
-                <i className="fa-solid fa-xmark text-lg"></i>
+                {cat.name}
               </button>
+            ))}
+          </div>
+        </section>
 
-              {/* Scrollable Modal Body */}
-              <div className="overflow-y-auto p-6 sm:p-10 md:p-12 space-y-8 text-charcoal">
-                
-                {/* Top Botanical Crest Banner (Reference Image 2) */}
-                <div className="flex justify-center mb-2">
-                  <div className="relative w-72 sm:w-80 h-32 sm:h-36 rounded-full bg-[#FFF5F7] border border-rose-200 shadow-inner flex flex-col items-center justify-center p-3 text-center">
-                    <div className="text-[#B07D87] text-base mb-0.5">
-                      <i className="fa-solid fa-spa"></i>
-                    </div>
-                    <span className="font-sans text-[11px] sm:text-xs text-[#423E40] tracking-wider uppercase font-medium">
-                      {activeStory.venue}
+        {/* Productions List */}
+        <section className="py-16 sm:py-20 px-4 sm:px-6 md:px-12 lg:px-16 max-w-6xl mx-auto space-y-16">
+          {filtered.map((item, idx) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+              className="bg-white rounded-3xl overflow-hidden shadow-xl border border-rose-200/80"
+            >
+              {/* Banner Image */}
+              <div className="h-72 sm:h-96 w-full overflow-hidden relative">
+                <img 
+                  src={item.bannerImg} 
+                  alt={item.names} 
+                  className="w-full h-full object-cover" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex items-end p-6 sm:p-10">
+                  <div>
+                    <span className="text-xs font-bold tracking-widest uppercase text-[#FFCCD3] block mb-1">
+                      {item.venue}
                     </span>
-                    <h2 className="font-serif text-2xl sm:text-3xl text-[#2E282A] font-semibold mt-0.5">
-                      {activeStory.names}
+                    <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-bold">
+                      {item.names}
                     </h2>
                   </div>
                 </div>
+              </div>
 
-                {/* Banner Image */}
-                <div className="rounded-2xl overflow-hidden shadow-lg aspect-[16/9] w-full border border-rose-100">
-                  <img src={activeStory.bannerImg} alt={activeStory.names} className="w-full h-full object-cover" />
-                </div>
-
-                {/* The Couple's Vision (Reference Image 1) */}
-                <div className="bg-[#FFF9FA] border border-[#E8B2BC] p-6 sm:p-8 rounded-2xl text-center">
-                  <div className="text-[#B07D87] text-3xl font-serif mb-2 opacity-80">
-                    <i className="fa-solid fa-quote-left"></i>
-                  </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-semibold text-[#2E282A] mb-3">The Couple's Vision</h3>
-                  <p className="text-xs sm:text-sm text-[#423E40] leading-relaxed font-light mb-4">
-                    {activeStory.thought}
-                  </p>
-                  <p className="text-xs text-[#B07D87] italic font-medium">
-                    {activeStory.specialNote}
-                  </p>
-                </div>
-
-                {/* Celebrations & Distinct Vibes (Reference Image 3) */}
+              {/* Body Content */}
+              <div className="p-6 sm:p-10 space-y-6">
                 <div>
-                  <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-[#2E282A] mb-4 pb-2 border-b border-rose-200">
-                    The Wedding Celebrations & Distinct Vibes
+                  <h3 className="font-serif text-lg text-[#E63956] font-bold uppercase tracking-wider mb-2">
+                    Production Vision & Execution
                   </h3>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {activeStory.functions.map((f, i) => (
-                      <div key={i} className="bg-rose-50/70 p-4 sm:p-5 rounded-2xl border border-rose-100">
-                        <h5 className="font-serif text-base sm:text-lg font-semibold text-[#B07D87] mb-1">{f.name}</h5>
-                        <p className="text-xs sm:text-sm text-[#524B4E] font-light leading-relaxed">{f.vibe}</p>
+                  <p className="text-xs sm:text-sm text-[#5A5255] font-light leading-relaxed">
+                    {item.thought}
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-2xl bg-[#FAF6F0] border border-rose-200/60 text-xs text-[#1A1A1A] font-medium flex items-center gap-3">
+                  <i className="fa-solid fa-lightbulb text-[#E63956] text-base"></i>
+                  <span><strong>Special Feature:</strong> {item.specialNote}</span>
+                </div>
+
+                {/* Functions Breakdown */}
+                <div>
+                  <h3 className="font-serif text-sm text-[#1A1A1A] font-bold uppercase tracking-wider mb-3">
+                    Event Breakdown
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    {item.functions.map((fn, fidx) => (
+                      <div key={fidx} className="p-4 rounded-2xl border border-rose-100 bg-white">
+                        <span className="text-xs font-bold text-[#E63956] block mb-1">{fn.name}</span>
+                        <p className="text-[11px] text-[#5A5255] font-light leading-relaxed">{fn.vibe}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Our Wedding Makers (Reference Image 3) */}
-                <div className="bg-white p-6 sm:p-8 rounded-2xl border border-rose-200 shadow-sm">
-                  <h3 className="font-serif text-2xl sm:text-3xl font-semibold text-[#2E282A] mb-4 pb-2 border-b border-rose-100 flex items-center gap-2">
-                    <i className="fa-solid fa-wand-magic-sparkles text-rose-500 text-lg"></i>
-                    <span>Our Wedding Makers</span>
-                  </h3>
-                  <div className="space-y-2.5">
-                    {activeStory.makers.map((m, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs sm:text-sm text-[#423E40]">
-                        <span className="font-semibold text-[#2E282A] min-w-[130px] sm:min-w-[150px]">{m.role}:</span>
-                        <span className="font-normal text-[#B07D87]">{m.credit}</span>
-                      </div>
+                {/* Credits */}
+                <div className="pt-6 border-t border-rose-100 flex flex-wrap items-center justify-between gap-4">
+                  <div className="flex flex-wrap items-center gap-4 text-xs text-gray-500">
+                    {item.makers.map((m, midx) => (
+                      <span key={midx}>
+                        <strong className="text-[#1A1A1A]">{m.role}:</strong> {m.credit}
+                      </span>
                     ))}
                   </div>
-                </div>
-
-                {/* Modal Footer CTA */}
-                <div className="pt-4 border-t border-rose-200 flex flex-wrap items-center justify-between gap-4">
-                  <div>
-                    <span className="block text-xs font-semibold uppercase tracking-wider text-charcoal">Inspired by this celebration?</span>
-                    <span className="block text-xs text-gray-500 font-light">Speak with our lead wedding curators today.</span>
-                  </div>
-                  <Link 
-                    to="/contact" 
-                    onClick={() => setActiveStory(null)}
-                    className="px-7 py-3 rounded-full bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase shadow-md transition transform hover:scale-105"
+                  <button
+                    onClick={() => onOpenBooking(`Production Inspo: ${item.names}`)}
+                    className="px-6 py-2.5 rounded-full bg-[#E63956] hover:bg-[#CF203E] text-white font-bold text-xs uppercase tracking-wider transition cursor-pointer"
                   >
-                    Plan a Wedding Like This
-                  </Link>
+                    Request Similar Setup
+                  </button>
                 </div>
 
               </div>
-
             </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+          ))}
+        </section>
 
-    </div>
+        {/* CTA Banner */}
+        <section className="pb-20 px-4 sm:px-6 md:px-12 max-w-5xl mx-auto w-full">
+          <div className="bg-white rounded-3xl p-8 sm:p-12 md:p-16 text-center border border-rose-200/80 shadow-2xl relative overflow-hidden">
+            <div className="relative z-10">
+              <span className="font-serif text-xs tracking-[0.25em] uppercase font-bold text-[#E63956] block mb-2">✦ Create Your Royal Production ✦</span>
+              <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl text-[#1A1A1A] font-bold mb-4">
+                Ready to Bring This Grandeur to Your Celebration?
+              </h2>
+              <p className="text-xs sm:text-sm text-[#5A5255] max-w-xl mx-auto mb-8 font-light leading-relaxed">
+                Connect with our master production team to design your stage, chandelier arrays, and generator setup.
+              </p>
+              <button
+                onClick={() => onOpenBooking('Custom Production Setup')}
+                className="inline-flex items-center justify-center gap-3 px-8 sm:px-10 py-4 rounded-full bg-gradient-to-r from-[#E63956] to-[#CF203E] hover:from-[#CF203E] hover:to-[#AB132D] text-white text-xs sm:text-sm font-bold tracking-wider uppercase shadow-[0_10px_25px_rgba(230,57,86,0.35)] hover:shadow-[0_15px_30px_rgba(230,57,86,0.5)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer border border-white/20"
+              >
+                <span>Inquire For Your Celebration</span>
+                <i className="fa-solid fa-arrow-right text-xs"></i>
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </motion.div>
   );
 }

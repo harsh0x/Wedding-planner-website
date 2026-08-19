@@ -23,13 +23,13 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
   const isHome = location.pathname === '/';
   const isSolid = isScrolled || !isHome;
 
-  // Dropdown hover helpers with 250ms grace period
+  // Dropdown hover helpers with 200ms grace period
   const handleAboutEnter = () => {
     if (aboutTimerRef.current) clearTimeout(aboutTimerRef.current);
     setAboutDropdownOpen(true);
   };
   const handleAboutLeave = () => {
-    aboutTimerRef.current = setTimeout(() => setAboutDropdownOpen(false), 250);
+    aboutTimerRef.current = setTimeout(() => setAboutDropdownOpen(false), 200);
   };
 
   const handleServicesEnter = () => {
@@ -37,7 +37,7 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
     setServicesDropdownOpen(true);
   };
   const handleServicesLeave = () => {
-    servicesTimerRef.current = setTimeout(() => setServicesDropdownOpen(false), 250);
+    servicesTimerRef.current = setTimeout(() => setServicesDropdownOpen(false), 200);
   };
 
   const handleDestinationEnter = () => {
@@ -45,7 +45,7 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
     setDestinationDropdownOpen(true);
   };
   const handleDestinationLeave = () => {
-    destinationTimerRef.current = setTimeout(() => setDestinationDropdownOpen(false), 250);
+    destinationTimerRef.current = setTimeout(() => setDestinationDropdownOpen(false), 200);
   };
 
   const handleVenueEnter = () => {
@@ -53,13 +53,13 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
     setVenueDropdownOpen(true);
   };
   const handleVenueLeave = () => {
-    venueTimerRef.current = setTimeout(() => setVenueDropdownOpen(false), 250);
+    venueTimerRef.current = setTimeout(() => setVenueDropdownOpen(false), 200);
   };
 
-  // Close mobile menu on resize
+  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 1280) {
         setMobileMenuOpen(false);
         setMobileAboutOpen(false);
         setMobileServicesOpen(false);
@@ -71,22 +71,27 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const dropdownVariants = {
     hidden: { 
       opacity: 0, 
-      y: 8, 
-      scale: 0.97, 
-      transition: { duration: 0.18, ease: "easeInOut" } 
+      y: 6, 
+      scale: 0.98, 
+      transition: { duration: 0.15, ease: "easeInOut" } 
     },
     visible: { 
       opacity: 1, 
       y: 0, 
       scale: 1, 
-      transition: { duration: 0.22, ease: [0.25, 1, 0.5, 1] } 
+      transition: { duration: 0.2, ease: [0.25, 1, 0.5, 1] } 
     }
   };
 
-  const isAboutActive = location.pathname === '/testimonials' || location.pathname === '/contact';
+  const isAboutActive = location.pathname === '/about' || location.pathname === '/testimonials' || location.pathname === '/contact';
   const isServicesActive = location.pathname.startsWith('/services');
   const isDestinationActive = location.pathname === '/destination-wedding-india' || location.pathname === '/destination-wedding-abroad';
   const isVenueActive = location.pathname === '/wedding-venues';
@@ -96,48 +101,73 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 120, damping: 18, delay: 0.1 }}
-      className={`w-full z-50 transition-all duration-500 ${isSolid ? 'fixed top-0 left-0 glass-nav shadow-md py-3 text-[#2E282A]' : 'absolute top-0 left-0 py-5 text-white'}`}
+      className={`w-full z-50 transition-all duration-300 ${
+        isSolid 
+          ? 'fixed top-0 left-0 glass-nav shadow-md py-2.5 sm:py-3 text-[#1A1A1A]' 
+          : 'absolute top-0 left-0 py-3 sm:py-4 text-white'
+      }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between">
+      <div className="max-w-[1520px] w-full mx-auto px-3.5 sm:px-6 lg:px-8 flex items-center justify-between gap-2 sm:gap-4">
         
-        {/* Brand Logo */}
+        {/* Brand Logo & Name: SURAJ LIGHT'S RANTHAMBORE */}
         <Link 
           to="/"
-          className="flex items-center gap-3 group cursor-pointer py-1 flex-shrink-0"
+          className="flex items-center gap-3 group cursor-pointer py-0.5 flex-shrink-0"
         >
           <img 
             src="/logo.png" 
-            alt="SHOWMANIA Events & Entertainment" 
-            className="h-10 sm:h-11 md:h-12 w-auto object-contain transition transform group-hover:scale-105"
-            onError={(e) => { e.target.src = 'assets/logo.png'; }}
+            alt="Suraj Light's Ranthambore Logo" 
+            className="h-11 sm:h-13 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
           />
+          <div className="flex flex-col">
+            <span className={`font-serif tracking-[0.14em] sm:tracking-[0.18em] uppercase font-black text-sm sm:text-base lg:text-lg transition leading-tight ${
+              isSolid 
+                ? 'text-[#1A1A1A] group-hover:text-[#E63956]' 
+                : 'text-white group-hover:text-[#FFCCD3]'
+            }`}>
+              SURAJ LIGHT'S
+            </span>
+            <span className={`text-[8px] sm:text-[8.5px] tracking-[0.22em] sm:tracking-[0.26em] uppercase font-bold transition ${
+              isSolid ? 'text-[#E63956]' : 'text-[#FFCCD3]'
+            }`}>
+              RANTHAMBORE • ROYAL DECOR
+            </span>
+          </div>
         </Link>
 
-        {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center space-x-3.5 2xl:space-x-5 text-[10.5px] 2xl:text-[11px] tracking-[0.14em] 2xl:tracking-[0.18em] uppercase font-medium whitespace-nowrap">
+        {/* Desktop Navigation Links (Visible on xl: >= 1280px) */}
+        <nav className="hidden xl:flex items-center gap-1.5 xl:gap-2.5 2xl:gap-4 text-[10.5px] xl:text-[11px] 2xl:text-xs tracking-wider uppercase font-bold whitespace-nowrap">
           
           {/* 1. Home */}
           <Link 
             to="/" 
-            className={`transition-colors py-1 relative ${location.pathname === '/' ? 'text-[#B07D87] font-semibold' : (isSolid ? 'text-[#2E282A] hover:text-[#B07D87]' : 'text-white/90 hover:text-rose-300')}`}
+            className={`px-2 py-1.5 transition-colors relative ${
+              location.pathname === '/' 
+                ? 'text-[#E63956] font-bold' 
+                : (isSolid ? 'text-[#1A1A1A] hover:text-[#E63956]' : 'text-white/90 hover:text-[#FFCCD3]')
+            }`}
           >
             <span>Home</span>
             {location.pathname === '/' && (
-              <motion.span layoutId="navUnderline" className="absolute bottom-0 left-0 right-0 h-[2px] bg-[#B07D87]" />
+              <motion.span layoutId="navUnderline" className="absolute bottom-0 left-2 right-2 h-[2px] bg-[#E63956]" />
             )}
           </Link>
 
-          {/* 2. About Us Dropdown */}
+          {/* 2. Our Heritage Dropdown */}
           <div 
-            className="relative py-2"
+            className="relative py-1"
             onMouseEnter={handleAboutEnter}
             onMouseLeave={handleAboutLeave}
           >
             <Link 
               to="/about"
-              className={`flex items-center gap-1.5 py-1 tracking-[0.18em] uppercase transition-colors cursor-pointer ${location.pathname === '/about' ? 'text-[#B07D87] font-semibold border-b-2 border-[#B07D87]' : (isSolid ? 'text-[#2E282A] hover:text-[#B07D87]' : 'text-white/90 hover:text-rose-300')}`}
+              className={`flex items-center gap-1 px-2 py-1.5 uppercase transition-colors cursor-pointer ${
+                isAboutActive 
+                  ? 'text-[#E63956] font-bold border-b-2 border-[#E63956]' 
+                  : (isSolid ? 'text-[#1A1A1A] hover:text-[#E63956]' : 'text-white/90 hover:text-[#FFCCD3]')
+              }`}
             >
-              <span>About Us</span>
+              <span>Our Heritage</span>
               <motion.i 
                 animate={{ rotate: aboutDropdownOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
@@ -154,49 +184,55 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
                   exit="hidden"
                   onMouseEnter={handleAboutEnter}
                   onMouseLeave={handleAboutLeave}
-                  className="absolute top-full left-0 pt-2 w-56 z-50 text-[#2E282A]"
+                  className="absolute top-full left-0 pt-2 w-64 z-50 text-[#1A1A1A]"
                 >
                   <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
                     <div className="px-1.5 space-y-1">
                       <Link
                         to="/about"
                         onClick={() => setAboutDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/about' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/about' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
-                          <i className="fa-solid fa-gem text-xs"></i>
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
+                          <i className="fa-solid fa-crown text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">About Showmania</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Our legacy, vision & founder</span>
+                          <span className="block font-bold">Our Heritage & Legacy</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Suraj Light House story</span>
                         </div>
                       </Link>
 
                       <Link
                         to="/testimonials"
                         onClick={() => setAboutDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/testimonials' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/testimonials' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
-                          <i className="fa-solid fa-heart-pulse text-xs"></i>
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
+                          <i className="fa-solid fa-star text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Testimonials</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Client love stories & reviews</span>
+                          <span className="block font-bold">Client Appreciations</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Spectacular reviews & feedback</span>
                         </div>
                       </Link>
 
                       <Link
                         to="/contact"
                         onClick={() => setAboutDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/contact' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/contact' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
                           <i className="fa-regular fa-envelope text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Contact Us</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Direct inquiry & studio lines</span>
+                          <span className="block font-bold">Contact & Studio</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Ranthambore office & quotes</span>
                         </div>
                       </Link>
                     </div>
@@ -206,17 +242,21 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
             </AnimatePresence>
           </div>
 
-          {/* 3. Services Dropdown */}
+          {/* 3. Lighting & Decor Dropdown */}
           <div 
-            className="relative py-2"
+            className="relative py-1"
             onMouseEnter={handleServicesEnter}
             onMouseLeave={handleServicesLeave}
           >
             <button 
               onClick={() => setServicesDropdownOpen(!servicesDropdownOpen)}
-              className={`flex items-center gap-1.5 py-1 tracking-[0.18em] uppercase transition-colors cursor-pointer ${isServicesActive || servicesDropdownOpen ? 'text-[#B07D87] font-semibold' : (isSolid ? 'text-[#2E282A] hover:text-[#B07D87]' : 'text-white/90 hover:text-rose-300')}`}
+              className={`flex items-center gap-1 px-2 py-1.5 uppercase transition-colors cursor-pointer ${
+                isServicesActive || servicesDropdownOpen 
+                  ? 'text-[#E63956] font-bold' 
+                  : (isSolid ? 'text-[#1A1A1A] hover:text-[#E63956]' : 'text-white/90 hover:text-[#FFCCD3]')
+              }`}
             >
-              <span>Services</span>
+              <span>Lighting & Decor</span>
               <motion.i 
                 animate={{ rotate: servicesDropdownOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
@@ -233,63 +273,69 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
                   exit="hidden"
                   onMouseEnter={handleServicesEnter}
                   onMouseLeave={handleServicesLeave}
-                  className="absolute top-full left-0 pt-2 w-64 z-50 text-[#2E282A]"
+                  className="absolute top-full left-0 pt-2 w-72 z-50 text-[#1A1A1A]"
                 >
                   <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
                     <div className="px-1.5 space-y-1">
                       <a
                         href="/#services"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className="flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87] transition-all group"
+                        className="flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956] transition-all group"
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
-                          <i className="fa-solid fa-ring text-xs"></i>
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
+                          <i className="fa-solid fa-lightbulb text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Wedding Services</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Bespoke nuptial planning</span>
+                          <span className="block font-bold">Full Event Lighting</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Chandeliers, fairy canopies & wash</span>
                         </div>
                       </a>
 
                       <Link
                         to="/services/corporate"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/services/corporate' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/services/corporate' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
                           <i className="fa-solid fa-building text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Corporate Events</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Galas, summits & launches</span>
+                          <span className="block font-bold">Corporate & Summit Setups</span>
+                          <span className="block text-[10px] text-gray-400 font-light">AV, stage trussing & power</span>
                         </div>
                       </Link>
 
                       <Link
                         to="/services/social"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/services/social' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/services/social' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
                           <i className="fa-solid fa-champagne-glasses text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Social Events</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Birthdays & luxury soirées</span>
+                          <span className="block font-bold">Social & Sangeet Nights</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Dynamic theme illumination</span>
                         </div>
                       </Link>
 
                       <Link
                         to="/services/celebrity-artist"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/services/celebrity-artist' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/services/celebrity-artist' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
-                          <i className="fa-solid fa-star text-xs"></i>
+                        <div className="w-6 h-6 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
+                          <i className="fa-solid fa-compact-disc text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Celebrity & Artist</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Talent & stage curation</span>
+                          <span className="block font-bold">Concert Truss & Special FX</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Intelligent moving heads & pyros</span>
                         </div>
                       </Link>
                     </div>
@@ -299,17 +345,21 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
             </AnimatePresence>
           </div>
 
-          {/* 4. Destination Weddings Dropdown */}
+          {/* 4. Destination Setups Dropdown */}
           <div 
-            className="relative py-2"
+            className="relative py-1"
             onMouseEnter={handleDestinationEnter}
             onMouseLeave={handleDestinationLeave}
           >
             <button 
               onClick={() => setDestinationDropdownOpen(!destinationDropdownOpen)}
-              className={`flex items-center gap-1.5 py-1 tracking-[0.18em] uppercase transition-colors cursor-pointer ${isDestinationActive || destinationDropdownOpen ? 'text-[#B07D87] font-semibold' : (isSolid ? 'text-[#2E282A] hover:text-[#B07D87]' : 'text-white/90 hover:text-rose-300')}`}
+              className={`flex items-center gap-1 px-2 py-1.5 uppercase transition-colors cursor-pointer ${
+                isDestinationActive || destinationDropdownOpen 
+                  ? 'text-[#E63956] font-bold' 
+                  : (isSolid ? 'text-[#1A1A1A] hover:text-[#E63956]' : 'text-white/90 hover:text-[#FFCCD3]')
+              }`}
             >
-              <span>Destination Weddings</span>
+              <span>Destinations</span>
               <motion.i 
                 animate={{ rotate: destinationDropdownOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
@@ -326,35 +376,39 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
                   exit="hidden"
                   onMouseEnter={handleDestinationEnter}
                   onMouseLeave={handleDestinationLeave}
-                  className="absolute top-full left-0 pt-2 w-72 z-50 text-[#2E282A]"
+                  className="absolute top-full left-0 pt-2 w-72 z-50 text-[#1A1A1A]"
                 >
                   <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
                     <div className="px-1.5 space-y-1">
                       <Link
                         to="/destination-wedding-india"
                         onClick={() => setDestinationDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/destination-wedding-india' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/destination-wedding-india' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-7 h-7 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                        <div className="w-7 h-7 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
                           <i className="fa-solid fa-archway text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Destination Wedding in India</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Udaipur, Jaipur, Goa, Kerala & more</span>
+                          <span className="block font-bold">Ranthambore & Rajasthan</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Forts, Palaces & Luxury Resorts</span>
                         </div>
                       </Link>
 
                       <Link
                         to="/destination-wedding-abroad"
                         onClick={() => setDestinationDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/destination-wedding-abroad' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/destination-wedding-abroad' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-7 h-7 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                        <div className="w-7 h-7 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
                           <i className="fa-solid fa-plane-departure text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Destination Wedding in Abroad</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Bali, Dubai, Italy, Thailand & Europe</span>
+                          <span className="block font-bold">Pan-India & Royal Events</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Jaipur, Udaipur, Goa & Beyond</span>
                         </div>
                       </Link>
                     </div>
@@ -364,17 +418,21 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
             </AnimatePresence>
           </div>
 
-          {/* 5. Venue Dropdown */}
+          {/* 5. Heritage Venues Dropdown */}
           <div 
-            className="relative py-2"
+            className="relative py-1"
             onMouseEnter={handleVenueEnter}
             onMouseLeave={handleVenueLeave}
           >
             <button 
               onClick={() => setVenueDropdownOpen(!venueDropdownOpen)}
-              className={`flex items-center gap-1.5 py-1 tracking-[0.18em] uppercase transition-colors cursor-pointer ${isVenueActive || venueDropdownOpen ? 'text-[#B07D87] font-semibold' : (isSolid ? 'text-[#2E282A] hover:text-[#B07D87]' : 'text-white/90 hover:text-rose-300')}`}
+              className={`flex items-center gap-1 px-2 py-1.5 uppercase transition-colors cursor-pointer ${
+                isVenueActive || venueDropdownOpen 
+                  ? 'text-[#E63956] font-bold' 
+                  : (isSolid ? 'text-[#1A1A1A] hover:text-[#E63956]' : 'text-white/90 hover:text-[#FFCCD3]')
+              }`}
             >
-              <span>Venue</span>
+              <span>Venues</span>
               <motion.i 
                 animate={{ rotate: venueDropdownOpen ? 180 : 0 }}
                 transition={{ duration: 0.2 }}
@@ -391,21 +449,23 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
                   exit="hidden"
                   onMouseEnter={handleVenueEnter}
                   onMouseLeave={handleVenueLeave}
-                  className="absolute top-full left-0 pt-2 w-64 z-50 text-[#2E282A]"
+                  className="absolute top-full left-0 pt-2 w-72 z-50 text-[#1A1A1A]"
                 >
                   <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-rose-200/90 py-2.5 overflow-hidden">
                     <div className="px-1.5 space-y-1">
                       <Link
                         to="/wedding-venues"
                         onClick={() => setVenueDropdownOpen(false)}
-                        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs normal-case transition-all group ${location.pathname === '/wedding-venues' ? 'bg-rose-50 text-[#B07D87] font-semibold' : 'text-[#423E40] hover:bg-rose-50 hover:text-[#B07D87]'}`}
+                        className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs normal-case transition-all group ${
+                          location.pathname === '/wedding-venues' ? 'bg-rose-50 text-[#E63956] font-semibold' : 'text-[#1A1A1A] hover:bg-rose-50 hover:text-[#E63956]'
+                        }`}
                       >
-                        <div className="w-7 h-7 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#B07D87]">
+                        <div className="w-7 h-7 rounded-full bg-rose-50 group-hover:bg-rose-100 flex items-center justify-center text-[#E63956]">
                           <i className="fa-solid fa-hotel text-xs"></i>
                         </div>
                         <div>
-                          <span className="block font-medium">Wedding Venues</span>
-                          <span className="block text-[10px] text-gray-400 font-light">Palaces, Forts, Havelis & Resorts</span>
+                          <span className="block font-bold">Ranthambore Venues</span>
+                          <span className="block text-[10px] text-gray-400 font-light">Nahargarh, Six Senses, Vanyavilas</span>
                         </div>
                       </Link>
                     </div>
@@ -415,54 +475,64 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
             </AnimatePresence>
           </div>
 
-          {/* 6. Real Weddings (Dedicated Page) */}
+          {/* 6. Our Grand Setups */}
           <Link 
             to="/real-weddings" 
-            className={`hover:text-[#B07D87] transition-colors py-1 ${location.pathname === '/real-weddings' ? 'text-[#B07D87] font-semibold border-b-2 border-[#B07D87]' : (isSolid ? 'text-[#2E282A]' : 'text-white/90')}`}
+            className={`px-2 py-1.5 hover:text-[#E63956] transition-colors relative ${
+              location.pathname === '/real-weddings' 
+                ? 'text-[#E63956] font-bold border-b-2 border-[#E63956]' 
+                : (isSolid ? 'text-[#1A1A1A]' : 'text-white/90')
+            }`}
           >
-            Real Weddings
+            Our Setups
           </Link>
 
-          {/* 7. Gallery (Dedicated Page) */}
+          {/* 7. Gallery */}
           <Link 
             to="/gallery" 
-            className={`hover:text-[#B07D87] transition-colors py-1 ${location.pathname === '/gallery' ? 'text-[#B07D87] font-semibold border-b-2 border-[#B07D87]' : (isSolid ? 'text-[#2E282A]' : 'text-white/90')}`}
+            className={`px-2 py-1.5 hover:text-[#E63956] transition-colors relative ${
+              location.pathname === '/gallery' 
+                ? 'text-[#E63956] font-bold border-b-2 border-[#E63956]' 
+                : (isSolid ? 'text-[#1A1A1A]' : 'text-white/90')
+            }`}
           >
             Gallery
           </Link>
 
         </nav>
 
-        {/* Far Right CTA: CONTACT US (Vibrant pink button matching the theme) */}
-        <div className="hidden lg:flex items-center space-x-3">
-          <Link
-            to="/contact"
-            className="px-6 py-2.5 rounded-md bg-[#E84874] hover:bg-[#D43460] text-white text-xs font-semibold tracking-widest uppercase transition transform hover:scale-[1.03] shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer"
+        {/* Far Right CTA: GET A QUOTE (Desktop) */}
+        <div className="hidden xl:flex items-center flex-shrink-0">
+          <button
+            onClick={() => onOpenBooking('Full Event Lighting')}
+            className="px-5 py-2.5 rounded-full bg-[#E63956] hover:bg-[#CF203E] text-white text-[11px] font-bold tracking-widest uppercase transition transform hover:scale-[1.03] shadow-md hover:shadow-lg flex items-center justify-center cursor-pointer border border-white/20"
           >
-            CONTACT US
-          </Link>
+            GET A QUOTE
+          </button>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="xl:hidden flex items-center gap-3">
-          <Link
-            to="/contact"
-            className="px-3.5 py-1.5 rounded-md bg-[#E84874] hover:bg-[#D43460] text-white text-[10px] font-semibold tracking-wider uppercase transition shadow-sm"
+        {/* Mobile & Tablet Header Controls (Visible on < 1280px) */}
+        <div className="xl:hidden flex items-center gap-2 sm:gap-3 flex-shrink-0">
+          <button
+            onClick={() => onOpenBooking('Full Event Lighting')}
+            className="px-3.5 py-1.5 rounded-full bg-[#E63956] hover:bg-[#CF203E] text-white text-[10px] font-bold tracking-wider uppercase transition shadow-sm cursor-pointer"
           >
-            Contact
-          </Link>
+            Quote
+          </button>
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`p-2 rounded-lg transition cursor-pointer ${isSolid ? 'text-[#2E282A] hover:bg-rose-100/60' : 'text-white hover:bg-white/15'}`}
+            className={`w-9 h-9 rounded-lg flex items-center justify-center transition cursor-pointer ${
+              isSolid ? 'text-[#1A1A1A] hover:bg-rose-100/60' : 'text-white hover:bg-white/15'
+            }`}
             aria-label="Toggle navigation menu"
           >
-            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-xl`}></i>
+            <i className={`fa-solid ${mobileMenuOpen ? 'fa-xmark' : 'fa-bars'} text-lg`}></i>
           </button>
         </div>
 
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile / Tablet Drawer Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -470,167 +540,169 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="xl:hidden bg-[#FAF6F3] text-[#2E282A] border-b border-rose-200 px-6 py-5 shadow-2xl overflow-hidden"
+            className="xl:hidden bg-[#FAF6F0] text-[#1A1A1A] border-b border-rose-200 px-5 sm:px-8 py-4 shadow-2xl overflow-y-auto max-h-[80vh]"
           >
-            <div className="flex flex-col space-y-2 text-xs font-medium tracking-wider uppercase">
+            <div className="flex flex-col space-y-1.5 text-xs font-bold tracking-wider uppercase">
               
               {/* Home */}
               <Link 
                 to="/" 
                 onClick={() => setMobileMenuOpen(false)}
-                className="py-2 border-b border-rose-100 flex items-center justify-between text-[#2E282A] hover:text-[#B07D87]"
+                className="py-2.5 border-b border-rose-100 flex items-center justify-between text-[#1A1A1A] hover:text-[#E63956]"
               >
                 <span>Home</span>
                 <i className="fa-solid fa-house text-xs opacity-50"></i>
               </Link>
 
-              {/* About Us Accordion */}
+              {/* Our Heritage Accordion */}
               <div className="border-b border-rose-100 py-2">
                 <button 
                   onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#B07D87]"
+                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#E63956]"
                 >
-                  <span>About Us</span>
-                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileAboutOpen ? 'rotate-180 text-[#B07D87]' : 'opacity-50'}`}></i>
+                  <span>Our Heritage</span>
+                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileAboutOpen ? 'rotate-180 text-[#E63956]' : 'opacity-50'}`}></i>
                 </button>
                 {mobileAboutOpen && (
-                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#5A5255]">
                     <Link 
                       to="/about" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-gem text-xs text-rose-400 mr-2"></i>
-                      About Showmania & Founder
+                      <i className="fa-solid fa-crown text-xs text-[#E63956] mr-2"></i>
+                      Our Heritage & Legacy
                     </Link>
                     <Link 
                       to="/testimonials" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-heart-pulse text-xs text-rose-400 mr-2"></i>
-                      Testimonials & Reviews
+                      <i className="fa-solid fa-star text-xs text-[#E63956] mr-2"></i>
+                      Client Appreciations & Reviews
                     </Link>
                     <Link 
                       to="/contact" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-regular fa-envelope text-xs text-rose-400 mr-2"></i>
+                      <i className="fa-regular fa-envelope text-xs text-[#E63956] mr-2"></i>
                       Contact Us & Studio Info
                     </Link>
                   </div>
                 )}
               </div>
 
-              {/* Services Accordion */}
+              {/* Lighting & Decor Accordion */}
               <div className="border-b border-rose-100 py-2">
                 <button 
                   onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#B07D87]"
+                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#E63956]"
                 >
-                  <span>Services</span>
-                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileServicesOpen ? 'rotate-180 text-[#B07D87]' : 'opacity-50'}`}></i>
+                  <span>Lighting & Decor</span>
+                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileServicesOpen ? 'rotate-180 text-[#E63956]' : 'opacity-50'}`}></i>
                 </button>
                 {mobileServicesOpen && (
-                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#5A5255]">
                     <a 
                       href="/#services" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-ring text-xs text-rose-400 mr-2"></i>
-                      Wedding Services
+                      <i className="fa-solid fa-lightbulb text-xs text-[#E63956] mr-2"></i>
+                      Full Event Lighting & Chandeliers
                     </a>
                     <Link 
                       to="/services/corporate" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-building text-xs text-rose-400 mr-2"></i>
-                      Corporate Events & Galas
+                      <i className="fa-solid fa-building text-xs text-[#E63956] mr-2"></i>
+                      Corporate Events & Summits
                     </Link>
                     <Link 
                       to="/services/social" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-champagne-glasses text-xs text-rose-400 mr-2"></i>
-                      Social Events & Soirées
+                      <i className="fa-solid fa-champagne-glasses text-xs text-[#E63956] mr-2"></i>
+                      Social & Sangeet Nights
                     </Link>
                     <Link 
                       to="/services/celebrity-artist" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-star text-xs text-rose-400 mr-2"></i>
-                      Celebrity & Artist Management
+                      <i className="fa-solid fa-compact-disc text-xs text-[#E63956] mr-2"></i>
+                      Concert Trussing & Stage Special FX
                     </Link>
                   </div>
                 )}
               </div>
 
-              {/* Destination Weddings Accordion */}
+              {/* Destination Setups Accordion */}
               <div className="border-b border-rose-100 py-2">
                 <button 
                   onClick={() => setMobileDestinationOpen(!mobileDestinationOpen)}
-                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#B07D87]"
+                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#E63956]"
                 >
-                  <span>Destination Weddings</span>
-                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileDestinationOpen ? 'rotate-180 text-[#B07D87]' : 'opacity-50'}`}></i>
+                  <span>Destination Setups</span>
+                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileDestinationOpen ? 'rotate-180 text-[#E63956]' : 'opacity-50'}`}></i>
                 </button>
                 {mobileDestinationOpen && (
-                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#5A5255]">
                     <Link 
                       to="/destination-wedding-india" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-archway text-xs text-rose-400 mr-2"></i>
-                      Destination Wedding in India
+                      <i className="fa-solid fa-archway text-xs text-[#E63956] mr-2"></i>
+                      Ranthambore & Rajasthan
                     </Link>
                     <Link 
                       to="/destination-wedding-abroad" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-plane-departure text-xs text-rose-400 mr-2"></i>
-                      Destination Wedding in Abroad
+                      <i className="fa-solid fa-plane-departure text-xs text-[#E63956] mr-2"></i>
+                      Pan-India & Royal Events
                     </Link>
                   </div>
                 )}
               </div>
 
-              {/* Venue Accordion */}
+              {/* Heritage Venues Accordion */}
               <div className="border-b border-rose-100 py-2">
                 <button 
                   onClick={() => setMobileVenueOpen(!mobileVenueOpen)}
-                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#B07D87]"
+                  className="w-full flex items-center justify-between text-left tracking-wider uppercase hover:text-[#E63956]"
                 >
-                  <span>Venue</span>
-                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileVenueOpen ? 'rotate-180 text-[#B07D87]' : 'opacity-50'}`}></i>
+                  <span>Heritage Venues</span>
+                  <i className={`fa-solid fa-chevron-down text-xs transition transform ${mobileVenueOpen ? 'rotate-180 text-[#E63956]' : 'opacity-50'}`}></i>
                 </button>
                 {mobileVenueOpen && (
-                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#423E40]">
+                  <div className="pl-3 pt-2 space-y-2 normal-case font-normal text-xs text-[#5A5255]">
                     <Link 
                       to="/wedding-venues" 
                       onClick={() => setMobileMenuOpen(false)}
-                      className="block py-1 hover:text-[#B07D87]"
+                      className="block py-1 hover:text-[#E63956]"
                     >
-                      <i className="fa-solid fa-hotel text-xs text-rose-400 mr-2"></i>
-                      Wedding Venues (Palaces, Forts & Resorts)
+                      <i className="fa-solid fa-hotel text-xs text-[#E63956] mr-2"></i>
+                      Ranthambore Resorts & Palaces
                     </Link>
                   </div>
                 )}
               </div>
 
-              {/* Real Weddings */}
+              {/* Our Grand Setups */}
               <Link 
                 to="/real-weddings" 
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 border-b border-rose-100 flex items-center justify-between ${location.pathname === '/real-weddings' ? 'text-[#B07D87] font-semibold' : 'text-[#2E282A] hover:text-[#B07D87]'}`}
+                className={`py-2.5 border-b border-rose-100 flex items-center justify-between ${
+                  location.pathname === '/real-weddings' ? 'text-[#E63956] font-bold' : 'text-[#1A1A1A] hover:text-[#E63956]'
+                }`}
               >
-                <span>Real Weddings</span>
+                <span>Our Setups</span>
                 <i className="fa-regular fa-image text-xs opacity-50"></i>
               </Link>
 
@@ -638,21 +710,25 @@ export default function Navbar({ isScrolled, onOpenBooking }) {
               <Link 
                 to="/gallery" 
                 onClick={() => setMobileMenuOpen(false)}
-                className={`py-2 border-b border-rose-100 flex items-center justify-between ${location.pathname === '/gallery' ? 'text-[#B07D87] font-semibold' : 'text-[#2E282A] hover:text-[#B07D87]'}`}
+                className={`py-2.5 border-b border-rose-100 flex items-center justify-between ${
+                  location.pathname === '/gallery' ? 'text-[#E63956] font-bold' : 'text-[#1A1A1A] hover:text-[#E63956]'
+                }`}
               >
                 <span>Gallery</span>
                 <i className="fa-solid fa-camera-retro text-xs opacity-50"></i>
               </Link>
 
-              {/* Contact Button */}
+              {/* Get A Quote Full Width Button */}
               <div className="pt-3">
-                <Link 
-                  to="/contact" 
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-3 rounded-md bg-[#E84874] text-white text-center font-semibold tracking-widest uppercase block shadow-md"
+                <button 
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    onOpenBooking('Full Event Lighting');
+                  }}
+                  className="w-full py-3.5 rounded-full bg-[#E63956] text-white text-center font-bold tracking-widest uppercase block shadow-md cursor-pointer hover:bg-[#CF203E] transition"
                 >
-                  CONTACT US
-                </Link>
+                  GET A QUOTE
+                </button>
               </div>
 
             </div>

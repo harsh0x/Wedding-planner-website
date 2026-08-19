@@ -50,12 +50,12 @@ const createTransporter = async () => {
   };
 };
 
-// @desc    Submit a wedding consultation inquiry & send notification email
+// @desc    Submit an event lighting consultation inquiry & send notification email
 // @route   POST /api/inquiry (or /api/inquiries)
 // @access  Public
 exports.createInquiry = async (req, res) => {
   try {
-    // 1. Extract all 8 fields from request body
+    // 1. Extract fields from request body
     const {
       name,
       partnerName = '',
@@ -63,15 +63,15 @@ exports.createInquiry = async (req, res) => {
       phone = '',
       date = '',
       weddingDate,
-      guests = '150+',
+      guests = '300 - 600 Guests',
       guestCount,
-      service = 'Full Wedding Planning',
+      service = 'Full Event Lighting',
       vision = '',
       notes
     } = req.body;
 
     const finalDate = date || weddingDate || '';
-    const finalGuests = guests || guestCount || '150+';
+    const finalGuests = guests || guestCount || '300 - 600 Guests';
     const finalVision = vision || notes || '';
 
     // Validation
@@ -101,22 +101,18 @@ exports.createInquiry = async (req, res) => {
     }
 
     // 3. Prepare Plain Text & HTML Email for Site Owner
-    const partnerDisplay = partnerName.trim() ? ` & ${partnerName.trim()}` : '';
+    const partnerDisplay = partnerName.trim() ? ` / ${partnerName.trim()}` : '';
     const phoneDisplay = phone.trim() ? phone.trim() : 'Not provided';
     const dateDisplay = finalDate ? finalDate : 'Flexible / TBD';
-    const visionDisplay = finalVision.trim() ? finalVision.trim() : 'No additional vision notes shared.';
+    const visionDisplay = finalVision.trim() ? finalVision.trim() : 'No additional notes shared.';
 
-    const plainTextEmail = `New Wedding Inquiry Received!
+    const plainTextEmail = `New Event Lighting Inquiry - Suraj Light House!
 
 Name: ${name.trim()}${partnerDisplay}
-
 Contact: ${email.trim()} | ${phoneDisplay}
-
-Event Details: ${dateDisplay} | Guests: ${finalGuests}
-
-Requested Service: ${service}
-
-Vision: ${visionDisplay}
+Event Date: ${dateDisplay} | Guests: ${finalGuests}
+Desired Service: ${service}
+Requirements & Venue: ${visionDisplay}
 `;
 
     const htmlEmail = `
@@ -125,62 +121,62 @@ Vision: ${visionDisplay}
     <head>
       <meta charset="utf-8">
       <style>
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #FAF6F3; margin: 0; padding: 25px; color: #2E282A; }
-        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(176, 125, 135, 0.15); border: 1px solid #EBD7DF; }
-        .header { background: #B07D87; padding: 30px 20px; text-align: center; color: #ffffff; }
-        .header h1 { margin: 0; font-size: 24px; font-weight: 300; letter-spacing: 2px; }
-        .header p { margin: 6px 0 0; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #F5EBEF; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #FAF6F0; margin: 0; padding: 25px; color: #1A1A1A; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(230, 57, 86, 0.15); border: 1px solid #F5D5DC; }
+        .header { background: #E63956; padding: 30px 20px; text-align: center; color: #ffffff; }
+        .header h1 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 1.5px; }
+        .header p { margin: 6px 0 0; font-size: 13px; letter-spacing: 1px; text-transform: uppercase; color: #FFCCD3; }
         .content { padding: 30px; }
-        .item-card { background: #FAF6F3; border-radius: 12px; padding: 16px; margin-bottom: 14px; border-left: 4px solid #B07D87; }
-        .item-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #8C5662; font-weight: bold; margin-bottom: 4px; }
-        .item-value { font-size: 15px; color: #2E282A; font-weight: 500; }
-        .vision-box { background: #FAF6F3; border-radius: 12px; padding: 18px; border: 1px dashed #B07D87; margin-top: 18px; }
-        .footer { text-align: center; padding: 18px; font-size: 12px; color: #8C5662; border-top: 1px solid #FAF6F3; }
+        .item-card { background: #FAF6F0; border-radius: 12px; padding: 16px; margin-bottom: 14px; border-left: 4px solid #E63956; }
+        .item-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; color: #CF203E; font-weight: bold; margin-bottom: 4px; }
+        .item-value { font-size: 15px; color: #1A1A1A; font-weight: 600; }
+        .vision-box { background: #FAF6F0; border-radius: 12px; padding: 18px; border: 1px dashed #E63956; margin-top: 18px; }
+        .footer { text-align: center; padding: 18px; font-size: 12px; color: #888888; border-top: 1px solid #FAF6F0; }
       </style>
     </head>
     <body>
       <div class="container">
         <div class="header">
-          <h1>SHOWMANIA EVENTS & ENTERTAINMENT</h1>
-          <p>New Luxury Wedding Consultation Request</p>
+          <h1>SURAJ LIGHT HOUSE</h1>
+          <p>Ranthambore • Royal Event Lighting & Tenting Inquiry</p>
         </div>
         <div class="content">
           <div class="item-card">
-            <div class="item-label">Couple's Names</div>
+            <div class="item-label">Client / Event Name</div>
             <div class="item-value">${name.trim()}${partnerDisplay}</div>
           </div>
           
           <div class="item-card">
             <div class="item-label">Contact Information</div>
             <div class="item-value">
-              <a href="mailto:${email.trim()}" style="color: #B07D87; text-decoration: none;">${email.trim()}</a> | ${phoneDisplay}
+              <a href="mailto:${email.trim()}" style="color: #E63956; text-decoration: none;">${email.trim()}</a> | ${phoneDisplay}
             </div>
           </div>
           
           <div class="item-card">
-            <div class="item-label">Event Details & Guest Count</div>
-            <div class="item-value">📅 Date: ${dateDisplay} &nbsp;•&nbsp; 👥 Guests: ${finalGuests}</div>
+            <div class="item-label">Event Date & Expected Scale</div>
+            <div class="item-value">📅 Date: ${dateDisplay} &nbsp;•&nbsp; 👥 Scale: ${finalGuests}</div>
           </div>
           
           <div class="item-card">
-            <div class="item-label">Requested Planning Service</div>
+            <div class="item-label">Requested Production Service</div>
             <div class="item-value">${service}</div>
           </div>
           
           <div class="vision-box">
-            <div class="item-label">Wedding Vision & Notes</div>
-            <div style="font-size: 14px; line-height: 1.6; color: #423E40; margin-top: 8px; white-space: pre-wrap;">${visionDisplay}</div>
+            <div class="item-label">Venue, Generator & Lighting Requirements</div>
+            <div style="font-size: 14px; line-height: 1.6; color: #1A1A1A; margin-top: 8px; white-space: pre-wrap;">${visionDisplay}</div>
           </div>
         </div>
         <div class="footer">
-          <p>© 2026 Élan Weddings Lead System. Received on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}.</p>
+          <p>© 2026 Suraj Light House (Suraj Light's Ranthambore). Received on ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}.</p>
         </div>
       </div>
     </body>
     </html>
     `;
 
-    // 4. Check for Web3Forms Access Key (Instant No-Password Delivery)
+    // 4. Check for Web3Forms Access Key
     let emailStatus = 'pending';
     let previewUrl = null;
 
@@ -191,8 +187,8 @@ Vision: ${visionDisplay}
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify({
             access_key: process.env.WEB3FORMS_ACCESS_KEY,
-            subject: `💍 New Wedding Inquiry: ${name.trim()}${partnerDisplay} (${finalGuests} Guests)`,
-            from_name: 'Élan Weddings Concierge',
+            subject: `✨ New Event Lighting Inquiry: ${name.trim()} (${finalGuests})`,
+            from_name: 'Suraj Light House Inquiries',
             name: `${name.trim()}${partnerDisplay}`,
             email: email.trim(),
             phone: phoneDisplay,
@@ -220,14 +216,14 @@ Vision: ${visionDisplay}
     if (emailStatus !== 'sent_via_web3forms') {
       try {
         const { transporter, isLive, isEthereal } = await createTransporter();
-        const emailRecipient = process.env.EMAIL_TO || process.env.EMAIL_USER || 'hello@elanweddings.com';
-        const emailSender = process.env.EMAIL_USER || 'leads@elanweddings.com';
+        const emailRecipient = process.env.EMAIL_TO || process.env.EMAIL_USER || 'Rinkuchinki91@gmail.com';
+        const emailSender = process.env.EMAIL_USER || 'leads@surajlighthouse.com';
 
         const mailInfo = await transporter.sendMail({
-          from: `"${process.env.EMAIL_FROM_NAME || 'SHOWMANIA Events & Entertainment'}" <${isLive ? emailSender : 'concierge@showmaniaevents.com'}>`,
-          to: isLive ? emailRecipient : 'planner-test@showmaniaevents.com',
+          from: `"${process.env.EMAIL_FROM_NAME || 'Suraj Light House'}" <${isLive ? emailSender : 'inquiry@surajlighthouse.com'}>`,
+          to: isLive ? emailRecipient : 'suraj-test@surajlighthouse.com',
           replyTo: email.trim(),
-          subject: `💍 New Wedding Inquiry: ${name.trim()}${partnerDisplay} (${finalGuests} Guests)`,
+          subject: `✨ New Event Lighting Inquiry: ${name.trim()} (${finalGuests})`,
           text: plainTextEmail,
           html: htmlEmail,
         });
@@ -250,7 +246,7 @@ Vision: ${visionDisplay}
     // 6. Response to Frontend
     res.status(201).json({
       success: true,
-      message: `💍 Thank you, ${name.trim()}! Your wedding inquiry has been received. Christi will be in touch within 24 hours!`,
+      message: `✨ Thank you, ${name.trim()}! Your event lighting inquiry has been received. Suraj Light House will contact you within 24 hours.`,
       emailStatus,
       previewUrl,
       data: savedInquiry || {
@@ -269,7 +265,7 @@ Vision: ${visionDisplay}
     console.error('❌ [Error] createInquiry failed:', error);
     res.status(500).json({
       success: false,
-      message: error.message || 'Server error processing wedding inquiry.'
+      message: error.message || 'Server error processing event inquiry.'
     });
   }
 };
