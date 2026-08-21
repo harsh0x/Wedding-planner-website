@@ -9,6 +9,7 @@ import QuoteModal from './components/QuoteModal';
 import LightboxModal from './components/LightboxModal';
 import Toast from './components/Toast';
 import FloatingWhatsAppButton from './components/FloatingWhatsAppButton';
+import Preloader from './components/Preloader';
 
 // Page Components
 import HomePage from './pages/HomePage';
@@ -23,6 +24,7 @@ import WeddingVenuesPage from './pages/WeddingVenuesPage';
 import RealWeddingsPage from './pages/RealWeddingsPage';
 import GalleryPage from './pages/GalleryPage';
 import AboutUsPage from './pages/AboutUsPage';
+import NotFound from './pages/NotFound';
 
 import { INITIAL_PORTFOLIO } from './data/lightingData';
 import { fetchPortfolio } from './services/api';
@@ -168,15 +170,12 @@ function AnimatedRoutes({
           } 
         />
 
-        {/* Fallback Route */}
+        {/* Route 12: 404 Not Found Page */}
         <Route 
           path="*" 
           element={
-            <HomePage
-              portfolioItems={portfolioItems}
-              onOpenBooking={onOpenBooking}
-              onImageClick={onImageClick}
-              onShowToast={onShowToast}
+            <NotFound 
+              onOpenBooking={onOpenBooking} 
             />
           } 
         />
@@ -245,6 +244,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      {/* Premium Initial Preloader Animation */}
+      <Preloader duration={2800} />
+
       <div className="relative min-w-full min-h-screen bg-[#FAF6F0] text-[#1A1A1A] font-sans selection:bg-[#E63956] selection:text-white flex flex-col justify-between">
         
         {/* Route Scroll Position Reset */}
